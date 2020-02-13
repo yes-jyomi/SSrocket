@@ -7,7 +7,6 @@
 * db_user_pwd : DB에 있는 유저 비밀번호 (로그인)
 * db_user_name : DB에 있는 유저 이름 (예약 시 필요)
 * db_user_info : DB에 있는 유저인지 회사인지 나타내는 것 (예약 시 유저인지 확인함)
------ ----- ----- -----
 * join_user_info : 가입 시 유저인지 회사인지 선택 (이후 DB에 넣음)
 * join_id : 가입 시 입력한 아이디
 * join_pwd : 가입 시 입력한 비밀번호
@@ -15,15 +14,18 @@
 * join_name : 가입 시 입력한 이름
 * login_id : 로그인 시 입력한 이름
 * login_pwd : 로그인 시 입력한 비밀번호
-
+----- -----
 ### RESERVATION
 * db_user_id : DB에 있는 유저 아이디 (예약 시 필요)
 * db_company_addr : 대여점 주소 (유저가 입력한 여행할 위치 근처이고)
 * db_bike_num : 대여점이 갖고 있는 자전거 수 (자전거 수가 1개 이상이면 대여점 이름을 보여줌, 아니면 '일치하는 대여점 정보가 없다'는 메시지)
 * db_company_phone : 대여점 전화번호
------ ----- ----- -----
 * current_loc : 유저가 입력한 여행할 위치
-* bike_port_name : 대여점 이름
+* db_user_name : DB에 있는 회사 이름 (유저가 선택한 정보를 바탕으로 화면에 나타남)
+* form_r_btime : 사용자가 입력한 방문 시간
+* form_r_rtime : 사용자가 입력한 반납 시간
+* db_r_btime : DB에 있는 방문 시간 ( 예약 완료 시 DB에서 꺼내서 보여줌)
+* db_r_rtime : DB에 있는 반납 시간
 
 ## Database
 ### USER
