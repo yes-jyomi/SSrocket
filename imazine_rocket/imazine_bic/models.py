@@ -4,7 +4,6 @@ from django.utils import timezone
 
 
 class History(models.Model):
-    history_nu
     # author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # title = models.CharField(max_length=200)
     # text = models.TextField()

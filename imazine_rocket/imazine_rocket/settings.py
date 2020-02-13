@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import pymysql
+pymysql.version_info = (1, 3, 13, "final", 0)
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -76,6 +77,13 @@ WSGI_APPLICATION = 'imazine_rocket.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -85,7 +93,6 @@ DATABASES = {
         'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
-    
 }
 
 # DATABASES = {
@@ -136,3 +143,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+#이메일
+EMAIL_HOST = 'smtp.gmail.com'
+# 메일을 호스트하는 서버
+EMAIL_PORT = '587'
+# gmail과의 통신하는 포트
+EMAIL_HOST_USER = 'jungyun020821@gmail.com'
+# 발신할 이메일
+EMAIL_HOST_PASSWORD = 'n1109114'
+# 발신할 메일의 비밀번호
+EMAIL_USE_TLS = True
+# TLS 보안 방법
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# 사이트와 관련한 자동응답을 받을 이메일 주소,'webmaster@localhost'
