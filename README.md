@@ -30,16 +30,16 @@
 ## Database
 ### USER
 회원 정보 테이블
-* user_id : 유저 아이디
-* user_name : 유저 이름
-* user_pwd : 유저 비밀번호
-* user_info : 0 은 user, 1 은 company
+* id : 유저 아이디
+* name : 유저 이름
+* pwd : 유저 비밀번호
+* info : 0 은 user, 1 은 company
 
 ### HISTORY
 예약 정보 테이블
 * hist_num : 예약 번호
 * hist_place : 대여점 이름
-* user_id : 유저 아이디
+* member_id : 유저 아이디
 * r_btime : 예약한 방문 시간
 * btime : 실제 방문 시간
 * r_rtime : 예약한 반납 시간
@@ -57,8 +57,8 @@
 ### COMPANY
 회사 정보 테이블
 * company_num : 회사 번호
-* user_id : 회사 아이디
-* user_name : 회사 이름
+* member_id : 회사 아이디
+* member_name : 회사 이름
 * company_addr : 회사 주소
 * company_phone : 회사 번호
 * bicycle_num : 자전거 개수
