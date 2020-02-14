@@ -37,8 +37,8 @@
 
 ### HISTORY
 예약 정보 테이블
-* hist_num : 예약 번호 [ INT PRIMARY KEY AUTO_INCREMENT ]
-* hist_place : 대여점 이름 [ VARCHAR(20) NOT NULL ]
+* history_num : 예약 번호 [ INT PRIMARY KEY AUTO_INCREMENT ]
+* history_place : 대여점 이름 [ VARCHAR(20) NOT NULL ]
 * member_id : 유저 아이디 [ VARCHAR(20) NOT NULL ]
 * r_btime : 예약한 방문 시간 [ DATETIME NOT NULL ]
 * btime : 실제 방문 시간 [ DATETIME NOT NULL ]
@@ -52,8 +52,8 @@
 * c_name : 코스 이름 [ VARCHAR(20) NOT NULL ]
 * c_info : 코스 정보 [ VARCHAR(20) NOT NULL ]
 * c_loc : 코스 위치 [ VARCHAR(20) NOT NULL ]
-* c_theme : 코스 테마 [ VARCHAR(20) NOT NULL ]
-* c_time : 코스 소요 시간 [ INT(8) NOT NULL ]
+* c_theme : 코스 테마 [ VARCHAR(20) ]
+* c_time : 코스 소요 시간 [ INT(8) ]
 
 ### COMPANY
 회사 정보 테이블
@@ -63,5 +63,5 @@
 * company_addr : 회사 주소 [ VARCHAR(20) NOT NULL ]
 * company_phone : 회사 번호 [ VARCHAR(20) NOT NULL ]
 * bicycle_num : 자전거 개수 [ INT(12) NOT NULL ]
-* s_business : 영업 시작 시간 [ DATETIME FORMAT ]
-* e_business : 영업 종료 시간 [ DATETIME FORMAT ]
+* s_business : 영업 시작 시간 (format 지정해서 시간만 나타냄) [ DATETIME ] [ date_format(datetime, '%h:%i:%s') ]
+* e_business : 영업 종료 시간 (format 지정해서 시간만 나타냄) [ DATETIME ] [ date_format(datetime, '%h:%i:%s') ]
