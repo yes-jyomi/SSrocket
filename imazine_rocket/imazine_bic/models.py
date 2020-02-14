@@ -22,7 +22,7 @@ class User(models.Model):
 
 class History(models.Model):
     history_num = models.AutoField(db_column='history_num',primary_key=True)
-    history_place = models.CharField(db_column='history_place',max_length=200)
+    company_num = models.IntegerField(db_column='company_num')
     member_id = models.CharField(db_column='member_id',max_length=200)
     r_btime = models.DateTimeField(db_column='r_btime')
     btime = models.DateTimeField(db_column='btime')
