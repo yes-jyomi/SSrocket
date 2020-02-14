@@ -1,22 +1,23 @@
 ID
--container
--ssbike
--main-setting
--name
--n_nim
--n_welcome
--main-bt01
--main-bt02
--main-bt03
--main-bt04
+container : body 전체를 담고 있는 ID
+ssbike : 로고img 를 담고 있는 ID
+main-setting : 설정 버튼 img를 담고 있는 ID
+name : '아인' text를 담고 있는 ID
+n_nim : '님,' text를 담고 있는 ID
+n_welcome : '반갑습니다!' text를 담고 있는 ID
+main-bt01 : [자전거 대여] bt img를 담고 있는 ID
+main-bt02 : [예약 확인] bt img를 담고 있는 ID
+main-bt03 : [대여점 위치] bt img를 담고 있는 ID
+main-bt04 : [공지] bt img를 담고 있는 ID
 
 NAME
--ssbike
--main-setting
--name
--n_nim
--n_welcome
--main-bt01
--main-bt02
--main-bt03
--main-bt04
+ssbike : 로고img NAME
+main-setting : 설정 버튼 img NAME
+name : '아인' text NAME
+n_nim : '님,' text NAME
+n_welcome : '반갑습니다!' text NAME
+main-bt01 : [자전거 대여] bt img NAME
+main-bt02 : [예약 확인] bt img NAME
+main-bt03 : [대여점 위치] bt img NAME
+main-bt04 : [공지] bt img NAME
+
