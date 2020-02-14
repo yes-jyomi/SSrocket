@@ -44,7 +44,7 @@
 * btime : 실제 방문 시간 [ DATETIME NOT NULL ]
 * r_rtime : 예약한 반납 시간 [ DATETIME NOT NULL ]
 * rtime : 실제 반납 시간 [ DATETIME NOT NULL ]
-* reserved_AT : 예약한 시간 [ DATETIME NOT NULL ]
+* reserved_At : 예약한 시간 [ DATETIME NOT NULL ]
 
 ### COURSE
 코스 정보 테이블
