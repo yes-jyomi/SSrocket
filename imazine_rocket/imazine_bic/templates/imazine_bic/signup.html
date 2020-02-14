@@ -1,42 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TEST</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="./js/jquery-3.2.1.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../imazine_bic/static/css/signup.css" type="text/css"> <!--reservation_2.css 링크-->
+        <script type="text/javascript"></script>
+        <script src="../imazine_bic/static/js/signup.js"></script> <!--reservation_2.js 링크-->
+        <title>signup</title>
+    </head>
+    <body>
+        <div id="container">
+        <img id="signup_logo" name="signup_logo" src="static/img/logotype.png"> <!--회원가입 로고 삽입-->
 
-</head>
-<body>
-<div class="container">
-    <form action="/ajax/signup" method="post" id="myForm">
-        <div class="form-group has-feedback">
-            <label class="control-label" for="email">이메일</label>
-            <input class="form-control" type="text" name="email" id="email"/>
-            <br>
-            <button  class="btn btn-success"type="button" class="id_overlap_button" onclick="id_overlap_check()">중복검사</button>
-            <span id="emailErr" class="help-block">올바른 이메일 형식이 아닙니다. 다시 입력해 주세요.</span>
-        </div>
-      
-        <div class="form-group has-feedback">
-            <label class="control-label" for="pwd">비밀번호</label>
-            <input class="form-control" type="password" name="pwd" id="pwd"/>
-            <span id="pwdRegErr" class="help-block">8글자 이상 입력하세요.</span>
-        </div>
-        <div class="form-group has-feedback">
-            <label class="control-label" for="rePwd">비밀번호 재확인</label>
-            <input class="form-control" type="password" name="rePwd" id="rePwd"/>
-            <span id="rePwdErr" class="help-block">비밀번호와 일치하지 않습니다. 다시 입력해 주세요.</span>
-        </div>
+        <form>
+
+        <img id="signup_email" name="signup_email" src="static/img/bar-op.png"> <!--회원가입 이메일 박스 삽입-->
+        <input type="email" name="email" id="email" value="Please enter your E-mail address!" onFocus="clearText(this)"/>
+
+        <input type='image' id="signup_reemail" name="signup_reemail" src="static/img/bar-recheck.png"> <!--회원가입 이메일 중복확인 박스 삽입-->
+        
+        <img id="signup_pw" name="signup_pw" src="static/img/bar-op.png"> <!--회원가입 비밀번호 박스 삽입-->
+        <input type="text" name="pw" id="pw" value="Please enter your password!" onFocus="clearText(this)"/>
+
+        <img id="signup_repw" name="signup_repw" src="static/img/bar-op.png"> <!--회원가입 비밀번호 재확인 박스 삽입-->
+        <input type="password" name="repw" id="repw" value="12345678" onFocus="clearText(this)" />
+        <input type='image'id="join_bt" name="join_bt" src="static/img/bar-join.png"><!--가입하기 버튼 삽입-->
+        </form>
        
-        <button class="btn btn-success" type="submit">가입</button>
-    </form>
-</div>
-</body>
+        </div>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

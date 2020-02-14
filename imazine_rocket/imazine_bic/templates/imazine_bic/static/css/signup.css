@@ -1,8 +1,93 @@
-/* .help-block 을 일단 보이지 않게 설정 */
-#myForm .help-block{
-    display: none;
-}
-/* glyphicon 을 일단 보이지 않게 설정 */
-#myForm .glyphicon{
-    display: none;
-}
+@charset "utf-8";
+
+@font-face { font-family: 'NotoSansCJKKR-Black'; src: url("../font/NotoSansCJKkr-Black.otf") } 
+@font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
+
+body{
+    background-image: url("../img/language-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+} /*bg img 설정*/
+
+#container #signup_logo{
+    position: absolute;
+    top:250px;
+    left:100px;
+} /*회원가입 로고 위치 설정*/
+
+#container #signup_email{
+    position: absolute;
+    top:600px;
+    left:100px;
+} /* 이메일 입력 박스 위치 설정*/
+
+#container #signup_reemail{
+    position: absolute;
+    top:770px;
+    left:100px;
+    filter: drop-shadow(30px 30px 30px #60d068); 
+} /* 이메일 중복확인 박스 위치 설정*/
+
+#container #signup_pw{
+    position: absolute;
+    top:1100px;
+    left:100px;
+} /* 비밀번호 입력 박스 위치 설정*/
+
+#container #signup_repw{
+    position: absolute;
+    top:1270px;
+    left:100px;
+} /* 비밀번호  재입력 박스 위치 설정*/
+
+#container #join_bt{
+    position: absolute;
+    top:1600px;
+    left:100px;
+    filter: drop-shadow(30px 30px 30px #51d18e); 
+} /* 가입 버튼 위치 설정*/
+
+#container #email{
+    position: absolute;
+    top:625px;
+    left:170px;
+    font-family:NotoSansCJKKR-Regular;
+    font-size: 48px;
+    color:white;
+    width:850px;
+    height:100px;
+    border: none;
+    background: transparent;
+    text-align: left;
+}/* 이메일 입력 창 위치 설정*/
+
+
+#container #pw{
+    position: absolute;
+    top:1125px;
+    left:170px;
+    font-family:NotoSansCJKKR-Regular;
+    font-size: 48px;
+    color:white;
+    width:850px;
+    height:100px;
+    border: none;
+    background: transparent;
+    text-align: left;
+}/* 비밀번호 입력 창 위치 설정*/
+
+
+#container #repw{
+    position: absolute;
+    top:1295px;
+    left:170px;
+    font-family:NotoSansCJKKR-Regular;
+    font-size: 48px;
+    color:white;
+    width:850px;
+    height:100px;
+    border: none;
+    background: transparent;
+}/* 비밀번호 재입력 창 위치 설정*/
+
+
