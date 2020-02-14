@@ -30,35 +30,38 @@
 ## Database
 ### USER
 회원 정보 테이블
-* id : 유저 아이디
-* name : 유저 이름
-* pwd : 유저 비밀번호
-* info : 0 은 user, 1 은 company
+* id : 유저 아이디 [ VARCHAR(20) PRIMARY KEY ]
+* name : 유저 이름 [ VARCHAR(20) NOT NULL ]
+* pwd : 유저 비밀번호 [ VARCHAR(20) NOT NULL ]
+* info : 0 은 user, 1 은 company [ INT(2) NOT NULL DEFAULT 0 ]
 
 ### HISTORY
 예약 정보 테이블
-* hist_num : 예약 번호
-* hist_place : 대여점 이름
-* member_id : 유저 아이디
-* r_btime : 예약한 방문 시간
-* btime : 실제 방문 시간
-* r_rtime : 예약한 반납 시간
-* rtime : 실제 반납 시간
+* hist_num : 예약 번호 [ INT PRIMARY KEY AUTO_INCREMENT ]
+* hist_place : 대여점 이름 [ VARCHAR(20) NOT NULL ]
+* member_id : 유저 아이디 [ VARCHAR(20) NOT NULL ]
+* r_btime : 예약한 방문 시간 [ DATETIME NOT NULL ]
+* btime : 실제 방문 시간 [ DATETIME NOT NULL ]
+* r_rtime : 예약한 반납 시간 [ DATETIME NOT NULL ]
+* rtime : 실제 반납 시간 [ DATETIME NOT NULL ]
+* reserved_AT : 예약한 시간 [ DATETIME NOT NULL ]
 
 ### COURSE
 코스 정보 테이블
-* c_num : 코스 번호
-* c_name : 코스 이름
-* c_info : 코스 정보
-* c_loc : 코스 위치
-* c_theme : 코스 테마
-* c_time : 코스 소요 시간
+* c_num : 코스 번호 [ INT PRIMARY KEY AUTO_INCREMENT ]
+* c_name : 코스 이름 [ VARCHAR(20) NOT NULL ]
+* c_info : 코스 정보 [ VARCHAR(20) NOT NULL ]
+* c_loc : 코스 위치 [ VARCHAR(20) NOT NULL ]
+* c_theme : 코스 테마 [ VARCHAR(20) NOT NULL ]
+* c_time : 코스 소요 시간 [ INT(8) NOT NULL ]
 
 ### COMPANY
 회사 정보 테이블
-* company_num : 회사 번호
-* member_id : 회사 아이디
-* member_name : 회사 이름
-* company_addr : 회사 주소
-* company_phone : 회사 번호
-* bicycle_num : 자전거 개수
+* company_num : 회사 번호 [ INT PRIMARY KEY AUTO_INCREMENT ]
+* member_id : 회사 아이디 [ VARCHAR(20) NOT NULL ]
+* member_name : 회사 이름 [ VARCHAR(20) NOT NULL ]
+* company_addr : 회사 주소 [ VARCHAR(20) NOT NULL ]
+* company_phone : 회사 번호 [ VARCHAR(20) NOT NULL ]
+* bicycle_num : 자전거 개수 [ INT(12) NOT NULL ]
+* s_business : 영업 시작 시간 [ DATETIME FORMAT ]
+* e_business : 영업 종료 시간 [ DATETIME FORMAT ]
