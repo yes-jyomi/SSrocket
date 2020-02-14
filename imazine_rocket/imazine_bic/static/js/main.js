@@ -1,7 +1,7 @@
 function imgch01(){
     var img=document.getElementById("main-bt01");
             img.src = "../img/main-btgr01.png";
-            location.href="../reservation_1.html";
+            location.href="{% url 'reservation_1'%}";
         }
 
 function imgch02(){
@@ -23,3 +23,4 @@ function imgch04(){
        
        
 
+//function href 안에 url 처리
