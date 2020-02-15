@@ -1,68 +1,38 @@
+function clearText(thefield){
+        if (thefield.defaultValue==thefield.value)
+                thefield.value = ""
+            }
 
+var check = function(el) {
+    var password = document.getElementById('pw');
+        var passwordCheck = el;
+        
+        //F12 누르고 개발자 도구 Console에서 확인.
+        console.log('password=' + password.value + ', passwordCheck=' + passwordCheck.value);
+        console.log('isValid=' + password.value === passwordCheck.value);
+        
+        if (password.value !== passwordCheck.value) {
 
-$("#email").keyup(function(){
-    var email=$(this).val();
-    // 이메일 검증할 정규 표현식
-    var reg=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(reg.test(email)){//정규표현식을 통과 한다면
-                $("#emailErr").hide();
-                successState("#email");
-    }else{//정규표현식을 통과하지 못하면
-                $("#emailErr").show();
-                errorState("#email");
+            passwordCheck.value = '';
+            document.get
+            passwordCheck.placeholder = '비밀번호를 다시 확인해주세요.';
+                
+        alert('비밀번호가 일치하지 않습니다!');
+        return;
+         }
     }
-});
 
-$("#pwd").keyup(function(){
-    var pwd=$(this).val();
-    // 비밀번호 검증할 정규 표현식
-    var reg=/^.{8,}$/;
-    if(reg.test(pwd)){//정규표현식을 통과 한다면
-                $("#pwdRegErr").hide();
-                successState("#pwd");
-    }else{//정규표현식을 통과하지 못하면
-                $("#pwdRegErr").show();
-                errorState("#pwd");
+          
+
+var echeck = function(ech) {
+    var email = document.getElementById('email');
+    email=ech;
+    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+              
+              if (email.value !== null && email.match(regExp) != null) {
+                  alert('회원가입 성공!');         
+              }
+              //alert('이메일 주소를 확인해주세요.');
+              email.placeholder = '비밀번호를 다시 확인해주세요.';
+              ech.placeholder='이메일을 다시 확인해주세요.';
     }
-});
-$("#rePwd").keyup(function(){
-    var rePwd=$(this).val();
-    var pwd=$("#pwd").val();
-    // 비밀번호 같은지 확인
-    if(rePwd==pwd){//비밀번호 같다면
-        $("#rePwdErr").hide();
-        successState("#rePwd");
-    }else{//비밀번호 다르다면
-        $("#rePwdErr").show();
-        errorState("#rePwd");
-    }
-});
-
-// 성공 상태로 바꾸는 함수
-function successState(sel){
-    $(sel)
-    .parent()
-    .removeClass("has-error")
-    .addClass("has-success")
-    .find(".glyphicon")
-    .removeClass("glyphicon-remove")
-    .addClass("glyphicon-ok")
-    .show();
-
-    $("#myForm button[type=submit]")
-                .removeAttr("disabled");
-};
-// 에러 상태로 바꾸는 함수
-function errorState(sel){
-    $(sel)
-    .parent()
-    .removeClass("has-success")
-    .addClass("has-error")
-    .find(".glyphicon")
-    .removeClass("glyphicon-ok")
-    .addClass("glyphicon-remove")
-    .show();
-
-    $("#myForm button[type=submit]")
-                .attr("disabled","disabled");
-};   

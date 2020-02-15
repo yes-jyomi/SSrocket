@@ -19,11 +19,20 @@
         <div id="name" name="name">{{user.name}}</div>
         {% endfor %}
         <div id="n_nim" name="nim">님,</div>
+<<<<<<< HEAD
+        <div id="n_welcome" name="n_welcome">반갑습니다!</div>        
+        <img id="main-bt01" name="main-bt01" src="../imazine_bic/static/img/main-bt01.png" onclick="imgch01();"> <!--자전거 예약 버튼 삽입-->
+        <img id="main-bt02" name="main-bt02" src="../imazine_bic/static/img/main-bt02.png" onclick="imgch02();"> <!--예약 확인 버튼 삽입-->
+        <img id="main-bt03" name="main-bt03" src="../imazine_bic/static/img/main-bt03.png" onclick="imgch03();"> <!--대여점 위치 버튼 삽입-->
+        <img id="main-bt04" name="main-bt04" src="../imazine_bic/static/img/main-bt04.png" onclick="imgch04();"> <!--공지 버튼 삽입-->
+    </div>
+=======
         <div id="n_welcome" name="n_welcome">반갑습니다!</div>
         <a href = "{% url 'reservation_1'%}"><img id="main-bt01" name="main-bt01" src="{% static 'img/main-bt01.png' %}" onclick="imgch01();"></a>
         <a href = "{% url 'reservation_2'%}"><img id="main-bt02" name="main-bt02" src="{% static 'img/main-bt02.png' %}" onclick="imgch02();"></a> <!--예약 확인 버튼 삽입-->
         <a href = "{% url 'reservation_3'%}"><img id="main-bt03" name="main-bt03" src="{% static 'img/main-bt03.png' %}" onclick="imgch03();"></a> <!--대여점 위치 버튼 삽입 -->
         <a href = "{% url 'reservation_4'%}"><img id="main-bt04" name="main-bt04" src="{% static 'img/main-bt04.png' %}" onclick="imgch04();"></a> <!--공지 버튼 삽입 -->
         </div>
+>>>>>>> 0fa3fd3244a22594ad9eeae6c480da787cbe899e
     </body>
 </html>
