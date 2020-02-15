@@ -3,5 +3,5 @@ function bkfun(){
 }
 
 function gohomefun(){
-    location.href="main.html";
+    
 }
