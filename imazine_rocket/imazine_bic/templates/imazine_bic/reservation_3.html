@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../imazine_bic/static/css/reservation_3.css" type="text/css"> <!--reservation_2.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/reservation_3.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
-        <script src="../imazine_bic/static/js/reservation_3.js"></script> <!--reservation_2.js 링크-->
+        <script src="{% static 'js/reservation_3.js' %}"></script> <!--reservation_2.js 링크-->
         <title>reservation_3</title>
     </head>
     <body>
+        {% load static %}
         <div id="container">
-        <img id="reservation2-bkbt" name="reservation2-bkbt" src="../imazine_bic/static/img/reservation2-bkbt.png" onclick="bkfun();">
+        <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
         <!--뒤로가기 버튼 삽입-->
-        <img id="reservation2-homebt" name="reservation2-homebt" src="../imazine_bic/static/img/reservation2-homebt.png" onclick="gohomefun();">
+        <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
         <!--홈 버튼 삽입-->
         <div id="rental1_p1" name="rental1_p1">상상로켓</div>
         <div id="rental1_p2" name="rental1_p2">자전거 대여소</div>
         <div id="rental1_p3" name="rental1_p3">오가키시 어쩌구 저쩌구에 위치 <br> TEL:81+10-XXXX-XXXX</div>
         <div id="rental1_p4" name="rental_p4">남은 개수</div>
-        <div id="rental1_p5" name="rental_p5">대</div>
+        <div id="rental1_p5" name="rental_p5">10대</div>
         <div id="rental1_p6" name="rental_p6">대여시간 설정</div>
         <div id="rental1_p7" name="rental_p7">시작시간</div>
-        <select name="fruit">
-            <option value="am12:00">AM 12:00</option>
-            <option value="am1:00">AM 1:00</option>
-            <option value="am2:00" selected="selected">AM 2:00</option>
+        <select id="s_time" name="s_time">
+            <option value="Am12:00">AM 12:00</option>
+            <option value="Am1:00">AM 1:00</option>
+            <option value="Am2:00">AM 2:00</option>
+            <option value="Am3:00">AM 3:00</option>
+            <option value="Am4:00">AM 4:00</option>
+            <option value="Am5:00">AM 5:00</option>
+            <option value="Am6:00">AM 6:00</option>
+            <option value="Am7:00">AM 7:00</option>
+            <option value="Am8:00">AM 8:00</option>
+            <option value="Am9:00">AM 9:00</option>
+            <option value="Am10:00">AM 10:00</option>
+            <option value="AM11:00">AM 11:00</option>
+            <option value="Pm12:00">PM 12:00</option>
+            <option value="Pm1:00">PM 1:00</option>
+            <option value="Pm2:00">PM 2:00</option>
+            <option value="Pm3:00">PM 3:00</option>
+            <option value="Pm4:00">PM 4:00</option>
+            <option value="Pm5:00">PM 5:00</option>
+            <option value="Pm6:00">PM 6:00</option>
+            <option value="Pm7:00">PM 7:00</option>
+            <option value="Pm8:00">PM 8:00</option>
+            <option value="Pm9:00">PM 9:00</option>
+            <option value="Pm10:00">PM 10:00</option>
+            <option value="Pm11:00">PM 11:00</option>
         </select>
         <div id="rental1_p8" name="rental_p8">반납시간</div>
+        <select id="e_time" name="e_time">
+            <option value="Am12:00">AM 12:00</option>
+            <option value="Am1:00">AM 1:00</option>
+            <option value="Am2:00">AM 2:00</option>
+            <option value="Am3:00">AM 3:00</option>
+            <option value="Am4:00">AM 4:00</option>
+            <option value="Am5:00">AM 5:00</option>
+            <option value="Am6:00">AM 6:00</option>
+            <option value="Am7:00">AM 7:00</option>
+            <option value="Am8:00">AM 8:00</option>
+            <option value="Am9:00">AM 9:00</option>
+            <option value="Am10:00">AM 10:00</option>
+            <option value="AM11:00">AM 11:00</option>
+            <option value="Pm12:00">PM 12:00</option>
+            <option value="Pm1:00">PM 1:00</option>
+            <option value="Pm2:00">PM 2:00</option>
+            <option value="Pm3:00">PM 3:00</option>
+            <option value="Pm4:00">PM 4:00</option>
+            <option value="Pm5:00">PM 5:00</option>
+            <option value="Pm6:00">PM 6:00</option>
+            <option value="Pm7:00">PM 7:00</option>
+            <option value="Pm8:00">PM 8:00</option>
+            <option value="Pm9:00">PM 9:00</option>
+            <option value="Pm10:00">PM 10:00</option>
+            <option value="Pm11:00">PM 11:00</option>
+        </select>
     </div>
     </body>
 </html>
