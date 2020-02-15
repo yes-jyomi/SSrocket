@@ -49,47 +49,19 @@ body{
     left:940px;
 } /*home 버튼 위치 설정*/
 
-#container #rental_1{
+#container #rental{
     position: absolute;
     top:600px;
     left:40px;
 } /*1번 대여소 박스 위치 설정*/
 
-#container #rental_1:hover{
+#container #rental:hover{
     filter: drop-shadow(30px 30px 30px #d9d9d9); 
 }/*1번 대여소 박스 그림자 설정*/
 
-#container #rental_2{
-    position: absolute;
-    top:1000px;
-    left:40px;
-} /*2번 대여소 박스 위치 설정*/
 
-#container #rental_2:hover{
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
-}/*2번 대여소 박스 그림자 설정*/
 
-#container #rental_3{
-    position: absolute;
-    top:1400px;
-    left:40px;
-} /*3번 대여소 박스 위치 설정*/
-
-#container #rental_3:hover{
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
-}/*3번 대여소 박스 그림자 설정*/
-
-#container #rental_4{
-    position: absolute;
-    top:1800px;
-    left:40px;
-} /*4번 대여소 박스 위치 설정*/
-
-#container #rental_4:hover{
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
-} /*4번 대여소 박스 그림자 설정*/
-
-#container #rental1-01{
+#container #rental-01{
     font-family: NotoSansCJKKR-Bold;
     position: absolute;
     top:650px;
@@ -98,7 +70,7 @@ body{
     color:black;
 }/*1번 대여소 이름 위치 설정*/
 
-#container #rental1-02{
+#container #rental-02{
     font-family: NotoSansCJKKR-Regular;
     position: absolute;
     top:730px;
@@ -107,7 +79,7 @@ body{
     color:black;
 } /*1번 대여소 남은 자전거 수 위치 설정*/
 
-#container #rental1-03{
+#container #rental-03{
     font-family: NotoSansCJKKR-Regular;
     position: absolute;
     top:810px;
