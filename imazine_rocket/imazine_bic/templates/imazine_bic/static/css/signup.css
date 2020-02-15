@@ -90,4 +90,14 @@ body{
     background: transparent;
 }/* 비밀번호 재입력 창 위치 설정*/
 
+input::-webkit-input-placeholder {
+    position: absolute;
+    top:1295px;
+    left:170px;
+    color:white;
+    font-family:NotoSansCJKKR-Regular;
+    font-size:48px;
+}
+
+
 
