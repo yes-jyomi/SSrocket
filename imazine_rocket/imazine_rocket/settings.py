@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ssrocket', # DB명
         'USER': 'root', # 데이터베이스 계정
-        'PASSWORD': 'yun1109114', # 계정 비밀번호
+        'PASSWORD': 'mirim2', # 계정 비밀번호
         'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
