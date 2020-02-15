@@ -16,7 +16,7 @@ def reservation_1(request):
     return render(request, 'imazine_bic/reservation_1.html', {'users':users})
 
 def reservation_2(request):
-    companys = Company.objects.filter(company_loc = 'tokyo')
+    companys = Company.objects.filter(company_loc = 'oogaki')
     count = 0
     return render(request, 'imazine_bic/reservation_2.html', {'companys':companys,'count':count})
 
