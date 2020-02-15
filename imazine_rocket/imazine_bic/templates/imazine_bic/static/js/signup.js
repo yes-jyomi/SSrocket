@@ -35,4 +35,4 @@ var echeck = function(ech) {
               //alert('이메일 주소를 확인해주세요.');
               email.placeholder = '비밀번호를 다시 확인해주세요.';
               ech.placeholder='이메일을 다시 확인해주세요.';
-            }
+    }
