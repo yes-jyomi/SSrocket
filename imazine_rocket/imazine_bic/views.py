@@ -25,3 +25,6 @@ def reservation_3(request):
 
 def reservation_4(request):
     return render(request, 'imazine_bic/reservation_4.html')
+
+def signup(request):
+    return render(request, 'imazine_bic/signup.html')
