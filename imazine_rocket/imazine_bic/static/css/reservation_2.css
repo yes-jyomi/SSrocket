@@ -1,11 +1,10 @@
 @charset "utf-8";
-
 @font-face { font-family: 'NotoSansCJKKR-Black'; src: url("../font/NotoSansCJKkr-Black.otf") } 
 @font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
 @font-face { font-family: 'NotoSansCJKKR-Bold'; src: url("../font/NotoSansCJKkr-Bold.otf")}
 
 body{
-    background-image: url("../img/reservation2-bg.png");
+    background-image: url('../img/reservation2-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
