@@ -65,5 +65,6 @@
 * company_phone : 회사 번호 [ VARCHAR(20) NOT NULL ]
 * company_info : 회사 정보 [ VARCHAR(50) NOT NULL ]
 * bicycle_num : 자전거 개수 [ INT(12) NOT NULL ]
+* rent_num : 빌려준 자전거 개수 [ INT(12) NOT NULL ]
 * s_business : 영업 시작 시간 (format 지정해서 시간만 나타냄) [ DATETIME ] [ date_format(datetime, '%h:%i:%s') ]
 * e_business : 영업 종료 시간 (format 지정해서 시간만 나타냄) [ DATETIME ] [ date_format(datetime, '%h:%i:%s') ]
