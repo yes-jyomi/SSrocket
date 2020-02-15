@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User
+from .models import User, Company
 
 # Create your views here.
 def index(request):
@@ -16,7 +16,9 @@ def reservation_1(request):
     return render(request, 'imazine_bic/reservation_1.html', {'users':users})
 
 def reservation_2(request):
-    return render(request, 'imazine_bic/reservation_2.html')
+    companys = Company.objects.filter(company_loc = 'tokyo')
+    count = 0
+    return render(request, 'imazine_bic/reservation_2.html', {'companys':companys,'count':count})
 
 def reservation_3(request):
     return render(request, 'imazine_bic/reservation_3.html')
