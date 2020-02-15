@@ -6,7 +6,7 @@
 @font-face { font-family: 'NotoSansCJKKR-Medium'; src: url("../font/NotoSansCJKkr-Medium.otf")}
 
 body{
-    background-image: url("{% static 'img/reservation3-bg.png' %}");
+    background-image: url("../img/reservation3-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
@@ -65,10 +65,10 @@ body{
     font-family: NotoSansCJKKR-Medium;
     position: absolute;
     top:900px;
-    left:900px;
+    left:760px;
     font-size:120px;
     color:white;
-} /*대 이름 위치 설정*/
+} /*10대 이름 위치 설정*/
 
 #container #rental1_p6{
     font-family: NotoSansCJKKR-Bold;
@@ -96,3 +96,8 @@ body{
     font-size:60px;
     color:rgb(102, 207, 102);
 } /*반납시간 위치 설정*/
+
+#container #s_time{
+    top:1700px;
+    left:600px;
+}

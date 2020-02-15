@@ -7,6 +7,7 @@ body{
     background-image: url('../img/reservation2-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: auto;
 } /*bg img 설정*/
 
 #container #thisplace{
