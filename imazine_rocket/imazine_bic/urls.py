@@ -9,10 +9,6 @@ urlpatterns = [
     path('reservation_2',views.reservation_2, name='reservation_2'),
     path('reservation_3',views.reservation_3, name='reservation_3'),
     path('reservation_4',views.reservation_4, name='reservation_4'),
-<<<<<<< HEAD
-    path('signup', views.signup, name='signup'),
-=======
     path('signup',views.signup, name='signup'),
->>>>>>> cc7e15df2ce7f52841187817802b8351f7c32959
 
 ]
