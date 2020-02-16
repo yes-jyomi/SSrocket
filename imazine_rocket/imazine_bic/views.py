@@ -27,15 +27,19 @@ def choose_time(request):
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
 
-def signup(request):
+def signin(request):
     if request.method == "POST":
         if request.POST["pwd"] == request.POST["rePwd"]:
             user = User.objects.create_user(
                 username = request.POST["username"], password = request.POST["pwd"]) 
             auth.login(request, user)
             return redirect('home')
-        return render(request, 'imazine_bic/signup.html')
+        return render(request, 'imazine_bic/signin.html')
+    return render(request, 'imazine_bic/signin.html')
+
+def signup(request):
     return render(request, 'imazine_bic/signup.html')
+
 
 def checkEmail(request):
     print("check email!!!")
