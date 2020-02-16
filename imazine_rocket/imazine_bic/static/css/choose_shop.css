@@ -61,7 +61,7 @@ body{
 
 #container #rental-01{
     font-family: NotoSansCJKKR-Bold;
-    position: absolute;
+    position: relative;
     top:650px;
     left:450px;
     font-size:48px;
@@ -70,7 +70,7 @@ body{
 
 #container #rental-02{
     font-family: NotoSansCJKKR-Regular;
-    position: absolute;
+    position: relative;
     top:730px;
     left:455px;
     font-size:36px;
@@ -79,7 +79,7 @@ body{
 
 #container #rental-03{
     font-family: NotoSansCJKKR-Regular;
-    position: absolute;
+    position: relative;
     top:810px;
     left:455px;
     font-size:28px;
