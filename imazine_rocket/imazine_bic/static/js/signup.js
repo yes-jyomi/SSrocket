@@ -11,13 +11,13 @@ var check = function(el) {
         console.log('password=' + password.value + ', passwordCheck=' + passwordCheck.value);
         console.log('isValid=' + password.value === passwordCheck.value);
         
-        if (password.value !== passwordCheck.value) {
+        if (password.value !== passwordCheck.valuev || password.value==null || passwordCheck.value==null) {
 
             passwordCheck.value = '';
             document.get
             passwordCheck.placeholder = '비밀번호를 다시 확인해주세요.';
                 
-        alert('비밀번호가 일치하지 않습니다!');
+        alert('비밀번호가 일치하지 않거나 입력하지 않으셨습니다!');
         return;
          }
     }
