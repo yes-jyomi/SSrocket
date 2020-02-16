@@ -16,7 +16,6 @@
         <img id="ssbike" name="ssbike" src="{% static 'img/ssbike.png' %}"> <!--로고삽입-->
         <img id="main-setting" name="main-setting" src="{% static 'img/main-setting.png' %}"> <!--설정버튼 삽입-->
         {% for user in users %}
-        <span
         <div id="name" name="name">{{user.name}}</div>
         {% endfor %}
         <div id="n_nim" name="nim">님,</div>
