@@ -7,27 +7,25 @@ from django.http import JsonResponse
 def index(request):
     users = User.objects.filter(id = 'test1')
     return render(request, 'imazine_bic/main.html', {'users':users})
-def index_user(request):
-    return render(request, 'imazine_bic/index_user.html', {})
 
-def index_company(request):
-    return render(request, 'imazine_bic/index_company.html', {})
+def choose_lan(request):
+    return render(request, 'imazine_bic/choose_lan.html')
 
-def reservation_1(request):
+def choose_loc(request):
     users = User.objects.filter(id = 'test1')
-    return render(request, 'imazine_bic/reservation_1.html', {'users':users})
+    return render(request, 'imazine_bic/choose_loc.html', {'users':users})
 
-def reservation_2(request):
+def choose_shop(request):
     # company_loc = request.
     companys = Company.objects.filter(company_loc = 'oogaki')
     count = 0
-    return render(request, 'imazine_bic/reservation_2.html', {'companys':companys,'count':count})
+    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
 
-def reservation_3(request):
-    return render(request, 'imazine_bic/reservation_3.html')
+def choose_time(request):
+    return render(request, 'imazine_bic/choose_time.html')
 
-def reservation_4(request):
-    return render(request, 'imazine_bic/reservation_4.html')
+def choose_end(request):
+    return render(request, 'imazine_bic/choose_end.html')
 
 def signup(request):
     if request.method == "POST":
