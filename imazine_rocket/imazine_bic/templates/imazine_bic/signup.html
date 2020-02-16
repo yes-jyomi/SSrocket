@@ -4,6 +4,7 @@
         {% load static %}
         <meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css"> <!--signup.css 링크-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signup.js' %}"></script> <!--signup.js 링크-->
         <title>signup</title>
@@ -15,11 +16,7 @@
         <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
 
         <form>
-    
-        <img id="signup_name" name="signup_name" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이름 박스 삽입-->
-        <input type="text" name="s_name" id="s_name" placeholder="이름을 작성해주세요!" onFocus="clearText(this)"/>
 
-            
         <img id="signup_name" name="signup_name" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이름 박스 삽입-->
         <input type="text" name="s_name" id="s_name" placeholder="이름을 작성해주세요!" onFocus="clearText(this)"/>
 

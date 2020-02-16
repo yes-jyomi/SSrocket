@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import User, Company
+from django.http import JsonResponse
+
 
 # Create your views here.
 def index(request):
@@ -27,7 +29,6 @@ def reservation_4(request):
     return render(request, 'imazine_bic/reservation_4.html')
 
 def signup(request):
-<<<<<<< HEAD
     if request.method == "POST":
         if request.POST["pwd"] == request.POST["rePwd"]:
             user = User.objects.create_user(
@@ -36,6 +37,19 @@ def signup(request):
             return redirect('home')
         return render(request, 'imazine_bic/signup.html')
     return render(request, 'imazine_bic/signup.html')
+
+def checkEmail(request):
+    print("check email!!!")
+    if request.method == "GET":
+        id = request.GET["email"]
+        users = User.objects.filter(id = id)
+        print(len(users))
+        if len(users) > 0:
+            return JsonResponse({ "success": "false" })
+        else:
+            return JsonResponse({ "success": "true" })
+
+    return JsonResponse({})
 
 # def login(request):
 #     if request.method == "POST":
@@ -53,6 +67,3 @@ def signup(request):
 # def logout(request):
 #     auth.logout(request)
 #     return redirect('home')
-=======
-    return render(request, 'imazine_bic/signup.html')
->>>>>>> cc7e15df2ce7f52841187817802b8351f7c32959
