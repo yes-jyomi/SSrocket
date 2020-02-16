@@ -1,12 +1,12 @@
 function imgch01(){
     var img=document.getElementById("main-bt01");
             img.src = "../img/main-btgr01.png";
-<<<<<<< HEAD:imazine_rocket/imazine_bic/templates/imazine_bic/static/js/main.js
             location.href="reservation_1.html";
-=======
-            location.href="{% url 'reservation_1'%}";
->>>>>>> 0fa3fd3244a22594ad9eeae6c480da787cbe899e:imazine_rocket/imazine_bic/static/js/main.js
+<<<<<<< HEAD
         }
+=======
+}
+>>>>>>> d2d17c450ead4e4a57bac1af63d51ac34bb5b0f9
 
 function imgch02(){
      var img=document.getElementById("main-bt02");

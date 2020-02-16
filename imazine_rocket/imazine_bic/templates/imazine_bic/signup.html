@@ -1,25 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        {% load static %}
         <meta charset="utf-8">
+<<<<<<< HEAD
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css"> <!--choose.css 링크-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+=======
         <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css"> <!--signup.css 링크-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+>>>>>>> 3a13db220bdf4df154db3a560d8cf06691027fb3
         <script type="text/javascript"></script>
-        <script src="{% static 'js/signup.js' %}"></script> <!--signup.js 링크-->
+        <script src="{% static 'js/signup.js' %}"></script>
         <title>signup</title>
     </head>
-
     <body>
         {% load static %}
         <div id="container">
+<<<<<<< HEAD
+            <form>
+            <img id="sslogo-big" name="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
+            <img id="login-text1" name="login-text1" src="{% static 'img/login-text1.png' %}">
+            <img id="bar-round" name="bar-round" src="{% static 'img/bar-round.png' %}">
+            <img id="join-text2" name="login-text2" src="{% static 'img/login-text2.png' %}">
+            <img id="welcome-txt" name="welcome-txt" src="{% static 'img/welcome-txt.png' %}">
+            <img id="bar-long01" name="bar-long01" src="{% static 'img/bar-long.png' %}">
+            <img id="bar-long02" name="bar-long02" src="{% static 'img/bar-long.png' %}">
+            <img id="loginbt" name="loginbt" src="{% static 'img/loginbt.png' %}" onclick="chfun()">
+            <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
+            <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
+=======
         <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
 
         <form>
+<<<<<<< HEAD
+=======
     
         <img id="signup_name" name="signup_name" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이름 박스 삽입-->
         <input type="text" name="s_name" id="s_name" placeholder="Name" onFocus="clearText(this)"/>
+>>>>>>> d2d17c450ead4e4a57bac1af63d51ac34bb5b0f9
 
-            
         <img id="signup_name" name="signup_name" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이름 박스 삽입-->
         <input type="text" name="s_name" id="s_name" placeholder="이름을 작성해주세요!" onFocus="clearText(this)"/>
 
@@ -34,8 +55,8 @@
         <img id="signup_repw" name="signup_repw" src="{% static 'img/bar-op.png' %}"> <!--회원가입 비밀번호 재확인 박스 삽입-->
         <input type="password" name="repw" id="repw" onFocus="clearText(this)" onchange="check(this)"/>
         <input type='image'id="join_bt" name="join_bt" src="{% static 'img/bar-join.png' %}"><!--가입하기 버튼 삽입-->
+>>>>>>> 3a13db220bdf4df154db3a560d8cf06691027fb3
         </form>
-       
         </div>
     </body>
 </html>
