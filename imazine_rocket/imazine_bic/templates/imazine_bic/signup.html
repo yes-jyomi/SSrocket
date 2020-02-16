@@ -40,7 +40,7 @@
                             alert("존재하는 이메일 입니다!");
                             $('#email').val('').focus();
                             return;
-                        }else{
+                        } else {
                             alert("사용 가능한 이메일입니다!");
                             $("#join_bt").attr("id_check_result", "success");
                             return;
@@ -70,16 +70,24 @@
         });
 
         // 비밀번호 확인
-        $(function(){
-            $('repw').blur(function(){
-            if($('#pw').val() != $('#repw').val()){
-                    if($('#repw').val()!=''){
-                        alert("비밀번호가 일치하지 않습니다.");
-                            $('#repw').val('');
-                        $('#repw').focus();
-                    }
-                }
-            })  	   
+        $(function(){ 
+            $("#alert-success").hide(); 
+            $("#alert-danger").hide(); 
+            $("input").keyup(function(){ 
+                var pwd = $("#pw").val(); 
+                var pwdCk = $("#repw").val(); 
+                if(pwd != "" || pwdCk != ""){ 
+                    if(pwd == pwd2){ 
+                        $("#alert-success").show(); 
+                        $("#alert-danger").hide(); 
+                        $("#join_bt").removeAttr("disabled"); 
+                    } else{ 
+                        $("#alert-success").hide(); 
+                        $("#alert-danger").show(); 
+                        $("#join_bt").attr("disabled", "disabled"); 
+                    } 
+                } 
+            }); 
         });
 
     </script>
@@ -104,7 +112,12 @@
 
             <img id="signup_repw" name="signup_repw" src="{% static 'img/bar-op.png' %}"> <!--회원가입 비밀번호 재확인 박스 삽입-->
             <input type="password" name="repw" id="repw"/>
-            <input type='image'id="join_bt" name="join_bt" src="{% static 'img/bar-join.png' %}" alt="Submit"><!--가입하기 버튼 삽입-->
+
+            <!-- 이거 비밀번호 확인 창 아래에 넣어주라. -->
+            <div id="alert-success">비밀번호가 일치합니다.</div>
+            <div id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+
+            <input type='image' id="join_bt" name="join_bt" src="{% static 'img/bar-join.png' %}" alt="Submit"><!--가입하기 버튼 삽입-->
         </form>
        
         </div>
