@@ -4,5 +4,5 @@ function gofun(){
 
 function chfun(){
     document.getElementById(change).innerHTML=
-    
+    img.src = "../../static/img/sslogo-big.png";
 }
