@@ -68,6 +68,9 @@ class Company(models.Model):
     member_id = models.CharField(db_column='member_id',max_length=200)
     s_business = models.DateTimeField(db_column='s_business')
     e_business = models.DateTimeField(db_column='e_business')
+    company_info = models.CharField(db_column='company_info',max_length=1000)
+    company_loc = models.CharField(db_column='company_loc',max_length=200)
+    rent_num = models.IntegerField(db_column='rent_num')
 
     class Meta:
         managed = False

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User
+from .models import User, Company
 
 # Create your views here.
 def index(request):
@@ -16,7 +16,9 @@ def reservation_1(request):
     return render(request, 'imazine_bic/reservation_1.html', {'users':users})
 
 def reservation_2(request):
-    return render(request, 'imazine_bic/reservation_2.html')
+    companys = Company.objects.filter(company_loc = 'oogaki')
+    count = 0
+    return render(request, 'imazine_bic/reservation_2.html', {'companys':companys,'count':count})
 
 def reservation_3(request):
     return render(request, 'imazine_bic/reservation_3.html')
@@ -25,6 +27,7 @@ def reservation_4(request):
     return render(request, 'imazine_bic/reservation_4.html')
 
 def signup(request):
+<<<<<<< HEAD
     if request.method == "POST":
         if request.POST["pwd"] == request.POST["rePwd"]:
             user = User.objects.create_user(
@@ -50,3 +53,6 @@ def signup(request):
 # def logout(request):
 #     auth.logout(request)
 #     return redirect('home')
+=======
+    return render(request, 'imazine_bic/signup.html')
+>>>>>>> cc7e15df2ce7f52841187817802b8351f7c32959
