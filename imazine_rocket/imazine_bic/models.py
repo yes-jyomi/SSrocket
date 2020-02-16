@@ -13,6 +13,12 @@ class User(models.Model):
         managed = False
         db_table = 'user'
 
+    def __init__(self,id,name,pwd,info):
+        self.id = id
+        self.name = name
+        self.pwd = pwd
+        self.info = info
+
     def publish(self):
         self.save()
 

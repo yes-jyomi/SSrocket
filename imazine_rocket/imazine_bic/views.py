@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import User, Company
-from django.http import JsonResponse
+from .models import *
+from django.http import HttpResponse, HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt,csrf_protect 
 
 
 # Create your views here.
 def index(request):
-    users = User.objects.filter(id = 'test1')
+    print("index")
+    id = request.COOKIES.get('id') 
+    print(id,"엥")
+    users = User.objects.filter(id = id)
     return render(request, 'imazine_bic/main.html', {'users':users})
 
 def choose_lan(request):
@@ -30,30 +34,30 @@ def choose_end(request):
 
 def signup(request):
     if request.method == "POST":
-        if request.POST["pwd"] == request.POST["rePwd"]:
-            user = User.objects.create_user(
-                username = request.POST["id"], password = request.POST["pwd"]) 
-            auth.login(request, user)
-            return redirect('home')
+        id = request.POST['id']
+        name = request.POST['name']
+        pwd = request.POST['pwd']
+        info = request.POST['info']
+        user = User(id,name,pwd,info)
+        user.save()
         return render(request, 'imazine_bic/signin.html')
-    return render(request, 'imazine_bic/signin.html')
+    return render(request, 'imazine_bic/signup.html')
  
+@csrf_exempt
 def signin(request):
     if request.method == "POST":
-        print("post")
         id = request.POST['id']
         pwd = request.POST['pwd']
-        users = User.objects.get(id = id)
+        users = User.objects.filter(id = id)
         if users is not None:
             for user in users:
                 if id == user.id and pwd == user.pwd:
+                    response = render(request, 'imazine_bic/main.html',{"okay":1})
+                    response.set_cookie('id',id)
                     print("okay")
-                return render(request, 'imazine_bic/main.html')
-        else:
-            print("noo")
-            return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+                    return response
+        return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='../';</script></html>")
     else:
-        print("signin으로")
         return render(request, 'imazine_bic/signin.html')
 
 def checkEmail(request):
