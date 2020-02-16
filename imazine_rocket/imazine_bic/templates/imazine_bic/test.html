@@ -12,15 +12,17 @@
         <div id="container">
             <form>
             <img id="sslogo-big" name="sslogo-big" src="../../static/img/sslogo-big.png">
+            <div id="change" name="change">
             <img id="login-text1" name="login-text1" src="../../static/img/login-text1.png">
             <img id="bar-round" name="bar-round" src="../../static/img/bar-round.png">
-            <img id="join-text2" name="login-text2" src="../../static/img/join-text2.png">
+            <img id="join-text2" name="join-text2" src="../../static/img/join-text2.png" onclick="chfun()">
             <img id="welcome-txt" name="welcome-txt" src="../../static/img/welcom-txt.png">
             <img id="bar-long01" name="bar-long01" src="../../static/img/bar-long.png">
             <img id="bar-long02" name="bar-long02" src="../../static/img/bar-long.png">
-            <img id="loginbt" name="loginbt" src="../../static/img/loginbt.png" onclick="chfun()" >
+            <img id="loginbt" name="loginbt" src="../../static/img/loginbt.png" onclick="gofun()" >
             <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
             <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
+        </div>
         </form>
         </div>
     </body>
