@@ -3,7 +3,7 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css"> <!--signup.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css"> <!--signup.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/signup.js' %}"></script> <!--signup.js 링크-->
         <title>signup</title>
@@ -15,35 +15,23 @@
 
         <form>
 
+            
+        <img id="signup_name" name="signup_name" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이름 박스 삽입-->
+        <input type="text" name="s_name" id="s_name" placeholder="이름을 작성해주세요!" onFocus="clearText(this)"/>
+
         <img id="signup_email" name="signup_email" src="{% static 'img/bar-op.png' %}"> <!--회원가입 이메일 박스 삽입-->
-        <input type="email" name="email" id="email" value="E-MAIL 주소를 작성해주세요!" onFocus="clearText(this)"/>
+        <input type="email" name="email" id="email" placeholder="E-MAIL 주소를 작성해주세요!" onFocus="clearText(this)"/>
 
         <input type='image' id="signup_reemail" name="signup_reemail" src="{% static 'img/bar-recheck.png' %}"> <!--회원가입 이메일 중복확인 박스 삽입-->
         
         <img id="signup_pw" name="signup_pw" src="{% static 'img/bar-op.png' %}"> <!--회원가입 비밀번호 박스 삽입-->
-        <input type="text" name="pw" id="pw" value="PASSWORD를 작성해주세요!" onFocus="clearText(this)"/>
+        <input type="text" name="pw" id="pw" placeholder="PASSWORD를 작성해주세요!" onFocus="clearText(this)"/>
 
         <img id="signup_repw" name="signup_repw" src="{% static 'img/bar-op.png' %}"> <!--회원가입 비밀번호 재확인 박스 삽입-->
-        <input type="password" name="repw" id="repw" value="12345678" onFocus="clearText(this)" onchange="check(this)"/>
+        <input type="password" name="repw" id="repw" onFocus="clearText(this)" onchange="check(this)"/>
         <input type='image'id="join_bt" name="join_bt" src="{% static 'img/bar-join.png' %}"><!--가입하기 버튼 삽입-->
         </form>
        
         </div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
