@@ -2,19 +2,26 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../../static/css/choose.css" type="text/css"> <!--main.css 링크-->
+        <link rel="stylesheet" href="../../static/css/signup1.css" type="text/css"> <!--main.css 링크-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <script type="text/javascript"></script>
-        <script src="../../static/js/choose.js"></script>
-        <title>language</title>
+        <script src="../../static/js/signup.js"></script>
+        <title>signup</title>
     </head>
     <body>
-        <div id="container"  class="animated fadeInRight delay-0s">
-            <img id="question" name="question" src="../../static/img/who.png">
-            <img id="traveler" name="traveler" src="../../static/img/traveler.png" onclick="ch01fun()">
-            <img id="company" name="company" src="../../static/img/company.png" onclick="ch02fun()">
-            <!--<img id="nextbt" name="nextbt" src="{% static 'img/nextbt.png' %}" onclick="ch03fun()">-->
-            <div id="nextbt" name="nextbt" onclick="ch03fun()">NEXT</div>
+        <div id="container">
+            <form>
+            <img id="sslogo-big" name="sslogo-big" src="../../static/img/sslogo-big.png">
+            <img id="login-text1" name="login-text1" src="../../static/img/login-text1.png">
+            <img id="bar-round" name="bar-round" src="../../static/img/bar-round.png">
+            <img id="join-text2" name="login-text2" src="../../static/img/join-text2.png">
+            <img id="welcome-txt" name="welcome-txt" src="../../static/img/welcom-txt.png">
+            <img id="bar-long01" name="bar-long01" src="../../static/img/bar-long.png">
+            <img id="bar-long02" name="bar-long02" src="../../static/img/bar-long.png">
+            <img id="loginbt" name="loginbt" src="../../static/img/loginbt.png" onclick="chfun()" >
+            <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
+            <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
+        </form>
         </div>
     </body>
 </html>

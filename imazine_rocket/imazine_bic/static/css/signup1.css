@@ -3,114 +3,86 @@
 @font-face { font-family: 'NotoSansCJKKR-Black'; src: url("../font/NotoSansCJKkr-Black.otf") } 
 @font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
 
+
 body{
-    background-image: url("../img/language-bg.png");
+    background-image: url("../img/login-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
 
-#container #signup_logo{
+#container #sslogo-big{
     position: absolute;
-    top:250px;
-    left:100px;
-} /*회원가입 로고 위치 설정*/
+    top:320px;
+    left:390px;
+} /*로고 삽입*/
 
-#container #signup_name{
+#container #login-text1{
     position: absolute;
-    top:600px;
-    left:100px;
-} /*이름 입력 버튼 설정*/
+    top: 850px;
+    left:200px;
+} /*로그인 txt삽입*/
 
-#container #s_name{
+#container #bar-round{
     position: absolute;
-    top:620px;
-    left:170px;
+    top:950px;
+    left:215px;
+} /*라운드 바 삽입*/
+
+#container #join-text2{
+    position: absolute;
+    top:850px;
+    left:620px;
+} /*회원가입 txt 삽입*/
+
+#container #welcome-txt{
+    position: absolute;
+    top:1200px;
+    left:100px;
+} /*반갑습니다! txt 삽입*/
+
+#container #user_id{
+    position: absolute;
+    top:1450px;
+    left:130px;
     font-family:NotoSansCJKKR-Regular;
     font-size: 48px;
-    color:white;
+    color:rgb(114, 111, 111);
     width:850px;
     height:100px;
     border: none;
     background: transparent;
     text-align: left;
-}/* 이름 입력 창 위치 설정*/
+} /*user_id 입력 창*/
 
-#container #signup_email{
+#container #user_pw{
     position: absolute;
-    top:900px;
-    left:100px;
-} /* 이메일 입력 버튼위치 설정*/
-
-#container #email{
-    position: absolute;
-    top:920px;
-    left:170px;
+    top:1650px;
+    left:130px;
     font-family:NotoSansCJKKR-Regular;
     font-size: 48px;
-    color:white;
+    color:rgb(114, 111, 111);
     width:850px;
     height:100px;
     border: none;
     background: transparent;
     text-align: left;
-}/* 이메일 입력 창 위치 설정*/
+} /*비밀번호 입력 창*/
 
-#container #signup_reemail{
+#container #bar-long01{
     position: absolute;
-    top:1050px;
-    left:100px;
-    filter: drop-shadow(30px 30px 30px #60d068); 
-} /* 이메일 중복확인 버튼 위치 설정*/
+    top:1550px;
+    left:120px;
+} /*바 위치 설정*/
 
-#container #signup_pw{
+#container #bar-long02{
     position: absolute;
-    top:1350px;
-    left:100px;
-} /* 비밀번호 입력 창 버튼 위치 설정*/
+    top:1750px;
+    left:120px;
+} /*바 위치 설정*/
 
-#container #pw{
+#container #loginbt{
     position: absolute;
-    top:1370px;
-    left:170px;
-    font-family:NotoSansCJKKR-Regular;
-    font-size: 48px;
-    color:white;
-    width:850px;
-    height:100px;
-    border: none;
-    background: transparent;
-    text-align: left;
-}/* 비밀번호 입력 창 위치 설정*/
-
-#container #signup_repw{
-    position: absolute;
-    top:1500px;
-    left:100px;
-} /* 비밀번호 재입력 창 버튼 위치 설정*/
-
-#container #repw{
-    position: absolute;
-    top:1520px;
-    left:170px;
-    font-family:NotoSansCJKKR-Regular;
-    font-size: 48px;
-    color:white;
-    width:850px;
-    height:100px;
-    border: none;
-    background: transparent;
-}/* 비밀번호 재입력 창 위치 설정*/
-
-#container #join_bt{
-    position: absolute;
-    top:1800px;
-    left:100px;
-    filter: drop-shadow(30px 30px 30px #51d18e); 
-}/* 가입하기 버튼 위치 설정*/
-
-input::-webkit-input-placeholder {
-    position: absolute;
-    color:white;
-    font-family:NotoSansCJKKR-Regular;
-    font-size:48px;
-} /*placeholder 보여지는 부분 css*/
+    top:1950px;
+    left:620px;
+    filter: drop-shadow(30px 30px 30px #e6e4e4); 
+}
