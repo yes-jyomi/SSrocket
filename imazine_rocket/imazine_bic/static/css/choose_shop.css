@@ -56,12 +56,12 @@ body{
 } /*대여소 박스 위치 설정*/
 
 #container #rental:hover{
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
+    filter: drop-shadow(30px 30px 30px hsl(0, 0%, 85%)); 
 }/*대여소 박스 그림자 설정*/
 
 #container #rental-01{
     font-family: NotoSansCJKKR-Bold;
-    position: relative;
+    position: absolute;
     top:650px;
     left:450px;
     font-size:48px;
@@ -70,7 +70,7 @@ body{
 
 #container #rental-02{
     font-family: NotoSansCJKKR-Regular;
-    position: relative;
+    position: absolute;
     top:730px;
     left:455px;
     font-size:36px;
@@ -79,7 +79,7 @@ body{
 
 #container #rental-03{
     font-family: NotoSansCJKKR-Regular;
-    position: relative;
+    position: absolute;
     top:810px;
     left:455px;
     font-size:28px;
