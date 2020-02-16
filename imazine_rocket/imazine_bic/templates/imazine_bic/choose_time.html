@@ -3,7 +3,7 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/reservation_3.css' %}" type="text/css"> <!--reservation_3.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/reservation1_3.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/reservation_3.js' %}"></script> <!--reservation_2.js 링크-->
         <title>reservation_3</title>
@@ -75,6 +75,7 @@
             <option value="Pm10:00">PM 10:00</option>
             <option value="Pm11:00">PM 11:00</option>
         </select>
+        <img id="reservation3-finish" name="reservation3-finish" src="{% static 'img/reservation3-finish.png' %}" onclick="f_fun();">
     </div>
     </body>
 </html>
