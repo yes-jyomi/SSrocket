@@ -31,15 +31,13 @@ def choose_time(request):
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
 
-
+@csrf_exempt
 def signup(request):
     if request.method == "POST":
         id = request.POST['id']
         name = request.POST['name']
         pwd = request.POST['pwd']
-        info = request.POST['info']
-        user = User(id,name,pwd,info)
-        user.save()
+        info = int(request.POST['info'])
         return render(request, 'imazine_bic/signin.html')
     return render(request, 'imazine_bic/signup.html')
  
