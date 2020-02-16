@@ -38,6 +38,7 @@ def signup(request):
         name = request.POST['name']
         pwd = request.POST['pwd']
         info = int(request.POST['info'])
+        user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
         return render(request, 'imazine_bic/signin.html')
     return render(request, 'imazine_bic/signup.html')
  
