@@ -27,19 +27,34 @@ def choose_time(request):
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
 
-def signin(request):
+
+def signup(request):
     if request.method == "POST":
         if request.POST["pwd"] == request.POST["rePwd"]:
             user = User.objects.create_user(
-                username = request.POST["username"], password = request.POST["pwd"]) 
+                username = request.POST["id"], password = request.POST["pwd"]) 
             auth.login(request, user)
             return redirect('home')
         return render(request, 'imazine_bic/signin.html')
     return render(request, 'imazine_bic/signin.html')
-
-def signup(request):
-    return render(request, 'imazine_bic/signup.html')
-
+ 
+def signin(request):
+    if request.method == "POST":
+        id = request.POST['id']
+        pwd = request.POST['pwd']
+        users = User.objects.get(id = id)
+        if users is not None:
+            for user in users:
+                if id == user.id and pwd == user.pwd:
+                    print("okay")
+                return render(request, 'imazine_bic/main.html')
+        else:
+            print("noo")
+            return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+    else:
+        print("signin으로")
+        return render(request, 'imazine_bic/signin.html')
+    
 
 def checkEmail(request):
     print("check email!!!")
