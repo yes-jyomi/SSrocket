@@ -41,7 +41,7 @@ body{
     left:100px;
 } /* 이메일 입력 버튼위치 설정*/
 
-#container #id{
+#container #email{
     position: absolute;
     top:920px;
     left:170px;
@@ -55,7 +55,7 @@ body{
     text-align: left;
 }/* 이메일 입력 창 위치 설정*/
 
-#container #idCk{
+#container #signup_reemail{
     position: absolute;
     top:1050px;
     left:100px;

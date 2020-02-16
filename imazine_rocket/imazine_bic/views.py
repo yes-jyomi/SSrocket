@@ -30,13 +30,15 @@ def choose_end(request):
 
 def signup(request):
     if request.method == "POST":
-        if request.POST["pwd"] == request.POST["rePwd"]:
+        if request.POST["pw"] == request.POST["repw"]:
             user = User.objects.create_user(
-                username = request.POST["id"], password = request.POST["pwd"]) 
+                id = request.POST["email"], name = request.POST["s_name"], pwd = request.POST["pw"], info=0) 
             auth.login(request, user)
             return redirect('home')
-        return render(request, 'imazine_bic/signin.html')
-    return render(request, 'imazine_bic/signin.html')
+        return render(request, 'imazine_bic/signup.html')
+    else:
+        print("너 GET이냐 ?")
+    return render(request, 'imazine_bic/signup.html')
  
 def signin(request):
     if request.method == "POST":
