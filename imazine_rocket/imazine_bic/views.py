@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import User, Company
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -27,17 +28,14 @@ def choose_time(request):
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
 
-
 def signup(request):
     if request.method == "POST":
         if request.POST["pw"] == request.POST["repw"]:
-            user = User.objects.create_user(
-                id = request.POST["email"], name = request.POST["s_name"], pwd = request.POST["pw"], info=0) 
-            auth.login(request, user)
-            return redirect('home')
+            user = User.objects.create(
+                username = request.POST["s_name"], email = request.POST["email"], password = request.POST["pw"]) 
+            # auth.login(request, user)
+            return render(request, 'imazine_bic/signin.html')
         return render(request, 'imazine_bic/signup.html')
-    else:
-        print("너 GET이냐 ?")
     return render(request, 'imazine_bic/signup.html')
  
 def signin(request):
@@ -60,7 +58,7 @@ def signin(request):
 
 def checkEmail(request):
     try:
-        user = User.objects.get(id=request.GET['email'])
+        user = User.objects.get(email=request.GET['email'])
     except Exception as e:
         user = None
     result = {
