@@ -3,35 +3,27 @@
 @font-face { font-family: 'NotoSansCJKKR-Black'; src: url("../font/NotoSansCJKkr-Black.otf") } 
 @font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
 
+
 body{
-    background-image: url("../img/language-bg.png");
+    background-image: url("../img/login-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
 
-#container #question{
+#container #korean{
+    position: absolute;
+    top:200px;
+    left:150px;
+}
+
+#container #japan{
     position: absolute;
     top:500px;
     left:150px;
-} /*질문 위치 설정*/
+}
 
-#container #traveler{
+#container #eng{
     position: absolute;
-    top:1050px;
+    top:800px;
     left:150px;
-}/*'여행자' 위치 설정*/
-
-#container #company{
-    position: absolute;
-    top:1050px;
-    left:650px;
-} /*'업체' 위치 설정*/
-
-#container #nextbt{
-    position: absolute;
-    top:2000px;
-    left:400px;
-    font-family:NotoSansCJKKR-Black;
-    font-size: 100px;
-    color:white;
 }

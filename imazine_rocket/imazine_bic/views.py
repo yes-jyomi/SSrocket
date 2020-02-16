@@ -7,36 +7,54 @@ from django.http import JsonResponse
 def index(request):
     users = User.objects.filter(id = 'test1')
     return render(request, 'imazine_bic/main.html', {'users':users})
-def index_user(request):
-    return render(request, 'imazine_bic/index_user.html', {})
 
-def index_company(request):
-    return render(request, 'imazine_bic/index_company.html', {})
+def choose_lan(request):
+    return render(request, 'imazine_bic/choose_lan.html')
 
-def reservation_1(request):
+def choose_loc(request):
     users = User.objects.filter(id = 'test1')
-    return render(request, 'imazine_bic/reservation_1.html', {'users':users})
+    return render(request, 'imazine_bic/choose_loc.html', {'users':users})
 
-def reservation_2(request):
+def choose_shop(request):
+    # company_loc = request.
     companys = Company.objects.filter(company_loc = 'oogaki')
     count = 0
-    return render(request, 'imazine_bic/reservation_2.html', {'companys':companys,'count':count})
+    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
 
-def reservation_3(request):
-    return render(request, 'imazine_bic/reservation_3.html')
+def choose_time(request):
+    return render(request, 'imazine_bic/choose_time.html')
 
-def reservation_4(request):
-    return render(request, 'imazine_bic/reservation_4.html')
+def choose_end(request):
+    return render(request, 'imazine_bic/choose_end.html')
+
 
 def signup(request):
     if request.method == "POST":
         if request.POST["pwd"] == request.POST["rePwd"]:
             user = User.objects.create_user(
-                username = request.POST["username"], password = request.POST["pwd"]) 
+                username = request.POST["id"], password = request.POST["pwd"]) 
             auth.login(request, user)
             return redirect('home')
-        return render(request, 'imazine_bic/signup.html')
-    return render(request, 'imazine_bic/signup.html')
+        return render(request, 'imazine_bic/signin.html')
+    return render(request, 'imazine_bic/signin.html')
+ 
+def signin(request):
+    if request.method == "POST":
+        print("post")
+        id = request.POST['id']
+        pwd = request.POST['pwd']
+        users = User.objects.get(id = id)
+        if users is not None:
+            for user in users:
+                if id == user.id and pwd == user.pwd:
+                    print("okay")
+                return render(request, 'imazine_bic/main.html')
+        else:
+            print("noo")
+            return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+    else:
+        print("signin으로")
+        return render(request, 'imazine_bic/signin.html')
 
 def checkEmail(request):
     try:
@@ -49,33 +67,3 @@ def checkEmail(request):
         'data' : "not exist" if user is None else "exist"
     }
     return JsonResponse(result)
-
-# def checkEmail(request):
-#     print("check email!!!")
-#     if request.method == "GET":
-#         id = request.GET["email"]
-#         users = User.objects.filter(id = id)
-#         print(len(users))
-#         if len(users) > 0:
-#             return JsonResponse({ "success": "false" })
-#         else:
-#             return JsonResponse({ "success": "true" })
-
-#     return JsonResponse({})
-
-# def login(request):
-#     if request.method == "POST":
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = auth.authenticate(request, username=username, password=password)
-#         if user is not None:
-#             auth.login(request, user)
-#             return redirect('home')
-#         else:
-#             return render(request, 'login.html', {'error': 'username or password is incorrect'})
-#     else:
-#         return render(request, 'login.html')
-
-# def logout(request):
-#     auth.logout(request)
-#     return redirect('home')
