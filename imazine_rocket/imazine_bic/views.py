@@ -39,17 +39,29 @@ def signup(request):
     return render(request, 'imazine_bic/signup.html')
 
 def checkEmail(request):
-    print("check email!!!")
-    if request.method == "GET":
-        id = request.GET["email"]
-        users = User.objects.filter(id = id)
-        print(len(users))
-        if len(users) > 0:
-            return JsonResponse({ "success": "false" })
-        else:
-            return JsonResponse({ "success": "true" })
+    try:
+        user = User.objects.get(id=request.GET['email'])
+    except Exception as e:
+        user = None
+    result = {
+        'result':'success',
+        # 'data' : model_to_dict(user)  # console에서 확인
+        'data' : "not exist" if user is None else "exist"
+    }
+    return JsonResponse(result)
 
-    return JsonResponse({})
+# def checkEmail(request):
+#     print("check email!!!")
+#     if request.method == "GET":
+#         id = request.GET["email"]
+#         users = User.objects.filter(id = id)
+#         print(len(users))
+#         if len(users) > 0:
+#             return JsonResponse({ "success": "false" })
+#         else:
+#             return JsonResponse({ "success": "true" })
+
+#     return JsonResponse({})
 
 # def login(request):
 #     if request.method == "POST":

@@ -2,11 +2,7 @@ function imgch01(){
     var img=document.getElementById("main-bt01");
             img.src = "../img/main-btgr01.png";
             location.href="reservation_1.html";
-<<<<<<< HEAD
         }
-=======
-}
->>>>>>> d2d17c450ead4e4a57bac1af63d51ac34bb5b0f9
 
 function imgch02(){
      var img=document.getElementById("main-bt02");
