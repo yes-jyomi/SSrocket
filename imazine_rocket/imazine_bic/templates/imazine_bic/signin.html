@@ -3,7 +3,7 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/signin1.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/signin.css' %}" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signin.js' %}"></script>
@@ -11,9 +11,10 @@
     </head>
     <body>
         {% load static %}
-
         <form action = "{% url 'signin' %}" name = "loginForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
+                <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
+                 <!--뒤로가기 버튼 삽입-->
                 <img id="login-text1"  src="{% static 'img/login-text1.png' %}">
                 <img id="dot" src="{% static 'img/dot.png' %}">
                 <a href="{% url 'signup'%}"><img id="join-text2" src="{% static 'img/join-text2.png' %}"></a>
