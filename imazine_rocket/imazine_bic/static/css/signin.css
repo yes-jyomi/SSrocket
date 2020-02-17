@@ -54,7 +54,6 @@ body{
     text-align: left;
 } /*user_id 입력 창*/
 
-
 #container #user_pw{
     position: absolute;
     top:1650px;
@@ -86,7 +85,8 @@ body{
     top:1950px;
     left:620px;
     filter: drop-shadow(30px 30px 30px #e6e4e4); 
-}
+
+ } /*loginbt 위치 설쩡*/        
 
 input::-webkit-input-placeholder {
     position: absolute;
