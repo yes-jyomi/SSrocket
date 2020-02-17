@@ -6,7 +6,7 @@
 @font-face { font-family: 'NotoSansCJKKR-Medium'; src: url("../font/NotoSansCJKkr-Medium.otf")}
 
 body{
-    background-image: url("../img/reservation3-bg.png");
+    background-image: url("../img/r3bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
@@ -24,105 +24,159 @@ body{
     left:940px;
 } /*home 버튼 위치 설정*/
 
-#container #rental1_p1{
+#container #rental_p1{
     font-family: NotoSansCJKKR-Black;
     position: absolute;
-    top:780px;
+    top:700px;
     left:70px;
     font-size:120px;
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
-#container #rental1_p2{
+#container #rental_p2{
     font-family: NotoSansCJKKR-Black;
     position: absolute;
-    top:950px;
+    top:850px;
     left:70px;
     font-size:90px;
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
-#container #rental1_p3{
+#container #rental_p3{
     font-family: NotoSansCJKKR-Regular;
     position: absolute;
-    top:1150px;
+    top:1000px;
     left:70px;
     font-size:48px;
     color:white;
 } /*자전거 대여소 위치/ 전화번호 위치 설정*/
 
-#container #rental1_p4{
+#container #rental_p4{
     font-family: NotoSansCJKKR-Medium;
     position: absolute;
-    top:800px;
+    top:730px;
     left:700px;
     font-size:78px;
     color:white;
 } /*남은개수 위치 설정*/
 
 
-#container #rental1_p5{
+#container #rental_p5{
     font-family: NotoSansCJKKR-Medium;
     position: absolute;
-    top:900px;
-    left:760px;
+    top:800px;
+    left:720px;
+    font-size:120px;
+    color:white;
+} /* 자전거 수 위치 설정*/
+
+#container #rental_p6{
+    font-family: NotoSansCJKKR-Medium;
+    position: absolute;
+    top:800px;
+    left:880px;
     font-size:120px;
     color:white;
 } /*10대 이름 위치 설정*/
 
-#container #rental1_p6{
-    font-family: NotoSansCJKKR-Bold;
-    position: absolute;
-    top:1400px;
-    left:80px;
-    font-size:88px;
-    color:rgb(73, 167, 73);
-} /*대여시간 설정 위치 설정*/
-
-#container #rental1_p7{
-    font-family: NotoSansCJKKR-Medium;
-    position: absolute;
-    top:1600px;
-    left:80px;
-    font-size:60px;
-    color:rgb(102, 207, 102);
-} /*시작시간 위치 설정*/
-
-#container #rental1_p8{
-    font-family: NotoSansCJKKR-Medium;
-    position: absolute;
-    top:1600px;
-    left:600px;
-    font-size:60px;
-    color:rgb(102, 207, 102);
-} /*반납시간 위치 설정*/
-
-#container #s_time{
-    appearance: none;
-    -webkit-appearance:none;
-    color:rgb(60, 65, 62);
-    position: relative;
-    width:300px;
-    height:50px;
-    top:1700px;
-    left:80px;
-} /*select box css*/
-
-#container #e_time{
+#container #r_btime{
     appearance: none;
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
-    color:rgb(112, 150, 131);
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146,146,146);
     position: relative;
     width:300px;
-    height:50px;
-    top:1700px;
-    left:290px;
+    height:80px;
+    top:1770px;
+    left:52px;
+} /*select box css*/
+
+#container #r_rtime{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:300px;
+    height:80px;
+    top:1770px;
+    left:260px;
+} /*select box css*/
+
+#container #r_year{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:50px;
+} /*select box css*/
+
+#container #r_month{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:130px;
+} /*select box css*/
+
+#container #r_date{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:200px;
+} /*select box css*/
+
+#r_btime option {
+    font-size:18px;
+} /*select box css*/
+
+#r_rtime option {
+    font-size:18px;
+} /*select box css*/
+
+#r_year option{
+    font-size:18px;
+} /*select box css*/
+
+#r_month option{
+    font-size:18px;
+} /*select box css*/
+
+#r_date option{
+    font-size:18px;
 } /*select box css*/
 
 #container #reservation3-finish{
     position:absolute;
-    top:2000px;
-    left:760px;
+    top:2050px;
+    left:730px;
 } /*완료 버튼 위치 설정*/ 
 

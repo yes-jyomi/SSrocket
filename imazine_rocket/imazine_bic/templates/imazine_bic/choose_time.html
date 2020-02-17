@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        {% load mathfilters %}
+
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/reservation1_3.css' %}" type="text/css"> <!--reservation_3.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/choose_time.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
-        <script src="{% static 'js/reservation_3.js' %}"></script> <!--reservation_2.js 링크-->
+        <script src="{% static 'js/choose_time.js' %}"></script> <!--choose_time.js 링크-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <title>reservation_3</title>
     </head>
     <body>
@@ -15,14 +18,30 @@
         <!--뒤로가기 버튼 삽입-->
         <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
         <!--홈 버튼 삽입-->
-        <div id="rental1_p1" name="rental1_p1">상상로켓</div>
-        <div id="rental1_p2" name="rental1_p2">자전거 대여소</div>
-        <div id="rental1_p3" name="rental1_p3">오가키시 어쩌구 저쩌구에 위치 <br> TEL:81+10-XXXX-XXXX</div>
-        <div id="rental1_p4" name="rental_p4">남은 개수</div>
-        <div id="rental1_p5" name="rental_p5">10대</div>
-        <div id="rental1_p6" name="rental_p6">대여시간 설정</div>
-        <div id="rental1_p7" name="rental_p7">시작시간</div>
-        <select id="s_time" name="s_time">
+        {% for company in companys %}
+        <div id="rental_p1" name="rental_p1">{{company.member_name}}</div>
+        <div id="rental_p2" name="rental_p2">자전거 대여소</div>
+        <div id="rental_p3" name="rental_p3">{{company.company_addr}} 
+            <br> TEL : {{company.company_phone}}</div>
+        <div id="rental_p4" name="rental_p4">남은 개수</div>
+        <div id="rental_p5" name="rental_p5">{{company.bicycle_num|sub:company.rent_num}}</div>
+        {% endfor %}
+        <div id="rental_p6" name="rental_p6">대</div>
+
+        <select id="r_year" name="r_year" data-default-option="년도" data-unit="y" >
+            <option value="년도">년도</option>
+        </select>
+
+        <select id="r_month" name="r_month" data-default-option="월" data-unit="m">
+            <option value="월">월</option>
+        </select>
+
+        <select id="r_date" name="r_date"  data-default-option="일" data-unit="d">
+            <option value="일">일</option>
+        </select>
+
+        <select id="r_btime" name="r_btime">
+            <option value="시간선택">시간선택</option>
             <option value="Am12:00">AM 12:00</option>
             <option value="Am1:00">AM 1:00</option>
             <option value="Am2:00">AM 2:00</option>
@@ -48,8 +67,9 @@
             <option value="Pm10:00">PM 10:00</option>
             <option value="Pm11:00">PM 11:00</option>
         </select>
-        <div id="rental1_p8" name="rental_p8">반납시간</div>
-        <select id="e_time" name="e_time">
+
+        <select id="r_rtime" name="r_rtime">
+            <option value="시간선택">시간선택</option>
             <option value="Am12:00">AM 12:00</option>
             <option value="Am1:00">AM 1:00</option>
             <option value="Am2:00">AM 2:00</option>
@@ -75,6 +95,7 @@
             <option value="Pm10:00">PM 10:00</option>
             <option value="Pm11:00">PM 11:00</option>
         </select>
+
         <img id="reservation3-finish" name="reservation3-finish" src="{% static 'img/reservation3-finish.png' %}" onclick="f_fun();">
     </div>
     </body>

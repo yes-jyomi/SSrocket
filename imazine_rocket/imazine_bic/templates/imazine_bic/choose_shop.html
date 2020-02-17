@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/choose_shop.css' %}" type="text/css"> <!--reservation_2.css 링크-->
         <script type="text/javascript"></script>
-        <script src="{% static 'js/reservation_2.js' %}"></script><!--reservation_2.js 링크-->
+        <script src="{% static 'js/choose_shop.js' %}"></script><!--reservation_2.js 링크-->
         <title>reservation_2</title>
     </head>
     <body>
@@ -20,6 +20,7 @@
         <div id="ucanreser" name="ucanreser">대여할 수 있어요.</div> <!--'대여할 수 있어요.' 텍스트 삽입-->
         {% load mathfilters %}
         {% for company in companys %}
+        <img id="rental" name=rental src="{% static 'img/reservation2-block01.png' %}"> <!--1번 대여소 박스 삽입-->
         <img id="rental" name=rental src="{% static 'img/reservation2-block01.png' %}"> <!--1번 대여소 박스 삽입-->
         <div id="rental-01" name="rental-01">{{company.member_name}}</div>
         <div id="rental-02" name="rental-02">남은 자전거 : {{company.bicycle_num|sub:company.rent_num}}</div>

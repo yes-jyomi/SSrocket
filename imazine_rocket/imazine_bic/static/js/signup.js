@@ -1,3 +1,6 @@
+function bkfun(){
+    history.back();
+}
 
 function gofun(){
     location.href="choose_use.html";

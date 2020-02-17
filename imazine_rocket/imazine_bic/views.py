@@ -21,12 +21,13 @@ def choose_loc(request):
 
 def choose_shop(request):
     # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'oogaki')
+    companys = Company.objects.filter(company_loc = 'ogaki')
     count = 0
     return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
 
 def choose_time(request):
-    return render(request, 'imazine_bic/choose_time.html')
+    companys = Company.objects.filter(company_num = 1)
+    return render(request, 'imazine_bic/choose_time.html', {'companys':companys})
 
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
@@ -38,8 +39,6 @@ def signup(request):
         name = request.POST['name']
         pwd = request.POST['pwd']
         info = request.POST['info']
-        print(info)
-        print(int(info)+1)
         user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
         return render(request, 'imazine_bic/signin.html')
     return render(request, 'imazine_bic/signup.html')
@@ -73,6 +72,12 @@ def checkEmail(request):
         'data' : "not exist" if user is None else "exist"
     }
     return JsonResponse(result)
+
+def notice(request):
+    return render(request, 'imazine_bic/notice.html')
+
+# def read(request):
+#     pass
 
 def choose_use(request):
     return render(request, 'imazine_bic/choose_use.html')
