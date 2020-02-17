@@ -4,10 +4,10 @@ from django.utils import timezone
 
 
 class User(models.Model):
-    id = models.CharField(db_column='id',primary_key=True,max_length=200)
-    name = models.CharField(db_column='name',max_length=200)
-    pwd = models.CharField(db_column='pwd',max_length=200)
-    info = models.IntegerField(db_column='info')
+    id = models.CharField(db_column='id',primary_key=True,max_length=200,blank=False)
+    name = models.CharField(db_column='name',max_length=200,blank=False)
+    pwd = models.CharField(db_column='pwd',max_length=200,blank=False)
+    info = models.IntegerField(db_column='info',blank=False)
 
     class Meta:
         managed = False
@@ -21,14 +21,14 @@ class User(models.Model):
 
 
 class History(models.Model):
-    history_num = models.AutoField(db_column='history_num',primary_key=True)
-    company_num = models.IntegerField(db_column='company_num')
-    member_id = models.CharField(db_column='member_id',max_length=200)
-    r_btime = models.DateTimeField(db_column='r_btime')
-    btime = models.DateTimeField(db_column='btime')
-    r_rtime = models.DateTimeField(db_column='r_rtime')
-    rtime = models.DateTimeField(db_column='rtime')
-    reserved_At = models.DateTimeField(db_column='reserved_At')
+    history_num = models.AutoField(db_column='history_num',primary_key=True,blank=False)
+    company_num = models.IntegerField(db_column='company_num',blank=False)
+    member_id = models.CharField(db_column='member_id',max_length=200,blank=False)
+    r_btime = models.DateTimeField(db_column='r_btime',blank=False)
+    btime = models.DateTimeField(db_column='btime',blank=False)
+    r_rtime = models.DateTimeField(db_column='r_rtime',blank=False)
+    rtime = models.DateTimeField(db_column='rtime',blank=False)
+    reserved_At = models.DateTimeField(db_column='reserved_At',blank=False)
 
     class Meta:
         managed = False
@@ -41,11 +41,11 @@ class History(models.Model):
         return self.member_id
 
 class Course(models.Model):
-    c_num = models.AutoField(db_column='c_num',primary_key=True)
-    c_name = models.CharField(db_column='c_name',max_length=200)
-    c_info = models.TextField(db_column='c_info',max_length=1000)
-    c_loc = models.CharField(db_column='c_loc',max_length=200)
-    c_theme = models.CharField(db_column='c_theme',max_length=200)
+    c_num = models.AutoField(db_column='c_num',primary_key=True,blank=False)
+    c_name = models.CharField(db_column='c_name',max_length=200,blank=False)
+    c_info = models.TextField(db_column='c_info',max_length=1000,blank=False)
+    c_loc = models.CharField(db_column='c_loc',max_length=200,blank=False)
+    c_theme = models.CharField(db_column='c_theme',max_length=200,blank=False)
     c_time = models.IntegerField(db_column='c_time')
 
     class Meta:
@@ -76,6 +76,26 @@ class Company(models.Model):
     class Meta:
         managed = False
         db_table = 'company'
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.member_name
+
+class Notice(models.Model):
+    num = models.AutoField(db_column='num',primary_key=True)
+    writer = models.CharField(db_column='writer',max_length=50)
+    regdate = models.DateTimeField(db_column='regdate')
+    subject = models.CharField(db_column='subject',max_length=200)
+    content = models.CharField(db_column='content',max_length=1000)
+    readcnt = models.IntegerField(db_column='readcnt')
+
+
+
+    class Meta:
+        managed = False
+        db_table = 'notice_board'
 
     def publish(self):
         self.save()
