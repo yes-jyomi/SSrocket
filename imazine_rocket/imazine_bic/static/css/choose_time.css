@@ -6,7 +6,7 @@
 @font-face { font-family: 'NotoSansCJKKR-Medium'; src: url("../font/NotoSansCJKkr-Medium.otf")}
 
 body{
-    background-image: url("../img/r3bg.png");
+    background-image: url("../img/rsv-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
@@ -84,7 +84,8 @@ body{
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/a.png);
+    background: url(../img/b.png);
+    background-repeat: no-repeat ;
     border:0px;
     color:rgb(146,146,146);
     position: relative;
@@ -99,7 +100,8 @@ body{
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/a.png);
+    background: url(../img/b.png);
+    background-repeat: no-repeat ;
     border:0px;
     color:rgb(146, 146, 146);
     position: relative;
@@ -114,7 +116,8 @@ body{
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/a.png);
+    background: url(../img/arrow-blue.png);
+    background-repeat: no-repeat ;
     border:0px;
     color:rgb(146, 146, 146);
     position: relative;
@@ -129,7 +132,8 @@ body{
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/a.png);
+    background: url(../img/arrow-blue.png);
+    background-repeat: no-repeat ;
     border:0px;
     color:rgb(146, 146, 146);
     position: relative;
@@ -144,7 +148,8 @@ body{
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/a.png);
+    background: url(../img/arrow-blue.png);
+    background-repeat: no-repeat ;
     border:0px;
     color:rgb(146, 146, 146);
     position: relative;
@@ -178,5 +183,6 @@ body{
     position:absolute;
     top:2050px;
     left:730px;
+    filter: drop-shadow(30px 30px 30px hsl(0, 4%, 87%)); 
 } /*완료 버튼 위치 설정*/ 
 
