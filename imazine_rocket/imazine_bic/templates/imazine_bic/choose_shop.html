@@ -21,6 +21,7 @@
         {% load mathfilters %}
         {% for company in companys %}
         <img id="rental" name=rental src="{% static 'img/reservation2-block01.png' %}"> <!--1번 대여소 박스 삽입-->
+        <img id="rental" name=rental src="{% static 'img/reservation2-block01.png' %}"> <!--1번 대여소 박스 삽입-->
         <div id="rental-01" name="rental-01">{{company.member_name}}</div>
         <div id="rental-02" name="rental-02">남은 자전거 : {{company.bicycle_num|sub:company.rent_num}}</div>
         <div id="rental-03" name="rental-02">{{company.company_info}}<br>{{company.company_phone}}</div>

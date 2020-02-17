@@ -21,13 +21,13 @@
         <div id="rental1_p4" name="rental_p4">남은 개수</div>
         <div id="rental1_p5" name="rental_p5">10대</div>
 
-        <select id="r_year" name="r_year">
+        <select id="r_year" name="r_year" data-default-option="년도" data-unit="y">
             <option value="년도">년도</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
         </select>
 
-        <select id="r_month" name="r_month" onclick=" selectDateCheck()">
+        <select id="r_month" name="r_month" data-default-option="월" data-unit="m">
             <option value="월">월</option>
             <option value="01">01</option>
             <option value="02">02</option>
@@ -43,7 +43,7 @@
             <option value="12">12</option>
         </select>
 
-        <select id="r_date" name="r_date"  onclick=" selectDateCheck()">
+        <select id="r_date" name="r_date"  data-default-option="일" data-unit="d">
             <option value="일">일</option>
             <option value="01">01</option>
             <option value="02">02</option>
