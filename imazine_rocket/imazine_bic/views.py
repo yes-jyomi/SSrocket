@@ -34,9 +34,9 @@ def choose_end(request):
 @csrf_exempt
 def signup(request):
     if request.method == "POST":
-        id = request.POST['email']
+        id = request.POST['id']
         name = request.POST['name']
-        pwd = request.POST['pw']
+        pwd = request.POST['pwd']
         info = int(request.POST['info'])
         user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
         return render(request, 'imazine_bic/signin.html')
@@ -61,7 +61,7 @@ def signin(request):
 
 def checkEmail(request):
     try:
-        user = User.objects.get(id=request.GET['email'])
+        user = User.objects.get(id=request.GET['id'])
     except Exception as e:
         user = None
 
