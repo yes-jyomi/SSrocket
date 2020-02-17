@@ -3,28 +3,30 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/signin.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
-        <script src="{% static 'js/signin.js' %}"></script>
-        <title>signin</title>
+        <script src="{% static 'js/signup.js' %}"></script>
+        <title>signup</title>
     </head>
     <body>
         {% load static %}
 
-        <form action = "{% url 'signin' %}" name = "loginForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+        <form action = "{% url 'signup' %}" name = "joinForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
-                <img id="sslogo-big"  src="{% static 'img/sslogo-big.png' %}">
-                <img id="login-text1"  src="{% static 'img/login-text1.png' %}">
+                <a href="{% url 'signin'%}"><img id="login-text2" name="login-text2" src="{% static 'img/login-text2.png' %}"></a>
+                <img id="join-text1" src="{% static 'img/join-text1.png' %}">
                 <img id="bar-round" src="{% static 'img/bar-round.png' %}">
-                <a href="{% url 'signup'%}"><img id="join-text2" src="{% static 'img/join-text2.png' %}"></a>
-                <img id="welcome-txt"  src="{% static 'img/welcome-txt.png' %}">
-                <img id="bar-long01"  src="{% static 'img/bar-long.png' %}">
-                <img id="bar-long02"  src="{% static 'img/bar-long.png' %}">
-                <img id="loginbt"  src="{% static 'img/loginbt.png' %}" onclick = "sm()">
-                <input type="id" name="login_id" id="login_id" placeholder="Id" onFocus="clearText(this)"/>
-                <input type="password" name="login_pwd" id="login_pwd" placeholder="Password" onFocus="clearText(this)"/>
-            
+                <img id="bar-01" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-02" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-03" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-04" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-recheck" src="{% static 'img/bar-recheck.png' %}">
+                <img id="finishbt"  src="{% static 'img/finishbt.png' %}" onclick = "sm()">
+                <input type="text" name="name" id="name" placeholder="Name" onFocus="clearText(this)"/>
+                <input type="email" name="id" id="id" placeholder="E-mail" onFocus="clearText(this)"/>
+                <input type="password" name="pwd" id="pwd" placeholder="Password" onFocus="clearText(this)"/>
+                <input type="password" name="pwdck" id="pwdck" placeholder="Password Re-Enter" onFocus="clearText(this)"/>   
         </div>
     </form>
     </body>

@@ -55,7 +55,7 @@ def signin(request):
                     response.set_cookie('id',id)
                     print("okay")
                     return response
-        return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='../';</script></html>")
+        return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
     else:
         return render(request, 'imazine_bic/signin.html')
 
@@ -71,3 +71,6 @@ def checkEmail(request):
         'data' : "not exist" if user is None else "exist"
     }
     return JsonResponse(result)
+
+def choose_use(request):
+    return render(request, 'imazine_bic/choose_use.html')

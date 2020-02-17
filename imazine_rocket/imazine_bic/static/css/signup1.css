@@ -34,7 +34,7 @@ body{
 }/* 가입하기 버튼 위치 설정*/
 
 
-#container #join_name{
+#container #name{
     position: absolute;
     top:800px;
     left:150px;
@@ -48,7 +48,7 @@ body{
     text-align: left;
 } /*이름 입력 창*/
 
-#container #join_id{
+#container #id{
     position: absolute;
     top:1000px;
     left:150px;
@@ -81,7 +81,7 @@ body{
     filter: drop-shadow(30px 30px 30px #e6e4e4); 
 } /*email 중복확인 bt 위치 설정*/
 
-#container #join_pwd{
+#container #pwd{
     position: absolute;
     top:1400px;
     left:150px;
@@ -96,7 +96,7 @@ body{
 } /*pwd 입력창 위치 설정*/
 
 
-#container #join_pwdck{
+#container #pwdck{
     position: absolute;
     top:1600px;
     left:150px;

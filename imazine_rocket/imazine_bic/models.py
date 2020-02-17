@@ -83,3 +83,23 @@ class Company(models.Model):
     def __str__(self):
         return self.member_name
 
+class Notice(models.Model):
+    num = models.AutoField(db_column='num',primary_key=True)
+    writer = models.CharField(db_column='writer',max_length=50)
+    regdate = models.DateTimeField(db_column='regdate')
+    subject = models.CharField(db_column='subject',max_length=200)
+    content = models.CharField(db_column='content',max_length=1000)
+    readcnt = models.IntegerField(db_column='readcnt')
+
+
+
+    class Meta:
+        managed = False
+        db_table = 'notice_board'
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.member_name
+
