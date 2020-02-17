@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <table>
+        
+        {% for notice in notices %}
+            <tr>
+                <td>{{notice.num}}</td>
+                <td>{{notice.subject}}</td>
+                <td>{{notice.regdate}}</td>
+                <td>{{notice.writer}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

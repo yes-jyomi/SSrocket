@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.http import HttpResponse, HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt,csrf_protect 
@@ -10,20 +10,48 @@ def index(request):
     id = request.COOKIES.get('id') 
     print(id,"엥")
     users = User.objects.filter(id = id)
-    return render(request, 'imazine_bic/main.html', {'users':users})
+    response = render(request, 'imazine_bic/main.html', {'users':users})
+    response.set_cookie('id',id)
+    return response
 
+@csrf_exempt
 def choose_lan(request):
+    if request.method == "POST":
+        lan = request.POST['lan']
+        print(lan)
+        # if lan == "kor":
+        #     pass
+        #여기에 번역하기 api 사용
+        id = request.COOKIES.get('id') 
+        count = 1
+        response = render(request, 'imazine_bic/choose_loc.html',{"count":count})
+        response.set_cookie('id',id)
+        return response
     return render(request, 'imazine_bic/choose_lan.html')
 
+@csrf_exempt
 def choose_loc(request):
-    users = User.objects.filter(id = 'test1')
-    return render(request, 'imazine_bic/choose_loc.html', {'users':users})
+    if request.method == "POST":
+        count = 1
+        response = render(request, 'imazine_bic/choose_shop.html',{"count":count})
+        id = request.COOKIES.get('id') 
+        response.set_cookie('company_loc',request.POST['company_loc'])
+        response.set_cookie('id',id)
+        return response
+    return render(request, 'imazine_bic/choose_loc.html')
 
+@csrf_exempt
 def choose_shop(request):
-    # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'ogaki')
-    count = 0
-    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
+    company_loc = request.COOKIES.get('company_loc') 
+    companys = Company.objects.filter(company_loc = company_loc)
+    if request.method == "POST":
+        id = request.COOKIES.get('id') 
+        response = render(request, 'imazine_bic/choise_time.html',{"companys":companys})
+        response.set_cookie('company_loc',request.POST['company_loc'])
+        response.set_cookie('id',id)
+        print(company)
+        return render(request, 'imazine_bic/choose_time.html')
+    return render(request, 'imazine_bic/choose_shop.html',{"companys":companys})
 
 def choose_time(request):
     companys = Company.objects.filter(company_num = 1)
@@ -73,15 +101,16 @@ def checkEmail(request):
     }
     return JsonResponse(result)
 
-def notice(request):
-    return render(request, 'imazine_bic/notice.html')
-
-# def read(request):
-#     pass
 
 def choose_use(request):
     return render(request, 'imazine_bic/choose_use.html')
 
 def notice(request):
-    notices = Notice.objects.all()
+    notices = Notice.objects.all().order_by('num')
+    for notice in notices:
+        print(notice.subject)
     return render(request, 'imazine_bic/notice.html', {'notices':notices})
+
+def shop_detail(request, pk):
+    shop = get_object_or_404(Company, pk=pk)
+    return render(request, 'imazine_bic/shop_detail.html', {'shop': shop})

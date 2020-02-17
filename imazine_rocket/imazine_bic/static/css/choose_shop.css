@@ -4,38 +4,12 @@
 @font-face { font-family: 'NotoSansCJKKR-Bold'; src: url("../font/NotoSansCJKkr-Bold.otf")}
 
 body{
-    background-image: url('../img/reservation2-bg.png');
+    background-image: url('../img/rentalof-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: auto;
 } /*bg img 설정*/
 
-#container #thisplace{
-    font-family: NotoSansCJKKR-Black;
-    position: absolute;
-    top:200px;
-    left:60px;
-    font-size:150px;
-    color:white;
-} /*'이 곳' 텍스트 설정*/
-
-#container #from{
-    font-family: NotoSansCJKKR-Regular;
-    position: absolute;
-    top:240px;
-    left:370px;
-    font-size:120px;
-    color:white;
-} /*'에서' 텍스트 설정*/
-
-#container #ucanreser{
-    font-family: NotoSansCJKKR-Regular;
-    position: absolute;
-    top:400px;
-    left:70px;
-    font-size:72px;
-    color:white;
-} /*'대여할 수 있어요.' 텍스트 설정*/
 
 #container #reservation2-bkbt{
     position: absolute;

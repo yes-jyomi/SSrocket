@@ -52,7 +52,6 @@ class Course(models.Model):
         managed = False
         db_table = 'course'
 
-
     def publish(self):
         self.save()
 
@@ -89,9 +88,6 @@ class Notice(models.Model):
     regdate = models.DateTimeField(db_column='regdate')
     subject = models.CharField(db_column='subject',max_length=200)
     content = models.CharField(db_column='content',max_length=1000)
-    readcnt = models.IntegerField(db_column='readcnt')
-
-
 
     class Meta:
         managed = False
@@ -101,5 +97,5 @@ class Notice(models.Model):
         self.save()
 
     def __str__(self):
-        return self.member_name
+        return self.writer
 
