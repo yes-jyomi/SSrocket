@@ -71,3 +71,6 @@ def checkEmail(request):
         'data' : "not exist" if user is None else "exist"
     }
     return JsonResponse(result)
+
+def choose_use(request):
+    return render(request, 'imazine_bic/choose_use.html')
