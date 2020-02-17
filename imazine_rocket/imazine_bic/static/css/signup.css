@@ -74,7 +74,7 @@ body{
     left:150px;
 }  /*e-mail 언더바*/
 
-#container #bar-recheck{
+#container #barEmailck{
     position: absolute;
     top:1200px;
     left:100px;
@@ -122,7 +122,7 @@ body{
     left:150px;
 }  /*pw recheck 언더바*/
 
-#container #finishbt{
+#container #joinBt{
     position: absolute;
     top:1900px;
     left:700px;
