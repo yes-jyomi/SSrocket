@@ -12,4 +12,6 @@ urlpatterns = [
     path('signin',views.signin, name='signin'),
     path('signup',views.signup, name='signup'),
     path('check_email',views.checkEmail, name='check_email'),
+    path('notice', views.notice, name='notice'),
+    # path('read', views.read, name='read'),
 ]

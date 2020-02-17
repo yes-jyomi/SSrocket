@@ -71,3 +71,9 @@ def checkEmail(request):
         'data' : "not exist" if user is None else "exist"
     }
     return JsonResponse(result)
+
+def notice(request):
+    return render(request, 'imazine_bic/notice.html')
+
+# def read(request):
+#     pass
