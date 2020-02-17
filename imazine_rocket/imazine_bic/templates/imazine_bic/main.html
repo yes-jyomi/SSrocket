@@ -9,7 +9,9 @@
         <title>MAIN</title>
     </head>
     <body>
-        
+        {% if okay == 1 %}
+        <script>location.href = "{% url 'index' %}"; </script>
+        {% endif %}
         {% load static %}
         <div id="container">
         <img id="ssbike" name="ssbike" src="{% static 'img/ssbike.png' %}"> <!--로고삽입-->

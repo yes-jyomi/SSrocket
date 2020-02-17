@@ -8,23 +8,29 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signin.js' %}"></script>
+<<<<<<< HEAD
         <title>signup</title>
+=======
+        <title>signin</title>
+>>>>>>> be544141dd337d45ec93b31e101a4b81472490bb
     </head>
     <body>
         {% load static %}
-        <div id="container">
-            <img id="sslogo-big" name="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
-            <img id="login-text1" name="login-text1" src="{% static 'img/login-text1.png' %}">
-            <img id="bar-round" name="bar-round" src="{% static 'img/bar-round.png' %}">
-            <a href="{% url 'signup'%}"><img id="join-text2" name="join-text2" src="{% static 'img/join-text2.png' %}"></a>
-            <img id="welcome-txt" name="welcome-txt" src="{% static 'img/welcome-txt.png' %}">
-            <img id="bar-long01" name="bar-long01" src="{% static 'img/bar-long.png' %}">
-            <img id="bar-long02" name="bar-long02" src="{% static 'img/bar-long.png' %}">
-            <img id="loginbt" name="loginbt" src="{% static 'img/loginbt.png' %}" onclick="chfun()">
-            <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
-            <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
-        <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
-
+        <form action = "{% url 'signin' %}" name = "loginForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+            <div id="container">
+                <img id="sslogo-big" name="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
+                <img id="login-text1" name="login-text1" src="{% static 'img/login-text1.png' %}">
+                <img id="bar-round" name="bar-round" src="{% static 'img/bar-round.png' %}">
+                <a href="{% url 'signup'%}"><img id="join-text2" name="join-text2" src="{% static 'img/join-text2.png' %}"></a>
+                <img id="welcome-txt" name="welcome-txt" src="{% static 'img/welcome-txt.png' %}">
+                <img id="bar-long01" name="bar-long01" src="{% static 'img/bar-long.png' %}">
+                <img id="bar-long02" name="bar-long02" src="{% static 'img/bar-long.png' %}">
+                <img id="loginbt" name="loginbt" src="{% static 'img/loginbt.png' %}" onclick = "sm()">
+                <input type="text" name="id" id="id" placeholder="ID"/>
+                <input type="password" name="pwd" id="pwd" placeholder="Password"/>
+                <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
+            
         </div>
+    </form>
     </body>
 </html>

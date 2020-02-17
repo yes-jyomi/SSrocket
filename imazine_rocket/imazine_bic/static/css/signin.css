@@ -85,4 +85,12 @@ body{
     top:1950px;
     left:620px;
     filter: drop-shadow(30px 30px 30px #e6e4e4); 
-}
+
+ } /*loginbt 위치 설쩡*/        
+
+input::-webkit-input-placeholder {
+    position: absolute;
+    color:white;
+    font-family:NotoSansCJKKR-Regular;
+    font-size:48px;
+} /*placeholder 보여지는 부분 css*/
