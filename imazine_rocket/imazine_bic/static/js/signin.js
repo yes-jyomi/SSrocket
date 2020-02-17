@@ -3,5 +3,5 @@ function gofun(){
 }
 
 function chfun(){
-    location.href="signin.html";
+    location.href="signup.html";
 }
