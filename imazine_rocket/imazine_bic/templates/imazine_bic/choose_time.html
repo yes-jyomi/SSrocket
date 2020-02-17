@@ -7,7 +7,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/choose_time.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
-        <script src="{% static 'js/choose_time.js' %}"></script> <!--reservation_2.js 링크-->
+        <script src="{% static 'js/choose_time.js' %}"></script> <!--choose_time.js 링크-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <title>reservation_3</title>
     </head>
     <body>
@@ -27,61 +28,16 @@
         {% endfor %}
         <div id="rental_p6" name="rental_p6">대</div>
 
-        <select id="r_year" name="r_year">
+        <select id="r_year" name="r_year" data-default-option="년도" data-unit="y" >
             <option value="년도">년도</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
         </select>
 
-        <select id="r_month" name="r_month" onclick=" selectDateCheck()">
+        <select id="r_month" name="r_month" data-default-option="월" data-unit="m">
             <option value="월">월</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
         </select>
 
-        <select id="r_date" name="r_date"  onclick=" selectDateCheck()">
+        <select id="r_date" name="r_date"  data-default-option="일" data-unit="d">
             <option value="일">일</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
         </select>
 
         <select id="r_btime" name="r_btime">

@@ -3,7 +3,7 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signup.js' %}"></script>
@@ -96,20 +96,21 @@
 
     <body>
         {% load static %}
-
         <form action = "{% url 'signup' %}" name = "joinForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
+                <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
+                 <!--뒤로가기 버튼 삽입-->
                 <a href="{% url 'signin'%}">
                     <img id="login-text2" name="login-text2" src="{% static 'img/login-text2.png' %}">
                 </a>
                 <img id="join-text1" src="{% static 'img/join-text1.png' %}">
-                <img id="bar-round" src="{% static 'img/bar-round.png' %}">
+                <img id="bar-round" src="{% static 'img/dot.png' %}">
                 <img id="bar-01" src="{% static 'img/bar-gray.png' %}">
                 <img id="bar-02" src="{% static 'img/bar-gray.png' %}">
                 <img id="bar-03" src="{% static 'img/bar-gray.png' %}">
                 <img id="bar-04" src="{% static 'img/bar-gray.png' %}">
-                <img id="barEmailck" src="{% static 'img/bar-recheck.png' %}">
-                <img id="joinBt"  src="{% static 'img/finishbt.png' %}" onclick = "sm()">
+                <img id="barEmailck" src="{% static 'img/bar-rck.png' %}">
+                <img id="joinBt"  src="{% static 'img/finish-bt.png' %}" onclick = "sm()">
                 <input type="text" name="name" id="name" placeholder="Name"/>
                 <input type="email" name="id" id="id" placeholder="E-mail"/>
                 <input type="password" name="pwd" id="pwd" placeholder="Password"/>
