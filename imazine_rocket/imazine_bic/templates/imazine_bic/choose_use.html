@@ -4,19 +4,17 @@
     <head>
         <meta charset="utf-8">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/choose_use.css' %}" type="text/css"> <!--choose.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/choose1_use.css' %}" type="text/css"> <!--choose.css 링크-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <script type="text/javascript"></script>
-        <script src="{% static 'js/choose_use.js' %}"></script>
+        <script src="{% static 'js/choose1_use.js' %}"></script>
         <title>choose_use</title>
     </head>
     <body>
         {% load static %}
         <div id="container">
-            <img id="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
-            <img id="who-txt" src="{% static 'img/who-txt.png' %}">
-            <img id="company-bt" src="{% static 'img/company-bt.png' %}">
-            <img id="traveler-bt" src="{% static 'img/traveler-bt.png' %}">
+            <img id="traveler" src="{% static 'img/tr-bt1.png' %}" onclick="ch01fun();">
+            <img id="company" src="{% static 'img/comp-bt1.png' %}" onclick="ch02fun();">
         </div>
     </body>
 </html>

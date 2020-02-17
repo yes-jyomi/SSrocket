@@ -4,7 +4,7 @@
 @font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
 
 body{
-    background-image: url("../img/language-bg.png");
+    background-image: url("../img/who-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
