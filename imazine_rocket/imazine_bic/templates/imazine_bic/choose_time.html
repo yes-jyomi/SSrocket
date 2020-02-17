@@ -20,7 +20,66 @@
         <div id="rental1_p3" name="rental1_p3">오가키시 어쩌구 저쩌구에 위치 <br> TEL:81+10-XXXX-XXXX</div>
         <div id="rental1_p4" name="rental_p4">남은 개수</div>
         <div id="rental1_p5" name="rental_p5">10대</div>
-        <select id="s_time" name="s_time">
+
+        <select id="r_year" name="r_year">
+            <option value="년도">년도</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select>
+
+        <select id="r_month" name="r_month" onclick=" selectDateCheck()">
+            <option value="월">월</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+
+        <select id="r_date" name="r_date"  onclick=" selectDateCheck()">
+            <option value="일">일</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+
+        <select id="r_btime" name="r_btime">
+            <option value="시간선택">시간선택</option>
             <option value="Am12:00">AM 12:00</option>
             <option value="Am1:00">AM 1:00</option>
             <option value="Am2:00">AM 2:00</option>
@@ -46,7 +105,9 @@
             <option value="Pm10:00">PM 10:00</option>
             <option value="Pm11:00">PM 11:00</option>
         </select>
-        <select id="e_time" name="e_time">
+
+        <select id="r_rtime" name="r_rtime">
+            <option value="시간선택">시간선택</option>
             <option value="Am12:00">AM 12:00</option>
             <option value="Am1:00">AM 1:00</option>
             <option value="Am2:00">AM 2:00</option>
@@ -72,6 +133,7 @@
             <option value="Pm10:00">PM 10:00</option>
             <option value="Pm11:00">PM 11:00</option>
         </select>
+
         <img id="reservation3-finish" name="reservation3-finish" src="{% static 'img/reservation3-finish.png' %}" onclick="f_fun();">
     </div>
     </body>

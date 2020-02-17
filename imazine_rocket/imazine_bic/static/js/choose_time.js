@@ -3,5 +3,5 @@ function bkfun(){
 }
 
 function f_fun(){
-    location.href="reservation_end.html";
+    location.href="choose_end.html";
 }

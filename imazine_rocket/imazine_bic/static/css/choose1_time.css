@@ -70,48 +70,104 @@ body{
     color:white;
 } /*10대 이름 위치 설정*/
 
-
-#container #s_time{
+#container #r_btime{
     appearance: none;
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/arrow.png);
+    background: url(../img/a.png);
     border:0px;
     color:rgb(146,146,146);
     position: relative;
     width:300px;
     height:80px;
-    top:1815px;
+    top:1770px;
     left:52px;
 } /*select box css*/
 
-#s_time option {
-    font-size:18px;
-}
-
-#e_time option {
-    font-size:18px;
-}
-
-#container #e_time{
+#container #r_rtime{
     appearance: none;
     -webkit-appearance:none;
     font-family:NotoSansCJKKR-Medium;
     font-size: 45px;
-    background: url(../img/arrow.png);
+    background: url(../img/a.png);
     border:0px;
     color:rgb(146, 146, 146);
     position: relative;
     width:300px;
     height:80px;
-    top:1815px;
+    top:1770px;
     left:260px;
+} /*select box css*/
+
+#container #r_year{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:50px;
+} /*select box css*/
+
+#container #r_month{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:130px;
+} /*select box css*/
+
+#container #r_date{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    background: url(../img/a.png);
+    border:0px;
+    color:rgb(146, 146, 146);
+    position: relative;
+    width:250px;
+    height:80px;
+    top:1600px;
+    left:200px;
+} /*select box css*/
+
+#r_btime option {
+    font-size:18px;
+} /*select box css*/
+
+#r_time option {
+    font-size:18px;
+} /*select box css*/
+
+#r_year option{
+    font-size:18px;
+} /*select box css*/
+
+#r_month option{
+    font-size:18px;
+} /*select box css*/
+
+#r_date option{
+    font-size:18px;
 } /*select box css*/
 
 #container #reservation3-finish{
     position:absolute;
-    top:2000px;
-    left:760px;
+    top:2050px;
+    left:730px;
 } /*완료 버튼 위치 설정*/ 
 
