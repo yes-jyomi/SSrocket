@@ -52,6 +52,7 @@ class Course(models.Model):
         managed = False
         db_table = 'course'
 
+
     def publish(self):
         self.save()
 

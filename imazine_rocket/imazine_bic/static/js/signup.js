@@ -1,0 +1,3 @@
+function sm(){
+    joinForm.submit();
+}
