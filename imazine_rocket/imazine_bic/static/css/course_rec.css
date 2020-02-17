@@ -4,21 +4,19 @@
 @font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
 
 body{
-    background-image: url("../img/who-bg.png");
+    background-image: url("../img/rsv-chk-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
 
-#container #traveler{
+#container #bluebox{
     position: absolute;
-    top:1300px;
-    left:150px;
-} /*여행자 위치 설정*/
+    top:500px;
+    left:100px;
+} /*course box*/
 
-#container #company{
+#container #rsv-course{
     position: absolute;
-    top:1300px;
-    left:600px;
-} /*업체 위치 설정*/
-
-
+    top:800px;
+    left:400px;
+} /*추천받기 bt 누르기*/

@@ -1,4 +1,17 @@
-<html>
-    <a href= "../">이전</a>
-    <a href= "{% url 'choose_shop'%}">다음</a>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/course_rec.css' %}" type="text/css"> <!--main.css 링크-->
+        <script type="text/javascript"></script>
+        <script src="{% static 'js/course_rec.js' %}"></script>
+        <title>course_loc</title>
+    </head>
+    <body>
+        <div id="container">
+            <img id="bluebox" src="{% static 'img/bluebox.png' %}">
+            <img id="rsv-course" src="{% static 'img/rsv-course' %}">
+        </div>
+    </body>
 </html>
