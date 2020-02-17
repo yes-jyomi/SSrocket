@@ -41,7 +41,7 @@ body{
     left:100px;
 } /* 이메일 입력 버튼위치 설정*/
 
-#container #id{
+#container #email{
     position: absolute;
     top:920px;
     left:170px;
@@ -62,13 +62,13 @@ body{
     filter: drop-shadow(30px 30px 30px #60d068); 
 } /* 이메일 중복확인 버튼 위치 설정*/
 
-#container #signup_pwd{
+#container #signup_pw{
     position: absolute;
     top:1350px;
     left:100px;
 } /* 비밀번호 입력 창 버튼 위치 설정*/
 
-#container #pwd{
+#container #pw{
     position: absolute;
     top:1370px;
     left:170px;
@@ -82,13 +82,13 @@ body{
     text-align: left;
 }/* 비밀번호 입력 창 위치 설정*/
 
-#container #signup_repwd{
+#container #signup_repw{
     position: absolute;
     top:1500px;
     left:100px;
 } /* 비밀번호 재입력 창 버튼 위치 설정*/
 
-#container #repwd{
+#container #repw{
     position: absolute;
     top:1520px;
     left:170px;

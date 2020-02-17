@@ -34,9 +34,9 @@ def choose_end(request):
 @csrf_exempt
 def signup(request):
     if request.method == "POST":
-        id = request.POST['id']
+        id = request.POST['email']
         name = request.POST['name']
-        pwd = request.POST['pwd']
+        pwd = request.POST['pw']
         info = int(request.POST['info'])
         user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
         return render(request, 'imazine_bic/signin.html')
@@ -64,6 +64,7 @@ def checkEmail(request):
         user = User.objects.get(id=request.GET['email'])
     except Exception as e:
         user = None
+
     result = {
         'result':'success',
         # 'data' : model_to_dict(user)  # console에서 확인
