@@ -44,6 +44,5 @@ num int not null primary key auto_increment ,
 writer varchar(20) not null,
 regdate char(14) not null,
 subject varchar(50),
-content text,
-readcnt int default 0
+content text
 );
