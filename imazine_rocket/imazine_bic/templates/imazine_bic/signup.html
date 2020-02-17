@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> be544141dd337d45ec93b31e101a4b81472490bb
 <!DOCTYPE html>
 <html lang="ko">
     <head>
         {% load static %}
         <meta charset="utf-8">
-<<<<<<< HEAD
-        <link rel="stylesheet" href="{% static 'css/signup.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signup.js' %}"></script>
@@ -16,44 +12,23 @@
     </head>
     <body>
         {% load static %}
-        <div id="container">
-            <img id="sslogo-big" name="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
-            <img id="login-text1" name="login-text1" src="{% static 'img/login-text1.png' %}">
-            <img id="bar-round" name="bar-round" src="{% static 'img/bar-round.png' %}">
-            <a href="{% url 'signup'%}"><img id="join-text2" name="join-text2" src="{% static 'img/join-text2.png' %}"></a>
-            <img id="welcome-txt" name="welcome-txt" src="{% static 'img/welcome-txt.png' %}">
-            <img id="bar-long01" name="bar-long01" src="{% static 'img/bar-long.png' %}">
-            <img id="bar-long02" name="bar-long02" src="{% static 'img/bar-long.png' %}">
-            <img id="loginbt" name="loginbt" src="{% static 'img/loginbt.png' %}" onclick="chfun()">
-            <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
-            <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
-        <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
 
+        <form action = "{% url 'signup' %}" name = "signupForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+            <div id="container">
+                <a href="{% url 'signin'%}"><img id="login-text2" name="login-text2" src="{% static 'img/login-text2.png' %}"></a>
+                <img id="join-text1" src="{% static 'img/join-text1.png' %}">
+                <img id="bar-round" src="{% static 'img/bar-round.png' %}">
+                <img id="bar-01" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-02" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-03" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-04" src="{% static 'img/bar-gray.png' %}">
+                <img id="bar-recheck" src="{% static 'img/bar-recheck.png' %}">
+                <img id="finishbt"  src="{% static 'img/finishbt.png' %}" onclick = "sm()">
+                <input type="text" name="join_name" id="join_name" placeholder="Name" onFocus="clearText(this)"/>
+                <input type="email" name="join_id" id="join_id" placeholder="E-mail" onFocus="clearText(this)"/>
+                <input type="password" name="join_pwd" id="join_pwd" placeholder="Password" onFocus="clearText(this)"/>
+                <input type="password" name="join_pwdck" id="join_pwdck" placeholder="Password Re-Enter" onFocus="clearText(this)"/>   
         </div>
+    </form>
     </body>
 </html>
-=======
-        <link rel="stylesheet" href="{% static 'css/signup1.css' %}" type="text/css"> <!--signup.css 링크-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script type="text/javascript"></script>
-        <script src="{% static 'js/signin.js' %}"></script> <!--signup.js 링크-->
-        <title>signup</title>
-    </head>
-
-    <script>
-        /* 중복체크! */
-        $(function(){
-            /* 아이디 수정했을 때 */
-            $('#email').change(function () {
-                $('#signup_reemail').show();
-            });
-    
-            // 중복확인 버튼을 눌렀을 때
-            $('#signup_reemail').click(function(){
-                console.log("버튼 눌림");
-                var email = $('#email').val();
-                // 이메일 란이 공백일 경우
-                if(email == ''){
-                    alert('이메일을 입력해주세요.');
-                  
-                    
