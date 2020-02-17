@@ -1,3 +1,44 @@
+CREATE TABLE user (
+	id VARCHAR(20) PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	pwd VARCHAR(20) NOT NULL,
+	info INT(2) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE history (
+	history_num INT PRIMARY KEY AUTO_INCREMENT,
+	company_num INT NOT NULL,
+	member_id VARCHAR(20) NOT NULL,
+	r_btime DATETIME NOT NULL,
+	btime DATETIME NOT NULL,
+	r_rtime DATETIME NOT NULL,
+	rtime DATETIME NOT NULL,
+	reserved_At DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE course (
+	c_num INT PRIMARY KEY AUTO_INCREMENT,
+	c_name VARCHAR(20) NOT NULL,
+	c_info VARCHAR(10000) NOT NULL,
+	c_loc VARCHAR(20) NOT NULL,
+	c_theme VARCHAR(20),
+	c_time INT(8)
+);
+
+CREATE TABLE company (
+	company_num INT PRIMARY KEY AUTO_INCREMENT,
+	member_id VARCHAR(20) NOT NULL,
+	member_name VARCHAR(20) NOT NULL,
+	company_addr VARCHAR(50) NOT NULL,
+	company_loc VARCHAR(20) NOT NULL,
+	company_phone VARCHAR(20) NOT NULL,
+	company_info VARCHAR(50) NOT NULL,
+	bicycle_num INT(12) NOT NULL,
+	rent_num INT(12) NOT NULL,
+	s_business DATETIME NOT NULL,
+	e_business DATETIME NOT NULL
+);
+
 CREATE TABLE notice_board (
 num int not null primary key auto_increment ,
 writer varchar(20) not null,
