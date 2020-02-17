@@ -12,6 +12,7 @@
     </head>
     <body>
         {% load static %}
+        
         <form action = "{% url 'signin' %}" name = "loginForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
                 <img id="sslogo-big" name="sslogo-big" src="{% static 'img/sslogo-big.png' %}">
