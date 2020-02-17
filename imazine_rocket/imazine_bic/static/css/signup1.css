@@ -68,7 +68,7 @@ body{
     left:100px;
 } /* 비밀번호 입력 창 버튼 위치 설정*/
 
-#container #pw{
+#container #pwd{
     position: absolute;
     top:1370px;
     left:170px;
