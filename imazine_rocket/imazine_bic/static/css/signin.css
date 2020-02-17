@@ -40,7 +40,11 @@ body{
     left:100px;
 } /*반갑습니다! txt 삽입*/
 
+<<<<<<< HEAD
 #container #login_id{
+=======
+#container #id{
+>>>>>>> 17a49be66bc932c84bec3098e3fb8653defa3df7
     position: absolute;
     top:1450px;
     left:130px;
@@ -54,7 +58,11 @@ body{
     text-align: left;
 } /*user_id 입력 창*/
 
+<<<<<<< HEAD
 #container #login_pwd{
+=======
+#container #pwd{
+>>>>>>> 17a49be66bc932c84bec3098e3fb8653defa3df7
     position: absolute;
     top:1650px;
     left:130px;
@@ -90,7 +98,7 @@ body{
 
 input::-webkit-input-placeholder {
     position: absolute;
-    color:rgb(170, 165, 165);
+    color:rgb(138, 133, 133);
     font-family:NotoSansCJKKR-Regular;
     font-size:48px;
 } /*placeholder 보여지는 부분 css*/

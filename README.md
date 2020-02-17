@@ -2,18 +2,33 @@
 일본 기후 자전거 대여 예약 웹앱
 
 ## 변수 설정
-### MEMBER
-* db_user_id : DB에 있는 유저 아이디 (가입 시 아이디 중복확인, 로그인 시 필요)
-* db_user_pwd : DB에 있는 유저 비밀번호 (로그인)
-* db_user_name : DB에 있는 유저 이름 (예약 시 필요)
-* db_user_info : DB에 있는 유저인지 회사인지 나타내는 것 (예약 시 유저인지 확인함)
-* join_user_info : 가입 시 유저인지 회사인지 선택 (이후 DB에 넣음)
-* join_id : 가입 시 입력한 아이디
-* join_pwd : 가입 시 입력한 비밀번호
-* join_pwdck : 가입 시 확인용 비밀번호 (Javascript 로 맞는지 확인)
-* join_name : 가입 시 입력한 이름
-* login_id : 로그인 시 입력한 이름
-* login_pwd : 로그인 시 입력한 비밀번호
+### SIGN UP (회원가입)
+* user_info : 유저인지 회사인지 선택
+
+* joinForm : 회원가입 폼 아이디
+* id : 아이디 (이메일)
+* pwd : 비밀번호
+* pwdck : 확인용 비밀번호
+* name : 이름
+* joinBt : 가입 버튼
+
+* logo : 상단 로고
+* barName : 이름 박스
+* barEmail : 이메일 박스
+* barEmailck : 이메일 중복확인 박스
+* barPwd : 비밀번호 박스
+* barPwdck : 비밀번호 재확인 박스
+----- -----
+### LOGIN
+* loginForm : 로그인 폼 이름
+* id : 아이디 (이메일)
+* pwd : 비밀번호
+* loginBt : 로그인 버튼
+* logo : 상단 로고
+* loginText : 로그인 글씨
+* joinText : 회원가입 글씨
+* underBar : 글씨 아래에 있는 바
+* welcomeText : 환영합니다 글씨
 ----- -----
 ### RESERVATION
 * db_user_id : DB에 있는 유저 아이디 (예약 시 필요)
