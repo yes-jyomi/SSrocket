@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        {% load mathfilters %}
+
         {% load static %}
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/choose1_time.css' %}" type="text/css"> <!--reservation_3.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/choose_time.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/choose_time.js' %}"></script> <!--reservation_2.js 링크-->
         <title>reservation_3</title>
@@ -15,11 +17,15 @@
         <!--뒤로가기 버튼 삽입-->
         <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
         <!--홈 버튼 삽입-->
-        <div id="rental1_p1" name="rental1_p1">상상로켓</div>
-        <div id="rental1_p2" name="rental1_p2">자전거 대여소</div>
-        <div id="rental1_p3" name="rental1_p3">오가키시 어쩌구 저쩌구에 위치 <br> TEL:81+10-XXXX-XXXX</div>
-        <div id="rental1_p4" name="rental_p4">남은 개수</div>
-        <div id="rental1_p5" name="rental_p5">10대</div>
+        {% for company in companys %}
+        <div id="rental_p1" name="rental_p1">{{company.member_name}}</div>
+        <div id="rental_p2" name="rental_p2">자전거 대여소</div>
+        <div id="rental_p3" name="rental_p3">{{company.company_addr}} 
+            <br> TEL : {{company.company_phone}}</div>
+        <div id="rental_p4" name="rental_p4">남은 개수</div>
+        <div id="rental_p5" name="rental_p5">{{company.bicycle_num|sub:company.rent_num}}</div>
+        {% endfor %}
+        <div id="rental_p6" name="rental_p6">대</div>
 
         <select id="r_year" name="r_year">
             <option value="년도">년도</option>

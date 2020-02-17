@@ -24,7 +24,7 @@ body{
     left:940px;
 } /*home 버튼 위치 설정*/
 
-#container #rental1_p1{
+#container #rental_p1{
     font-family: NotoSansCJKKR-Black;
     position: absolute;
     top:700px;
@@ -33,7 +33,7 @@ body{
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
-#container #rental1_p2{
+#container #rental_p2{
     font-family: NotoSansCJKKR-Black;
     position: absolute;
     top:850px;
@@ -42,7 +42,7 @@ body{
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
-#container #rental1_p3{
+#container #rental_p3{
     font-family: NotoSansCJKKR-Regular;
     position: absolute;
     top:1000px;
@@ -51,7 +51,7 @@ body{
     color:white;
 } /*자전거 대여소 위치/ 전화번호 위치 설정*/
 
-#container #rental1_p4{
+#container #rental_p4{
     font-family: NotoSansCJKKR-Medium;
     position: absolute;
     top:730px;
@@ -61,11 +61,20 @@ body{
 } /*남은개수 위치 설정*/
 
 
-#container #rental1_p5{
+#container #rental_p5{
     font-family: NotoSansCJKKR-Medium;
     position: absolute;
     top:800px;
-    left:760px;
+    left:720px;
+    font-size:120px;
+    color:white;
+} /* 자전거 수 위치 설정*/
+
+#container #rental_p6{
+    font-family: NotoSansCJKKR-Medium;
+    position: absolute;
+    top:800px;
+    left:880px;
     font-size:120px;
     color:white;
 } /*10대 이름 위치 설정*/

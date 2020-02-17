@@ -21,12 +21,13 @@ def choose_loc(request):
 
 def choose_shop(request):
     # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'oogaki')
+    companys = Company.objects.filter(company_loc = 'ogaki')
     count = 0
     return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
 
 def choose_time(request):
-    return render(request, 'imazine_bic/choose_time.html')
+    companys = Company.objects.filter(company_num = 1)
+    return render(request, 'imazine_bic/choose_time.html', {'companys':companys})
 
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
