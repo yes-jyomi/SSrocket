@@ -7,16 +7,15 @@
         <link rel="stylesheet" href="{% static 'css/choose_lan.css' %}" type="text/css"> <!--choose.css 링크-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <script type="text/javascript"></script>
-        <script src="{% static 'js/choose_lan.js' %}"></script>
+        <script src="{% static 'js/choose1_lan.js' %}"></script>
         <title>choose_lan</title>
     </head>
     <body>
         {% load static %}
-        <div id="container" class="animated fadeInRight delay-0s">
-            <img id="korean" src="{% static 'img/traveler.png' %}">
-            <img id="japan" src="{% static 'img/traveler.png' %}">
-            <img id="eng"  src="{% static 'img/traveler.png' %}">
-            <a href="{% url 'signin'%}"><img id="bar-next" name="bar-next" src="{% static 'img/bar-next.png' %}"></a>
+        <div id="container">
+        <img id="kr-bt1" src="{% static 'img/kr-bt1.png' %}" onclick="ch01fun();">
+        <img id="jp-bt1" src="{% static 'img/jp-bt1.png' %}" onclick="ch02fun();">
+        <img id="eg-bt1" src="{% static 'img/eg-bt1.png' %}" onclick="ch03fun()";>
         </div>
     </body>
 </html>

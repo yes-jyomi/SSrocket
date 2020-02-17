@@ -18,11 +18,12 @@
         <!--뒤로가기 버튼 삽입-->
         <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
         <!--홈 버튼 삽입-->
+        
         {% for company in companys %}
         <div id="rental_p1" name="rental_p1">{{company.member_name}}</div>
         <div id="rental_p2" name="rental_p2">자전거 대여소</div>
         <div id="rental_p3" name="rental_p3">{{company.company_addr}} 
-            <br> TEL : {{company.company_phone}}</div>
+        <br> TEL : {{company.company_phone}}</div>
         <div id="rental_p4" name="rental_p4">남은 개수</div>
         <div id="rental_p5" name="rental_p5">{{company.bicycle_num|sub:company.rent_num}}</div>
         {% endfor %}
