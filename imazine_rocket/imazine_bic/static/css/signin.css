@@ -90,7 +90,7 @@ body{
 
 input::-webkit-input-placeholder {
     position: absolute;
-    color:white;
+    color:rgb(170, 165, 165);
     font-family:NotoSansCJKKR-Regular;
     font-size:48px;
 } /*placeholder 보여지는 부분 css*/

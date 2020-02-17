@@ -8,11 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
         <script src="{% static 'js/signin.js' %}"></script>
-<<<<<<< HEAD
-        <title>signup</title>
-=======
         <title>signin</title>
->>>>>>> be544141dd337d45ec93b31e101a4b81472490bb
     </head>
     <body>
         {% load static %}
@@ -26,9 +22,8 @@
                 <img id="bar-long01" name="bar-long01" src="{% static 'img/bar-long.png' %}">
                 <img id="bar-long02" name="bar-long02" src="{% static 'img/bar-long.png' %}">
                 <img id="loginbt" name="loginbt" src="{% static 'img/loginbt.png' %}" onclick = "sm()">
-                <input type="text" name="id" id="id" placeholder="ID"/>
-                <input type="password" name="pwd" id="pwd" placeholder="Password"/>
-                <img id="signup_logo" name="signup_logo" src="{% static 'img/logotype.png' %}"> <!--회원가입 로고 삽입-->
+                <input type="text" name="user_id" id="user_id" placeholder="ID" onFocus="clearText(this)"/>
+                <input type="password" name="user_pw" id="user_pw" placeholder="Password" onFocus="clearText(this)"/>
             
         </div>
     </form>
