@@ -5,7 +5,7 @@
 
 
 body{
-    background-image: url("../img/main-compy-bg.png");
+    background-image: url("../img/main-compy-size-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
@@ -15,7 +15,7 @@ body{
     position: absolute;
     top:700px;
     left:70px;
-    width:150px;
+    width:600px;
     font-size:120px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,7 +51,7 @@ body{
     position: relative;
     top:550px;
     left:100px;
-}
+} 
 
 #container #main-setting{
     position: absolute;

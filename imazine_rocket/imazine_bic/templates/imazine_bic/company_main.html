@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         {% load static %}
         {% if count == 2 %}<script>location.href="{% url 'company_main' %}"</script>{% endif %}
-        <link rel="stylesheet" href="{% static 'css/company_main.css' %}" type="text/css"> <!--main.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/main_company.css' %}" type="text/css"> <!--main.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/company_main.js' %}"></script>
         <title>course_loc</title>
@@ -12,7 +12,7 @@
     <body>
         {% load i18n %}
         <form action = "{% url 'company_main' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
-            <div id="container">=
+            <div id="container">
                 <div id="member_name" name="member_name">남하빈빈</div>
                 <div id="nim" name="nim">{% trans "님," %}</div>
                 <div id="welcome" name="welcome">{% trans "반갑습니다!" %}</div>
