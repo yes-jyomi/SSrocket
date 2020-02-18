@@ -52,6 +52,11 @@ CREATE TABLE counsel (
 	member_id VARCHAR(20) NOT NULL,
 	subject VARCHAR(50) NOT NULL,
 	content VARCHAR(1000) NOT NULL,
-	refer_admin VARCHAR(1000) NOT NULL,
 	category INT(2) NOT NULL
+);
+
+CREATE TABLE refer (
+	counsel_num INT PRIMARY KEY,
+	content VARCHAR(1000) NOT NULL,
+	refer_admin VARCHAR(50) NOT NULL
 );
