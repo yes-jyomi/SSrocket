@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@font-face { font-family: 'NotoSansCJKKR-Black'; src: url("../font/NotoSansCJKkr-Black.otf") } 
+@font-face { font-family: 'NotoSansCJKKR-Regular'; src: url("../font/NotoSansCJKkr-Regular.otf") } 
+@font-face { font-family: 'NotoSansCJKKR-Bold'; src: url("../font/NotoSansCJKkr-Bold.otf")}
+@font-face { font-family: 'NotoSansCJKKR-Medium'; src: url("../font/NotoSansCJKkr-Medium.otf")}
+
+body{
+    background-image: url("../img/out-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+} /*bg img 설정*/
+
+#container #yes-bt{
+    position: absolute;
+    top:500px;
+    left:100px;
+} /*예 버튼 위치 설정*/
+
+#container #no-bt{
+    position: absolute;
+    top:500px;
+    left:300px;
+} /*아니요 버튼 위치 설정*/
+
+
