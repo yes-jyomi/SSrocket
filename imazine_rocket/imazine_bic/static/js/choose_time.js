@@ -3,7 +3,7 @@ function bkfun(){
 }
 
 function f_fun(){
-    location.href="choose_end.html";
+    timeForm.submit();
 }
 
 window.onload = function() {
