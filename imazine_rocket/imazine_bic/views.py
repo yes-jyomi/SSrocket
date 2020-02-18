@@ -21,9 +21,17 @@ def choose_lan(request):
     if request.method == "POST":
         lan = request.POST['lan']
         print(lan)
-
-        msg = _('안녕하세요')
-        return HttpResponse(msg)
+        if lan == 'ko' or lan == 'en' or lan == 'jp':
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate(lan)
+            request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
+        else:
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate('en')
+            request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
+    
 
         # if lan == "kor":
         #     pass

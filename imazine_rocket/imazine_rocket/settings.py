@@ -36,12 +36,12 @@ ALLOWED_HOSTS = ['127.0.0.1','localhost', '.pythonanywhere.com']
 LANGUAGES = [
     ('ko', _('Korean')),
     ('en', _('English')),
-    ('jp', _('日本語')),
+    ('jp', _('Japanese'))
 ]
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
-]
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Application definition
 
