@@ -11,5 +11,5 @@ function sm(){
 }
 
 function bkfun(){
-    history.back();
+    location.href = "/";
 }

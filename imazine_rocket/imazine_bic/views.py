@@ -24,12 +24,15 @@ def translate(request, lan):
 def index(request):
     lan = request.COOKIES.get('lan')
     translate(request, lan)
-
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
-    response = render(request, 'imazine_bic/main.html', {'users':users})
-    response.set_cookie('id',id)
-    return response
+    for user in users :
+        user_info = user.user_info
+    if user_info == "0":
+        response = render(request, 'imazine_bic/main.html', {'users':users,"count":1})
+        response.set_cookie('id',id)
+        return response
+    return render(request, 'imazine_bic/company_main.html',{'users':users,"count":1})
 
 @csrf_exempt
 def choose_lan(request):
@@ -96,10 +99,10 @@ def choose_end(request):
 @csrf_exempt
 def signup(request):
     user_info =request.COOKIES.get('user_info')
+    print(user_info)
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
         translate(request, lan)
-
         id = request.POST['id']
         name = request.POST['name']
         pwd = request.POST['pwd']
@@ -118,16 +121,17 @@ def signin(request):
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
         translate(request, lan)
-
         id = request.POST['id']
         pwd = request.POST['pwd']
         users = User.objects.filter(id = id)
         if users is not None:
             for user in users:
                 if id == user.id and pwd == user.pwd:
-                    response = render(request, 'imazine_bic/main.html',{"okay":1})
+                    if user.info == "0":
+                        response = render(request, 'imazine_bic/main.html',{"okay":1,"users":users})
+                    else:
+                        response = render(request,'imazine_bic/company_main.html',{"count":2,"users":users})
                     response.set_cookie('id',id)
-                    print("okay")
                     return response
         return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
     else:
@@ -148,7 +152,12 @@ def checkEmail(request):
 
 
 def choose_use(request):
-    return render(request, 'imazine_bic/choose_use.html')
+    if request.method == "POST":
+        user_info = request.POST['user_info']
+        response = render(requset, 'imazine_bic/choose_use.html')
+        response.set_cookie("user_info",user_info)
+        return response
+    return render(request, 'imazine_bic/choose_use.html',{"count":1})
 
 def notice(request):
     notices = Notice.objects.all().order_by('num')
@@ -243,17 +252,25 @@ def choose_use(request):
 
 @csrf_exempt
 def signup_company(request):
-    # user_info =request.COOKIES.get('user_info')
-    # if request.method == "POST":
-    #     id = request.POST['id']
-    #     name = request.POST['name']
-    #     pwd = request.POST['pwd']
-    #     user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
-    #     if user_info == "0":
-    #         return render(request, 'imazine_bic/signin.html')
-    #     response = render(request, 'imazine_bic/signup2_company.html',{"count":1})
-    #     response.set_cookie('id',id)
-    #     return reponse
-    # if  user_info == "0":
-    #     return render(request, 'imazine_bic/signup.html')
+    user_info =request.COOKIES.get('user_info')
+    id = request.COOKIES.get('id')
+    users = User.objects.filter(id = id)
+    for user in users:
+        name = user.name
+    if request.method == "POST":
+        company_addr = request.POST['company_addr']
+        company_loc = request.POST['company_loc']
+        company_phone = request.POST['company_phone']
+        bicycle_num = request.POST['bicycle_num']
+        s_business = request.POST['s_business']
+        e_business = request.POST['e_business']
+        company_info = request.POST['company_info']
+        company = Company.objects.create(member_name = name, company_addr = company_addr,company_phone=company_phone,bicycle_num=bicycle_num,member_id=id, s_business=s_business,e_business=e_business,company_info=company_info,company_loc=company_loc,rent_num=0)
+        response = render(request, 'imazine_bic/signin.html',{"count":1})
+        response.delete_cookie('id')
+        return response
     return render(request, 'imazine_bic/signup2_company.html')
+
+
+def company_main(request):
+    return render(request, 'imazine_bic/company_main.html',{"count":1})
