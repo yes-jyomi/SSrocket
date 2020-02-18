@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.utils.translation import ugettext_lazy as _
 from django.utils import translation
+import datetime
 
 
 # 번역 함수
@@ -38,7 +39,7 @@ def choose_lan(request):
         
         id = request.COOKIES.get('id') 
         count = 1
-        response = render(request, 'imazine_bic/signin.html',{"count":count})
+        response = render(request, 'imazine_bic/choose_use.html',{"count":count})
         response.set_cookie('id',id)
         response.set_cookie('lan',lan)
         return response
@@ -61,13 +62,11 @@ def choose_shop(request):
     company_loc = request.COOKIES.get('company_loc') 
     companys = Company.objects.filter(company_loc = company_loc)
     if request.method == "POST":
-        id = request.COOKIES.get('id') 
-        response = render(request, 'imazine_bic/choise_time.html',{"companys":companys})
+        return render(request, 'imazine_bic/choise_time.html',{"companys":companys})
     return render(request, 'imazine_bic/choose_shop.html',{"companys":companys})
 
 @csrf_exempt#,{"count":count}
 def choose_time(request):
-    print(request.COOKIES)
     id = request.COOKIES.get('id') 
     company_loc=request.COOKIES.get('company_loc')
     company_num=request.COOKIES.get('company_num')
@@ -81,10 +80,11 @@ def choose_time(request):
         r_r = request.POST['r_rtime']
         r_btime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_b)#datetime formatting
         r_rtime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_r)
+        btime = "1970-01-02 00:00:00"
+        rtime = "1970-01-02 00:00:00"
         #db insert
-        history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now())
-        response = render(request, 'imazine_bic/reservation_check.html',{"history":history})
-        companys = Company.objects.filter(company_num=company_num)
+        history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now(), btime =btime, rtime = rtime)
+        response = render(request, 'imazine_bic/choose_time.html',{"count":2,"history_num":history.history_num})
         for company in companys:
             Company.objects.update(rent_num=company.rent_num+1)
         return response
@@ -95,6 +95,7 @@ def choose_end(request):
 
 @csrf_exempt
 def signup(request):
+    user_info =request.COOKIES.get('user_info')
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
         translate(request, lan)
@@ -102,10 +103,15 @@ def signup(request):
         id = request.POST['id']
         name = request.POST['name']
         pwd = request.POST['pwd']
-        info = request.POST['info']
-        user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
-        return render(request, 'imazine_bic/signin.html')
-    return render(request, 'imazine_bic/signup.html')
+        user = User.objects.create(id = id, name = name, pwd = pwd, info = user_info)
+        if user_info == "0":
+            return render(request, 'imazine_bic/signin.html')
+        response = render(request, 'imazine_bic/signup2_company.html',{"count":1})
+        response.set_cookie('id',id)
+        return response
+    if  user_info == "0":
+        return render(request, 'imazine_bic/signup.html')
+    return render(request, 'imazine_bic/signup_company.html')
  
 @csrf_exempt
 def signin(request):
@@ -157,7 +163,8 @@ def shop_detail(request, pk):
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/choose_time.html', {'shop': shop})
     response.set_cookie('company_num',pk)
-    if request.method == "GET":
+    print(pk)
+    if request.method == "POST":
         return response
     return render(request, 'imazine_bic/shop_detail.html', {'shop': shop,'count':1, 'users':users})
 
@@ -182,16 +189,18 @@ def setUrl(request, setUrl):
         ren = render(request, 'imazine_bic/setting_counsel.html')
     return ren
 
+@csrf_exempt
 def counsel(request):
     id = request.COOKIES.get('id')
-    counsels = Counsel.objects.filter(v = id)
+    counsels = Counsel.objects.filter(member_id = id)
     if request.method == "POST":
         category = request.POST['category']
         response = render(request, 'imazine_bic/setting_write.html')
         response.set_cookie("category",category)
         return response
-    return request(request, 'imazine_bic/setting_counsel.html',{"counsels":counsels,"count":1})
+    return render(request, 'imazine_bic/setting_counsel.html',{"counsels":counsels,"count":1})
 
+@csrf_exempt
 def write(request):
     if request.method == "POST":
         category = request.COOKIES.get('category')
@@ -201,7 +210,50 @@ def write(request):
         counsel = Counsel.objects.create(member_id = id, subject = subject, content = content, regdate = datetime.datetime.now(), category = category)
         response = render(request, 'imazine_bic/setting_write.html',{"count":2})
         return response
-    return request(request, 'imazine_bic/setting_write.html',{"count":1})
+    return render(request, 'imazine_bic/setting_write.html',{"count":1})
 
 def map(request):
     return render(request, 'imazine_bic/map.html')
+
+@csrf_exempt
+def check_list(request):
+    id = request.COOKIES.get('id')
+    historys = History.objects.filter(member_id = id)
+    return render(request, 'imazine_bic/read.html')
+
+@csrf_exempt
+def check_reservation(request, pk):
+    id = request.COOKIES.get('id')
+    history = get_object_or_404(History, history_num=pk)
+    if history.member_id == id:
+        companys = Company.objects.filter(company_num = history.company_num)
+        for company in companys:
+            return render(request, 'imazine_bic/reservation_check.html',{"history":history,"company":company})
+    return HttpResponse("<html><script>alert('잘못된 경로입니다.');location.href='index';</script></html>")
+
+
+def choose_use(request):
+    if request.method == "POST":
+        user_info = request.POST['user_info']
+        response = render(request, 'imazine_bic/signin.html',{"count":1})
+        response.set_cookie('user_info',user_info)
+        return response
+    return render(request, 'imazine_bic/choose_use.html',{"count":1})
+
+
+@csrf_exempt
+def signup_company(request):
+    # user_info =request.COOKIES.get('user_info')
+    # if request.method == "POST":
+    #     id = request.POST['id']
+    #     name = request.POST['name']
+    #     pwd = request.POST['pwd']
+    #     user = User.objects.create(id = id, name = name, pwd = pwd, info = info)
+    #     if user_info == "0":
+    #         return render(request, 'imazine_bic/signin.html')
+    #     response = render(request, 'imazine_bic/signup2_company.html',{"count":1})
+    #     response.set_cookie('id',id)
+    #     return reponse
+    # if  user_info == "0":
+    #     return render(request, 'imazine_bic/signup.html')
+    return render(request, 'imazine_bic/signup2_company.html')

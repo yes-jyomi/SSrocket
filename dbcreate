@@ -34,7 +34,7 @@ CREATE TABLE company (
 	company_phone VARCHAR(20) NOT NULL,
 	company_info VARCHAR(50) NOT NULL,
 	bicycle_num INT(12) NOT NULL,
-	rent_num INT(12) NOT NULL,
+	rent_num INT(12) NOT NULL DEFAULT 0,
 	s_business DATETIME NOT NULL,
 	e_business DATETIME NOT NULL
 );
