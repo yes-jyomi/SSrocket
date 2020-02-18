@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import pymysql
+from django.utils.translation import ugettext_lazy as _
+
+
 pymysql.version_info = (1, 3, 13, "final", 0)
 pymysql.install_as_MySQLdb()
 
@@ -30,6 +33,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost', '.pythonanywhere.com']
 
+LANGUAGES = [
+    ('ko', _('Korean')),
+    ('en', _('English')),
+    ('jp', _('Japanese'))
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Application definition
 
@@ -47,6 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -90,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ssrocket', # DB명
         'USER': 'root', # 데이터베이스 계정
-        'PASSWORD': 'mirim2', # 계정 비밀번호
+        'PASSWORD': 'yun1109114', # 계정 비밀번호
         'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
@@ -128,7 +141,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'ko'
+LANGUAGE_CODE = 'ko-KR'
 
 TIME_ZONE = 'Asia/Seoul'
 

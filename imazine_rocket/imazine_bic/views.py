@@ -1,14 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.http import HttpResponse, HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt,csrf_protect 
+from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
 
 
 # Create your views here.
 def index(request):
     print("index")
     id = request.COOKIES.get('id') 
-    print(id,"엥")
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/main.html', {'users':users})
     response.set_cookie('id',id)
@@ -19,48 +20,72 @@ def choose_lan(request):
     if request.method == "POST":
         lan = request.POST['lan']
         print(lan)
+        if lan == 'ko' or lan == 'en' or lan == 'jp':
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate(lan)
+            request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
+        else:
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate('en')
+            request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
+
         # if lan == "kor":
         #     pass
         #여기에 번역하기 api 사용
         id = request.COOKIES.get('id') 
         count = 1
-        response = render(request, 'imazine_bic/choose_loc.html',{"count":count})
+        response = render(request, 'imazine_bic/signin.html',{"count":count})
         response.set_cookie('id',id)
         return response
     return render(request, 'imazine_bic/choose_lan.html')
 
 @csrf_exempt
 def choose_loc(request):
+    id = request.COOKIES.get('id') 
+    users = User.objects.filter(id = id)
     if request.method == "POST":
         count = 1
         response = render(request, 'imazine_bic/choose_shop.html',{"count":count})
-        id = request.COOKIES.get('id') 
         response.set_cookie('company_loc',request.POST['company_loc'])
         response.set_cookie('id',id)
         return response
-    return render(request, 'imazine_bic/choose_loc.html')
+    return render(request, 'imazine_bic/choose_loc.html',{"users":users})
 
-@csrf_exempt
+@csrf_exempt#,{"count":count}
 def choose_shop(request):
-    # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'Seoul')
-    count = 0
-    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
-
     company_loc = request.COOKIES.get('company_loc') 
     companys = Company.objects.filter(company_loc = company_loc)
     if request.method == "POST":
         id = request.COOKIES.get('id') 
         response = render(request, 'imazine_bic/choise_time.html',{"companys":companys})
-        response.set_cookie('company_loc',request.POST['company_loc'])
-        response.set_cookie('id',id)
-        print(company)
-        return render(request, 'imazine_bic/choose_time.html')
     return render(request, 'imazine_bic/choose_shop.html',{"companys":companys})
 
+@csrf_exempt#,{"count":count}
 def choose_time(request):
-    companys = Company.objects.filter(company_num = 1)
-    return render(request, 'imazine_bic/choose_time.html', {'companys':companys})
+    print(request.COOKIES)
+    id = request.COOKIES.get('id') 
+    company_loc=request.COOKIES.get('company_loc')
+    company_num=request.COOKIES.get('company_num')
+    companys = Company.objects.filter(company_num = company_num)
+    print(company_num)
+    if request.method == "POST":
+        r_year = request.POST['r_year']
+        r_month = request.POST['r_month']
+        r_date = request.POST['r_date']
+        r_b = request.POST['r_btime']
+        r_r = request.POST['r_rtime']
+        r_btime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_b)#datetime formatting
+        r_rtime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_r)
+        #db insert
+        history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now())
+        response = render(request, 'imazine_bic/reservation_check.html',{"history":history})
+        companys = Company.objects.filter(company_num=company_num)
+        for company in companys:
+            Company.objects.update(rent_num=company.rent_num+1)
+        return response
+    return render(request, 'imazine_bic/choose_time.html',{"companys":companys})
 
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
@@ -116,6 +141,35 @@ def notice(request):
         print(notice.subject)
     return render(request, 'imazine_bic/notice.html', {'notices':notices})
 
+@csrf_exempt
 def shop_detail(request, pk):
     shop = get_object_or_404(Company, pk=pk)
-    return render(request, 'imazine_bic/shop_detail.html', {'shop': shop})
+    id = request.COOKIES.get('id') 
+    users = User.objects.filter(id = id)
+    response = render(request, 'imazine_bic/choose_time.html', {'shop': shop})
+    response.set_cookie('company_num',pk)
+    if request.method == "GET":
+        return response
+    return render(request, 'imazine_bic/shop_detail.html', {'shop': shop,'count':1, 'users':users})
+
+def notice_detail(request, pk):
+    notice = get_object_or_404(Notice, pk=pk)
+    return render(request, 'imazine_bic/notice_detail.html', {'notice': notice})
+
+@csrf_exempt
+def setting(request):
+    if request.method == "POST":
+        return render(request, 'imazine_bic/setting/'+request.setUrl+".html")
+    return render(request, 'imazine_bic/setting.html')
+
+def setUrl(request, setUrl):
+    if setUrl == "" :
+        ren = render(request, 'imazine_bic/setting.html')
+    elif setUrl == "modify":
+        ren = render(request, 'imazine_bic/setting_modify.html')
+    elif setUrl == "secession":
+        ren = render(request, 'imazine_bic/setting_secession.html')
+    elif setUrl == "counsel":
+        ren = render(request, 'imazine_bic/setting_counsel.html')
+    return ren
+

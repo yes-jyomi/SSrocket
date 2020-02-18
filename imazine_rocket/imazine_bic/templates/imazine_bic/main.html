@@ -14,7 +14,7 @@
         {% endif %}
         {% load static %}
         <div id="container">
-        <img id="main-setting" name="main-setting" src="{% static 'img/main-setting.png' %}"> <!--설정버튼 삽입-->
+        <img id="main-setting" name="main-setting" src="{% static 'img/main-setting.png' %}" onclick="location.href='index/setting'"> <!--설정버튼 삽입-->
         {% for user in users %}
         <div id="name" name="name">{{user.name}}</div>
         {% endfor %}

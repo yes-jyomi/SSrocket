@@ -1,5 +1,10 @@
 <html>
     <body>
+        
         {{shop.member_name}}, {{shop.company_addr}}, {{shop.company_phone}}
+        <form action = "{% url 'choose_time' %}" name = "shopForm" method = "GET" accept-charset="UTF-8"> {% csrf_token %}
+            <input type = hidden name = shop name = shop value = {{notice.num}}>
+            <input type = submit value = "이 대여소 선택하기">
+        </form>
     </body>
 </html>
