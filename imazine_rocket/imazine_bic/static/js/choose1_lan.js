@@ -1,7 +1,7 @@
 function ch01fun(){
     var img=document.getElementById("kr-bt1");
     img.src= "../../static/img/kr-bt2.png";
-    document.getElementById("lan").value = "kor"
+    document.getElementById("lan").value = "ko"
     lanForm.submit();
 }
 
@@ -15,6 +15,6 @@ function ch02fun(){
 function ch03fun(){
     var img=document.getElementById("eg-bt1");
     img.src= "../../static/img/eg-bt2.png";
-    document.getElementById("lan").value = "eng"
+    document.getElementById("lan").value = "en"
     lanForm.submit();
 }

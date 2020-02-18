@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.http import HttpResponse, HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt,csrf_protect 
-import datetime
+from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
+
 
 # Create your views here.
 def index(request):
@@ -18,12 +20,23 @@ def choose_lan(request):
     if request.method == "POST":
         lan = request.POST['lan']
         print(lan)
+        if lan == 'ko' or lan == 'en' or lan == 'jp':
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate(lan)
+            request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
+        else:
+            if translation.LANGUAGE_SESSION_KEY in request.session:
+                del(request.session[translation.LANGUAGE_SESSION_KEY])
+            translation.activate('en')
+            request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
+
         # if lan == "kor":
         #     pass
         #여기에 번역하기 api 사용
         id = request.COOKIES.get('id') 
         count = 1
-        response = render(request, 'imazine_bic/signin.html')
+        response = render(request, 'imazine_bic/signin.html',{"count":count})
         response.set_cookie('id',id)
         return response
     return render(request, 'imazine_bic/choose_lan.html')
