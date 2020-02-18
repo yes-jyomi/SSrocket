@@ -10,6 +10,10 @@
     </head>
     <body>
         <div id="container">
+            <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
+            <!--뒤로가기 버튼 삽입-->
+            <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
+            <!--홈 버튼 삽입-->
             {{company}}
             <div id="history_place" name="history_place">{{company.member_name}}</div>
             <div id="r_btime" name="r_btime">{{history.r_btime}} <br> {{history.r_rtime}} </div>
