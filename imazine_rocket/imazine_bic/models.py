@@ -29,7 +29,7 @@ class History(models.Model):
     r_rtime = models.DateTimeField(db_column='r_rtime',blank=False)
     rtime = models.DateTimeField(db_column='rtime')
     reserved_At = models.DateTimeField(db_column='reserved_At',blank=False)
-    barcode = models.CharField(db_column='barcode',max_length=10000000, blank=True)
+    barcode = models.CharField(db_column='barcode',max_length=50, blank=True)
 
     class Meta:
         managed = False
