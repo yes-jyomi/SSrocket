@@ -104,7 +104,7 @@ body{
 #container #e_business{
     position: absolute;
     top:1200px;
-    left:670px;
+    left:610px;
     font-family:NotoSansCJKKR-Regular;
     font-size: 48px;
     color:rgb(114, 111, 111);
@@ -139,6 +139,18 @@ body{
     left:150px;
 }  /*언더바*/
 
+#container #bar-05{
+    position: absolute;
+    top:1320px;
+    left:150px;
+}  /*언더바*/
+
+#container #bar-06{
+    position: absolute;
+    top:1320px;
+    left:600px;
+}  /*언더바*/
+
 #container #bkbt{
     position: absolute;
     top:100px;
@@ -152,25 +164,27 @@ body{
 } /*회사 정보 입력창 위치 설정*/
 
 #container #company_info_txt{
-    font-family:NotoSansCJKKR-Regular;
+    font-family:NotoSansCJKKR-Midium;
     font-size: 48px;
-    color:rgb(179,176,176);
     position: absolute;
     top:1400px;
     left:150px;
+    color:rgb(114, 111, 111);
 }
 
 #container #company_info{
     top:1520px;
-    left:150px;
+    left:155px;
     position: absolute;
-    font-family:NotoSansCJKKR-Regular;
+    font-family:NotoSansCJKKR-Midium;
+    border:0px;
     font-size:36px;
+    width:600px;
 }
 
 input::-webkit-input-placeholder {
     position: absolute;
     color:rgb(189, 188, 188);
-    font-family:NotoSansCJKKR-Regular;
+    font-family:NotoSansCJKKR-Midium;
     font-size:48px;
 } /*placeholder 보여지는 부분 css*/
