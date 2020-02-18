@@ -29,7 +29,10 @@ body{
     position: absolute;
     top:700px;
     left:70px;
+    width:150px;
     font-size:120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
