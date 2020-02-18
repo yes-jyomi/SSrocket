@@ -13,7 +13,7 @@
 
     <body>
         {% load static %}
-        <form action = "{% url 'signup' %}" name = "joinForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+        <form action = "{% url 'signup_company' %}" name = "joinForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
                 <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
                  <!--뒤로가기 버튼 삽입-->
@@ -35,6 +35,7 @@
                     <div id="company_info_txt">회사에 대한 정보를 작성해주세요!</div>
                     <img id="grey-box" src="{% static 'img/grey-line-box.png'%}">
                     <input type="text" name="company_info" id="company_info" placeholder="About your company"/>               
+                
             </div>
         </form>
     </body>
