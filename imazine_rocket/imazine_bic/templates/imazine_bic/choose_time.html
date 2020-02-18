@@ -7,6 +7,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/choose_time.css' %}" type="text/css"> <!--reservation_3.css 링크-->
         <script type="text/javascript"></script>
+        {% if count == 1 %}<script>location.href="{% url 'choose_time' %}"</script>{% endif %}
         <script src="{% static 'js/choose_time.js' %}"></script> <!--choose_time.js 링크-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <title>choose_time</title>
@@ -28,75 +29,73 @@
         <div id="rental_p5" name="rental_p5">{{company.bicycle_num|sub:company.rent_num}}</div>
         {% endfor %}
         <div id="rental_p6" name="rental_p6">대</div>
+        <form action = "{% url 'choose_time' %}" name = timeForm method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+            <select id="r_year" name="r_year" data-default-option="년도" data-unit="y" >
+                <option value="년도">년도</option>
+            </select>
 
-        <select id="r_year" name="r_year" data-default-option="년도" data-unit="y" >
-            <option value="년도">년도</option>
-        </select>
+            <select id="r_month" name="r_month" data-default-option="월" data-unit="m">
+                <option value="월">월</option>
+            </select>
 
-        <select id="r_month" name="r_month" data-default-option="월" data-unit="m">
-            <option value="월">월</option>
-        </select>
+            <select id="r_date" name="r_date"  data-default-option="일" data-unit="d">
+                <option value="일">일</option>
+            </select>
 
-        <select id="r_date" name="r_date"  data-default-option="일" data-unit="d">
-            <option value="일">일</option>
-        </select>
+            <select id="r_btime" name="r_btime">
+                <option value="시간선택">시간선택</option>
+                <option value="12:00">AM 12:00</option>
+                <option value="01:00">AM 1:00</option>
+                <option value="02:00">AM 2:00</option>
+                <option value="03:00">AM 3:00</option>
+                <option value="04:00">AM 4:00</option>
+                <option value="05:00">AM 5:00</option>
+                <option value="06:00">AM 6:00</option>
+                <option value="07:00">AM 7:00</option>
+                <option value="08:00">AM 8:00</option>
+                <option value="09:00">AM 9:00</option>
+                <option value="10:00">AM 10:00</option>
+                <option value="11:00">AM 11:00</option>
+                <option value="12:00">PM 12:00</option>
+                <option value="13:00">PM 1:00</option>
+                <option value="14:00">PM 2:00</option>
+                <option value="15:00">PM 3:00</option>
+                <option value="16:00">PM 4:00</option>
+                <option value="17:00">PM 5:00</option>
+                <option value="18:00">PM 6:00</option>
+                <option value="19:00">PM 7:00</option>
+                <option value="20:00">PM 8:00</option>
+                <option value="21:00">PM 9:00</option>
+                <option value="22:00">PM 10:00</option>
+                <option value="23:00">PM 11:00</option>
+            </select>
 
-        <select id="r_btime" name="r_btime">
-            <option value="시간선택">시간선택</option>
-            <option value="Am12:00">AM 12:00</option>
-            <option value="Am1:00">AM 1:00</option>
-            <option value="Am2:00">AM 2:00</option>
-            <option value="Am3:00">AM 3:00</option>
-            <option value="Am4:00">AM 4:00</option>
-            <option value="Am5:00">AM 5:00</option>
-            <option value="Am6:00">AM 6:00</option>
-            <option value="Am7:00">AM 7:00</option>
-            <option value="Am8:00">AM 8:00</option>
-            <option value="Am9:00">AM 9:00</option>
-            <option value="Am10:00">AM 10:00</option>
-            <option value="AM11:00">AM 11:00</option>
-            <option value="Pm12:00">PM 12:00</option>
-            <option value="Pm1:00">PM 1:00</option>
-            <option value="Pm2:00">PM 2:00</option>
-            <option value="Pm3:00">PM 3:00</option>
-            <option value="Pm4:00">PM 4:00</option>
-            <option value="Pm5:00">PM 5:00</option>
-            <option value="Pm6:00">PM 6:00</option>
-            <option value="Pm7:00">PM 7:00</option>
-            <option value="Pm8:00">PM 8:00</option>
-            <option value="Pm9:00">PM 9:00</option>
-            <option value="Pm10:00">PM 10:00</option>
-            <option value="Pm11:00">PM 11:00</option>
-        </select>
-
-        <select id="r_rtime" name="r_rtime">
-            <option value="시간선택">시간선택</option>
-            <option value="Am12:00">AM 12:00</option>
-            <option value="Am1:00">AM 1:00</option>
-            <option value="Am2:00">AM 2:00</option>
-            <option value="Am3:00">AM 3:00</option>
-            <option value="Am4:00">AM 4:00</option>
-            <option value="Am5:00">AM 5:00</option>
-            <option value="Am6:00">AM 6:00</option>
-            <option value="Am7:00">AM 7:00</option>
-            <option value="Am8:00">AM 8:00</option>
-            <option value="Am9:00">AM 9:00</option>
-            <option value="Am10:00">AM 10:00</option>
-            <option value="AM11:00">AM 11:00</option>
-            <option value="Pm12:00">PM 12:00</option>
-            <option value="Pm1:00">PM 1:00</option>
-            <option value="Pm2:00">PM 2:00</option>
-            <option value="Pm3:00">PM 3:00</option>
-            <option value="Pm4:00">PM 4:00</option>
-            <option value="Pm5:00">PM 5:00</option>
-            <option value="Pm6:00">PM 6:00</option>
-            <option value="Pm7:00">PM 7:00</option>
-            <option value="Pm8:00">PM 8:00</option>
-            <option value="Pm9:00">PM 9:00</option>
-            <option value="Pm10:00">PM 10:00</option>
-            <option value="Pm11:00">PM 11:00</option>
-        </select>
-
+            <select id="r_rtime" name="r_rtime">
+                <option value="01:00">AM 1:00</option>
+                <option value="02:00">AM 2:00</option>
+                <option value="03:00">AM 3:00</option>
+                <option value="04:00">AM 4:00</option>
+                <option value="05:00">AM 5:00</option>
+                <option value="06:00">AM 6:00</option>
+                <option value="07:00">AM 7:00</option>
+                <option value="08:00">AM 8:00</option>
+                <option value="09:00">AM 9:00</option>
+                <option value="10:00">AM 10:00</option>
+                <option value="11:00">AM 11:00</option>
+                <option value="12:00">PM 12:00</option>
+                <option value="13:00">PM 1:00</option>
+                <option value="14:00">PM 2:00</option>
+                <option value="15:00">PM 3:00</option>
+                <option value="16:00">PM 4:00</option>
+                <option value="17:00">PM 5:00</option>
+                <option value="18:00">PM 6:00</option>
+                <option value="19:00">PM 7:00</option>
+                <option value="20:00">PM 8:00</option>
+                <option value="21:00">PM 9:00</option>
+                <option value="22:00">PM 10:00</option>
+                <option value="23:00">PM 11:00</option>
+            </select>
+        </form>
         <img id="reservation3-finish" name="reservation3-finish" src="{% static 'img/fin-bt.png' %}" onclick="f_fun();">
     </div>
     </body>

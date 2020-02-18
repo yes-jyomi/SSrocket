@@ -3,7 +3,7 @@
         <table>
         
         {% for notice in notices %}
-            <tr>
+            <tr onclick="location.href='notice/{{notice.num}}'"><!--onclick=sd()사용 원함-->
                 <td>{{notice.num}}</td>
                 <td>{{notice.subject}}</td>
                 <td>{{notice.regdate}}</td>

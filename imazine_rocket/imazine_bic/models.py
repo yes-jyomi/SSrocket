@@ -25,9 +25,9 @@ class History(models.Model):
     company_num = models.IntegerField(db_column='company_num',blank=False)
     member_id = models.CharField(db_column='member_id',max_length=200,blank=False)
     r_btime = models.DateTimeField(db_column='r_btime',blank=False)
-    btime = models.DateTimeField(db_column='btime',blank=False)
+    btime = models.DateTimeField(db_column='btime', default="1970-01-02 00:00")
     r_rtime = models.DateTimeField(db_column='r_rtime',blank=False)
-    rtime = models.DateTimeField(db_column='rtime',blank=False)
+    rtime = models.DateTimeField(db_column='rtime', default="1970-01-02 00:00")
     reserved_At = models.DateTimeField(db_column='reserved_At',blank=False)
 
     class Meta:
