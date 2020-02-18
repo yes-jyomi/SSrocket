@@ -8,7 +8,6 @@ import datetime
 def index(request):
     print("index")
     id = request.COOKIES.get('id') 
-    print(id,"엥")
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/main.html', {'users':users})
     response.set_cookie('id',id)
@@ -31,23 +30,18 @@ def choose_lan(request):
 
 @csrf_exempt
 def choose_loc(request):
+    id = request.COOKIES.get('id') 
+    users = User.objects.filter(id = id)
     if request.method == "POST":
         count = 1
         response = render(request, 'imazine_bic/choose_shop.html',{"count":count})
-        id = request.COOKIES.get('id') 
         response.set_cookie('company_loc',request.POST['company_loc'])
         response.set_cookie('id',id)
-        # response.set_cookie('haha', 'hoho')
         return response
-    return render(request, 'imazine_bic/choose_loc.html')
+    return render(request, 'imazine_bic/choose_loc.html',{"users":users})
 
 @csrf_exempt#,{"count":count}
 def choose_shop(request):
-    # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'Seoul')
-    count = 0
-    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
-
     company_loc = request.COOKIES.get('company_loc') 
     companys = Company.objects.filter(company_loc = company_loc)
     if request.method == "POST":
@@ -149,5 +143,20 @@ def notice_detail(request, pk):
     notice = get_object_or_404(Notice, pk=pk)
     return render(request, 'imazine_bic/notice_detail.html', {'notice': notice})
 
+@csrf_exempt
 def setting(request):
+    if request.method == "POST":
+        return render(request, 'imazine_bic/setting/'+request.setUrl+".html")
     return render(request, 'imazine_bic/setting.html')
+
+def setUrl(request, setUrl):
+    if setUrl == "" :
+        ren = render(request, 'imazine_bic/setting.html')
+    elif setUrl == "modify":
+        ren = render(request, 'imazine_bic/setting_modify.html')
+    elif setUrl == "secession":
+        ren = render(request, 'imazine_bic/setting_secession.html')
+    elif setUrl == "counsel":
+        ren = render(request, 'imazine_bic/setting_counsel.html')
+    return ren
+
