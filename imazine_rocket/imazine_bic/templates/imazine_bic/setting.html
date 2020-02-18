@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/setting.css' %}" type="text/css"> <!--reservation_3.css 링크-->
+        <script type="text/javascript"></script>
+        <script src="{% static 'js/setting.js' %}"></script> <!--choose_time.js 링크-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <title>setting</title>
+    </head>
+    <body>
+        <div id="container">
+        <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
+        <!--뒤로가기 버튼 삽입-->
+        <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
+        <!--홈 버튼 삽입-->
+        <img id="set-bt-01" src="{% static 'img/set-bt-01.png' %}" onclick="ch01fun();">
+        <img id="set-bt-02" src="{% static 'img/set-bt-02.png' %}" onclick="ch02fun();">
+        <img id="set-bt-03" src="{% static 'img/set-bt-03.png' %}" onclick="ch03fun();">
+    </div>
+    </body>
+</html>

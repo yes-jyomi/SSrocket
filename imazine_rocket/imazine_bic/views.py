@@ -43,6 +43,11 @@ def choose_loc(request):
 
 @csrf_exempt#,{"count":count}
 def choose_shop(request):
+    # company_loc = request.
+    companys = Company.objects.filter(company_loc = 'Seoul')
+    count = 0
+    return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
+
     company_loc = request.COOKIES.get('company_loc') 
     companys = Company.objects.filter(company_loc = company_loc)
     if request.method == "POST":

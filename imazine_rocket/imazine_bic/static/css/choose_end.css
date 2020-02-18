@@ -13,14 +13,14 @@ body{
     position: absolute;
     top:1850px;
     left:550px;
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
+    filter: drop-shadow(30px 30px 30px #e6e6e6); 
 } /*코스추천받기 bt 설정*/
 
 #container #h-bt{
     position: absolute;
     top:1850px;
     left:100px;
-    filter: drop-shadow(30px 30px 30px #d9d9d9); 
+    filter: drop-shadow(30px 30px 30px #e6e6e6); 
 } /*홈으로 bt 설정*/
 
 #container #name{
@@ -49,7 +49,6 @@ body{
     font-size:72px;
     color:black
 } /*'예약이~' txt 설정*/
-
 
 #container #finish02{
     font-family: NotoSansCJKKR-Regular;
