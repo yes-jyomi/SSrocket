@@ -33,3 +33,11 @@ msgstr ""
 #: .\imazine_rocket\settings.py:39
 msgid "Japanese"
 msgstr ""
+
+#: .\imazine_rocket\main.html:22
+msgid "님,"
+msgstr "sir,"
+
+#: .\imazine_rocket\main.html:23
+msgid "반갑습니다!"
+msgstr "Hello!"
