@@ -66,7 +66,6 @@ def choose_shop(request):
 
 @csrf_exempt#,{"count":count}
 def choose_time(request):
-    print(request.COOKIES)
     id = request.COOKIES.get('id') 
     company_loc=request.COOKIES.get('company_loc')
     company_num=request.COOKIES.get('company_num')
@@ -80,10 +79,11 @@ def choose_time(request):
         r_r = request.POST['r_rtime']
         r_btime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_b)#datetime formatting
         r_rtime = "{}-{}-{} {}".format(r_year,r_month,r_date,r_r)
+        btime = "1970-01-02 00:00:00"
+        rtime = "1970-01-02 00:00:00"
         #db insert
-        history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now())
+        history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now(), btime =btime, rtime = rtime)
         response = render(request, 'imazine_bic/choose_time.html',{"count":2,"history_num":history.history_num})
-        companys = Company.objects.filter(company_num=company_num)
         for company in companys:
             Company.objects.update(rent_num=company.rent_num+1)
         return response
@@ -162,6 +162,7 @@ def shop_detail(request, pk):
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/choose_time.html', {'shop': shop})
     response.set_cookie('company_num',pk)
+    print(pk)
     if request.method == "POST":
         return response
     return render(request, 'imazine_bic/shop_detail.html', {'shop': shop,'count':1, 'users':users})
