@@ -14,7 +14,7 @@
         {% load static %}
         <form action = "{% url 'signin' %}" name = "loginForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
-                <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
+                <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="location.href='/'">
                  <!--뒤로가기 버튼 삽입-->
                 <img id="login-text1"  src="{% static 'img/login-text1.png' %}">
                 <img id="dot" src="{% static 'img/dot.png' %}">

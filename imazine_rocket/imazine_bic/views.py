@@ -99,6 +99,7 @@ def choose_end(request):
 @csrf_exempt
 def signup(request):
     user_info =request.COOKIES.get('user_info')
+    print(user_info)
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
         translate(request, lan)
@@ -151,7 +152,12 @@ def checkEmail(request):
 
 
 def choose_use(request):
-    return render(request, 'imazine_bic/choose_use.html')
+    if request.method == "POST":
+        user_info = request.POST['user_info']
+        response = render(requset, 'imazine_bic/choose_use.html')
+        response.set_cookie("user_info",user_info)
+        return response
+    return render(request, 'imazine_bic/choose_use.html',{"count":1})
 
 def notice(request):
     notices = Notice.objects.all().order_by('num')

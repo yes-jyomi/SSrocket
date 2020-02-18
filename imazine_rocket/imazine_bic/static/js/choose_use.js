@@ -1,7 +1,7 @@
 function ch01fun(){
     var img=document.getElementById("traveler");
     img.src= "../../static/img/tr-bt2.png";
-    document.getElementById("user_info").value=2
+    document.getElementById("user_info").value=0
     useForm.submit();
 }
 
