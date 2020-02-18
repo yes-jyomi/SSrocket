@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.http import HttpResponse, HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt,csrf_protect 
+from django.views.decorators.csrf import csrf_exempt,csrf_protect
+from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
 
 
 # Create your views here.
@@ -19,6 +21,10 @@ def choose_lan(request):
     if request.method == "POST":
         lan = request.POST['lan']
         print(lan)
+
+        msg = _('안녕하세요')
+        return HttpResponse(msg)
+
         # if lan == "kor":
         #     pass
         #여기에 번역하기 api 사용
