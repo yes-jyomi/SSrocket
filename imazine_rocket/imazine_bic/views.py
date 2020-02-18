@@ -31,14 +31,13 @@ def choose_lan(request):
                 del(request.session[translation.LANGUAGE_SESSION_KEY])
             translation.activate('en')
             request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
-    
 
         # if lan == "kor":
         #     pass
         #여기에 번역하기 api 사용
         id = request.COOKIES.get('id') 
         count = 1
-        response = render(request, 'imazine_bic/choose_loc.html',{"count":count})
+        response = render(request, 'imazine_bic/signin.html',{"count":count})
         response.set_cookie('id',id)
         return response
     return render(request, 'imazine_bic/choose_lan.html')
