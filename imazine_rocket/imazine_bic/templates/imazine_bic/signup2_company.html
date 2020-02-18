@@ -17,13 +17,14 @@
             <div id="container">
                 <img id="bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
                  <!--뒤로가기 버튼 삽입-->
-                <a href="{% url 'signin'%}">
                     <div id="signup2_company">회원가입</div>
                     <img id="bar-round" src="{% static 'img/dot.png' %}">
                     <img id="bar-01" src="{% static 'img/bar-gray.png' %}">
                     <img id="bar-02" src="{% static 'img/bar-gray.png' %}">
                     <img id="bar-03" src="{% static 'img/bar-gray.png' %}">
                     <img id="bar-04" src="{% static 'img/bar-gray.png' %}">
+                    <img id="bar-05" src="{% static 'img/bar-short.png' %}">
+                    <img id="bar-06" src="{% static 'img/bar-short.png' %}">
                     <img id="joinBt"  src="{% static 'img/fin-bt.png' %}" onclick = "sm()">
                     <input type="text" name="company_addr" id="company_addr" placeholder="Company address"/>
                     <input type="text" name="company_loc" id="company_loc" placeholder="Company location"/>
@@ -32,9 +33,8 @@
                     <input type="text" name="s_business" id="s_business" placeholder="Open time"/>
                     <input type="text" name="e_business" id="e_business" placeholder="Close time"/>
                     <div id="company_info_txt">회사에 대한 정보를 작성해주세요!</div>
-                    <img id="grey-box" src="{% static 'img/grey-box.png'%}">
+                    <img id="grey-box" src="{% static 'img/grey-line-box.png'%}">
                     <input type="text" name="company_info" id="company_info" placeholder="About your company"/>               
-                </a>
             </div>
         </form>
     </body>

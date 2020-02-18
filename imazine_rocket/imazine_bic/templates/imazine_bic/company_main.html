@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/company_main.css' %}" type="text/css"> <!--main.css 링크-->
+        <script type="text/javascript"></script>
+        <script src="{% static 'js/company_main.js' %}"></script>
+        <title>course_loc</title>
+    </head>
+    <body>
+        <form action = "{% url 'company_main' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+            <div id="container">=
+                <div id="member_name" name="member_name">남하빈빈</div>
+                <div id="nim" name="nim">{% trans "님," %}</div>
+                <div id="welcome" name="welcome">{% trans "반갑습니다!" %}</div>
+                <img id="main-setting" name="main-setting" src="{% static 'img/main-setting.png' %}" onclick="location.href='index/setting'"> <!--설정버튼 삽입-->
+                <div id="notice-main">
+                    <img id="notice-main-box" src="{% static 'img/notice-main-box.png' %}">
+                    <div id="name" name="name">남정윤</div>
+                    <div id="notice-main-box-text">님,</div>
+                    <div id="r_date" name="r_date">2020-02-18</div>
+                    <div id="form_r_btime">13시</div>
+                    <div id="notice-main-box-text">~</div>
+                    <div id="form_r_rtime">15시</div>
+                    <div id="notice-main-box-text">에 예약하셨습니다.</div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
