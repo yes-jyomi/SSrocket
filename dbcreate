@@ -40,9 +40,17 @@ CREATE TABLE company (
 );
 
 CREATE TABLE notice_board (
-num int not null primary key auto_increment ,
-writer varchar(20) not null,
-regdate char(14) not null,
-subject varchar(50),
-content text
+	num int not null primary key auto_increment ,
+	writer varchar(20) not null,
+	regdate char(14) not null,
+	subject varchar(50),
+	content text
+);
+
+CREATE TABLE counsel (
+	counsel_num INT PRIMARY KEY AUTO_INCREMENT,
+	member_id VARCHAR(20) NOT NULL,
+	subject VARCHAR(50) NOT NULL,
+	content VARCHAR(1000) NOT NULL,
+	category INT(2) NOT NULL
 );
