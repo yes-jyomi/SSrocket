@@ -21,7 +21,7 @@ def choose_loc(request):
 
 def choose_shop(request):
     # company_loc = request.
-    companys = Company.objects.filter(company_loc = 'ogaki')
+    companys = Company.objects.filter(company_loc = 'Seoul')
     count = 0
     return render(request, 'imazine_bic/choose_shop.html', {'companys':companys,'count':count})
 
