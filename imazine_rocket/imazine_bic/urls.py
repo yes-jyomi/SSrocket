@@ -18,5 +18,6 @@ urlpatterns = [
     path('notice',views.notice,name = 'notice'),
     path('notice/<int:pk>/',views.notice_detail,name = 'notice_detail'),
     path('index/setting/<slug:setUrl>/',views.setUrl,name = 'setUrl'),
+    path('index/setting/counsel/write/',views.write,name = 'write'),
 
 ]

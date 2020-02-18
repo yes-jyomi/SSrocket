@@ -173,3 +173,23 @@ def setUrl(request, setUrl):
         ren = render(request, 'imazine_bic/setting_counsel.html')
     return ren
 
+def counsel(request):
+    id = request.COOKIES.get('id')
+    counsels = Counsel.objects.filter(v = id)
+    if request.method == "POST":
+        category = request.POST['category']
+        response = render(request, 'imazine_bic/setting_write.html')
+        response.set_cookie("category",category)
+        return response
+    return request(request, 'imazine_bic/setting_counsel.html',{"counsels":counsels,"count":1})
+
+def write(request):
+    if request.method == "POST":
+        category = request.COOKIES.get('category')
+        id = request.COOKIES.get('id')
+        subject = request.POST['subject']
+        content = request.POST['content']
+        counsel = Counsel.objects.create(member_id = id, subject = subject, content = content, regdate = datetime.datetime.now(), category = category)
+        response = render(request, 'imazine_bic/setting_write.html',{"count":2})
+        return response
+    return request(request, 'imazine_bic/setting_write.html',{"count":1})

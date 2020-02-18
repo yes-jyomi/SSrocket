@@ -99,3 +99,37 @@ class Notice(models.Model):
     def __str__(self):
         return self.writer
 
+class Counsel(models.Model):
+    counsel_num = models.AutoField(db_column='counsel_num',primary_key=True,blank=False)
+    member_id = models.CharField(db_column='member_id',max_length=50)
+    regdate = models.DateTimeField(db_column='regdate')
+    subject = models.CharField(db_column='subject',max_length=200)
+    content = models.CharField(db_column='content',max_length=1000)
+    category = models.IntegerField(db_column='category')
+
+    class Meta:
+        managed = False
+        db_table = 'counsel'
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.member_id
+
+    
+class Refer(models.Model):
+    counsel_num = models.IntegerField(db_column='counsel_num',primary_key=True)
+    regdate = models.DateTimeField(db_column='regdate')
+    content = models.CharField(db_column='content',max_length=1000)
+    refer_admin = models.CharField(db_column='refer_admin',max_length=50)  
+
+    class Meta:
+        managed = False
+        db_table = 'refer'
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.writer
