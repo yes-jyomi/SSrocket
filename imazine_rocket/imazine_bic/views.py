@@ -6,6 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import translation
 
 
+# 번역 함수
+# lan = request.COOKIES.get('lan') 뒤에 호출해서 사용 (두 개 세트로 사용해야 함)
 def translate(request, lan):
     if lan == 'ko' or lan == 'en' or lan == 'jp':
         if translation.LANGUAGE_SESSION_KEY in request.session:
@@ -18,7 +20,6 @@ def translate(request, lan):
         translation.activate('en')
         request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
 
-# Create your views here.
 def index(request):
     lan = request.COOKIES.get('lan')
     translate(request, lan)
@@ -201,3 +202,6 @@ def write(request):
         response = render(request, 'imazine_bic/setting_write.html',{"count":2})
         return response
     return request(request, 'imazine_bic/setting_write.html',{"count":1})
+
+def map(request):
+    return render(request, 'imazine_bic/map.html')

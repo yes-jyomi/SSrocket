@@ -19,6 +19,7 @@
         {% for user in users %}
         <div id="name" name="name">{{user.name}}</div>
         {% endfor %}
+
         <div id="n_nim" name="n_nim">{% trans "님," %}</div>
         <div id="n_welcome" name="n_welcome">{% trans "반갑습니다!" %}</div>
         <a href = "{% url 'choose_loc'%}"><img id="main-bt01" name="main-bt01" src="{% static 'img/main-bt-01.png' %}" onclick="imgch01();"></a>
