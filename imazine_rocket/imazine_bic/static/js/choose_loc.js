@@ -1,3 +1,6 @@
 function bkfun(){
-    history.back();
+    location.href="/choose_lan";
+}
+function sm(){
+    lanForm.submit();
 }

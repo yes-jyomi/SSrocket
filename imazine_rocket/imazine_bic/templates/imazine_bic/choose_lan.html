@@ -12,11 +12,22 @@
     </head>
     <body>
         {% load static %}
+<<<<<<< HEAD
         <div id="container">
         
         <img id="kr-bt1" src="{% static 'img/kr-bt1.png' %}" onclick="ch01fun();">
         <img id="jp-bt1" src="{% static 'img/jp-bt1.png' %}" onclick="ch02fun();">
         <img id="eg-bt1" src="{% static 'img/eg-bt1.png' %}" onclick="ch03fun()";>
         </div>
+=======
+        <form action = "{% url 'choose_lan' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
+            <div id="container">
+                <img id="kr-bt1" src="{% static 'img/kr-bt1.png' %}" onclick="ch01fun();">
+                <img id="jp-bt1" src="{% static 'img/jp-bt1.png' %}" onclick="ch02fun();">
+                <img id="eg-bt1" src="{% static 'img/eg-bt1.png' %}" onclick="ch03fun();">
+                <input type = "hidden" name = "lan" id = "lan" value = "">
+            </div>
+        </form>
+>>>>>>> 661aca2cc38ad726ca02328ee57e716f89a65dc4
     </body>
 </html>
