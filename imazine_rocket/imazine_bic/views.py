@@ -7,9 +7,23 @@ from django.utils import translation
 import datetime
 
 
+def translate(request, lan):
+    if lan == 'ko' or lan == 'en' or lan == 'jp':
+        if translation.LANGUAGE_SESSION_KEY in request.session:
+            del(request.session[translation.LANGUAGE_SESSION_KEY])
+        translation.activate(lan)
+        request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
+    else:
+        if translation.LANGUAGE_SESSION_KEY in request.session:
+            del(request.session[translation.LANGUAGE_SESSION_KEY])
+        translation.activate('en')
+        request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
+
 # Create your views here.
 def index(request):
-    print("index")
+    lan = request.COOKIES.get('lan')
+    translate(request, lan)
+
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/main.html', {'users':users})
@@ -20,25 +34,13 @@ def index(request):
 def choose_lan(request):
     if request.method == "POST":
         lan = request.POST['lan']
-        print(lan)
-        if lan == 'ko' or lan == 'en' or lan == 'jp':
-            if translation.LANGUAGE_SESSION_KEY in request.session:
-                del(request.session[translation.LANGUAGE_SESSION_KEY])
-            translation.activate(lan)
-            request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
-        else:
-            if translation.LANGUAGE_SESSION_KEY in request.session:
-                del(request.session[translation.LANGUAGE_SESSION_KEY])
-            translation.activate('en')
-            request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
-
-        # if lan == "kor":
-        #     pass
-        #여기에 번역하기 api 사용
+        translate(request, lan)
+        
         id = request.COOKIES.get('id') 
         count = 1
         response = render(request, 'imazine_bic/choose_use.html',{"count":count})
         response.set_cookie('id',id)
+        response.set_cookie('lan',lan)
         return response
     return render(request, 'imazine_bic/choose_lan.html')
 
@@ -94,6 +96,9 @@ def choose_end(request):
 def signup(request):
     user_info =request.COOKIES.get('user_info')
     if request.method == "POST":
+        lan = request.COOKIES.get('lan')
+        translate(request, lan)
+
         id = request.POST['id']
         name = request.POST['name']
         pwd = request.POST['pwd']
@@ -110,6 +115,9 @@ def signup(request):
 @csrf_exempt
 def signin(request):
     if request.method == "POST":
+        lan = request.COOKIES.get('lan')
+        translate(request, lan)
+
         id = request.POST['id']
         pwd = request.POST['pwd']
         users = User.objects.filter(id = id)
