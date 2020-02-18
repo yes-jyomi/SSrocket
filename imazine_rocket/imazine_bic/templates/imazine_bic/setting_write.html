@@ -17,6 +17,8 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8">
+        {% if count == 1 %}<script>location.href="{% url 'write' %}"</script>{% endif %}
+    {% if count == 2 %}<script>alert("문의가 완료되었습니다.");location.href="/setting/counsel";</script>{% endif %}
         <link rel="stylesheet" href="{% static 'css/notice.css' %}" type="text/css"> <!--main.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/notice.js' %}"></script>

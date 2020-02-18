@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{% static 'css/signin.css' %}" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript"></script>
+        {% if count == 1 %}<script>location.href="{% url 'signin' %}"</script>{% endif %}
         <script src="{% static 'js/signin.js' %}"></script>
         <title>signin</title>
     </head>
@@ -24,7 +25,12 @@
                 <img id="loginbt"  src="{% static 'img/lbt.png' %}" onclick = "sm()">
                 <input type="id" name="id" id="id" placeholder="Id"/>
                 <input type="password" name="pwd" id="pwd" placeholder="Password"/>
+<<<<<<< HEAD
         </div>
     </form>
+=======
+            </div>
+        </form>
+>>>>>>> c4e77cb81c9b2becd6f399db050323c479890843
     </body>
 </html>
