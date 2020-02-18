@@ -14,6 +14,7 @@
         {% load static %}
         <form action = "{% url 'choose_lan' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
+                <div id="lan_txt">안녕하세요!</div>
                 <img id="kr-bt1" src="{% static 'img/kr-bt1.png' %}" onclick="ch01fun();">
                 <img id="jp-bt1" src="{% static 'img/jp-bt1.png' %}" onclick="ch02fun();">
                 <img id="eg-bt1" src="{% static 'img/eg-bt1.png' %}" onclick="ch03fun();">
