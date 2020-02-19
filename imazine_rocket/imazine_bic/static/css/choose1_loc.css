@@ -47,6 +47,10 @@ body{
     top:250px;
     left:60px;
     font-size:150px;
+    width:350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color:white;
 } /*'아인' 텍스트 설정*/
 
