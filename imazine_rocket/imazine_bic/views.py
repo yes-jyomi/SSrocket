@@ -215,7 +215,7 @@ def map(request):
 def check_list(request):
     id = request.COOKIES.get('id')
     historys = History.objects.filter(member_id = id)
-    return render(request, 'imazine_bic/course_rec.html')
+    return render(request, 'imazine_bic/course_rec.html',{"count":1,"historys":historys})
 
 @csrf_exempt
 def check_reservation(request, pk):

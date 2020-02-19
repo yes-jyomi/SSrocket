@@ -9,6 +9,7 @@
         <title>course_rec</title>
     </head>
     <body>
+        {%for history in historys%}
         <div id="container">
             <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
              <!--뒤로가기 버튼 삽입-->
@@ -16,10 +17,11 @@
              <!--홈 버튼 삽입-->
             <img id="bluebox" src="{% static 'img/bluebox.png' %}">
             <img id="rsv-course" src="{% static 'img/rsv-course.png' %}">
-            <div id="member_name">{{company.member_name}}</div>
-            <div id="company_addr">{{reservation.db_company_addr}}</div>
-            <div id="company_phone">{{reservation.db_company_addr}}</div>
-            <div id="time">{{reservation.db_r_btime}}~{{reservation.db_r_rtime}}</div>
+            <div id="member_name">{{history.company_num}}</div>
+            <div id="company_addr">{{history.company_addr}}</div>
+            <div id="company_phone">{{history.company_phone}}</div>
+            <div id="time">{{history.r_btime}}~{{history.r_rtime}}</div>
         </div>
+        {%endfor%}
     </body>
 </html>
