@@ -8,3 +8,4 @@ function ch01fun(num){
     document.setForm.getElementById("setUrl")=value;
     setForm.submit();
 }
+

@@ -5,21 +5,22 @@ from django.views.decorators.csrf import csrf_exempt,csrf_protect
 from django.utils.translation import ugettext_lazy as _
 from django.utils import translation
 import datetime
+from .logic import *
 
 
-# 번역 함수
-# lan = request.COOKIES.get('lan') 뒤에 호출해서 사용 (두 개 세트로 사용해야 함)
-def translate(request, lan):
-    if lan == 'ko' or lan == 'en' or lan == 'jp':
-        if translation.LANGUAGE_SESSION_KEY in request.session:
-            del(request.session[translation.LANGUAGE_SESSION_KEY])
-        translation.activate(lan)
-        request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
-    else:
-        if translation.LANGUAGE_SESSION_KEY in request.session:
-            del(request.session[translation.LANGUAGE_SESSION_KEY])
-        translation.activate('en')
-        request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
+# # 번역 함수
+# # lan = request.COOKIES.get('lan') 뒤에 호출해서 사용 (두 개 세트로 사용해야 함)
+# def translate(request, lan):
+#     if lan == 'ko' or lan == 'en' or lan == 'jp':
+#         if translation.LANGUAGE_SESSION_KEY in request.session:
+#             del(request.session[translation.LANGUAGE_SESSION_KEY])
+#         translation.activate(lan)
+#         request.session[translation.LANGUAGE_SESSION_KEY] = f'{lan}'
+#     else:
+#         if translation.LANGUAGE_SESSION_KEY in request.session:
+#             del(request.session[translation.LANGUAGE_SESSION_KEY])
+#         translation.activate('en')
+#         request.session[translation.LANGUAGE_SESSION_KEY] = 'ko'
 
 def index(request):
     lan = request.COOKIES.get('lan')
@@ -38,15 +39,7 @@ def index(request):
 @csrf_exempt
 def choose_lan(request):
     if request.method == "POST":
-        lan = request.POST['lan']
-        translate(request, lan)
-        
-        id = request.COOKIES.get('id') 
-        count = 1
-        response = render(request, 'imazine_bic/choose_use.html',{"count":count})
-        response.set_cookie('id',id)
-        response.set_cookie('lan',lan)
-        return response
+        return Choose.lan(request)
     return render(request, 'imazine_bic/choose_lan.html')
 
 @csrf_exempt
@@ -100,20 +93,11 @@ def choose_end(request):
 @csrf_exempt
 def signup(request):
     user_info =request.COOKIES.get('user_info')
-    print(user_info)
     if request.method == "POST":
-        lan = request.COOKIES.get('lan')
-        translate(request, lan)
-        id = request.POST['id']
-        name = request.POST['name']
-        pwd = request.POST['pwd']
-        user = User.objects.create(id = id, name = name, pwd = pwd, info = user_info)
-        if user_info == "0":
-            return render(request, 'imazine_bic/signin.html')
-        response = render(request, 'imazine_bic/signup2_company.html',{"count":1})
-        response.set_cookie('id',id)
-        return response
-    if  user_info == "0":
+        # lan = request.COOKIES.get('lan')
+        # translate(request, lan)
+        return Sign.signup(request,user_info)
+    if user_info == "0":
         return render(request, 'imazine_bic/signup.html')
     return render(request, 'imazine_bic/signup_company.html')
  
@@ -124,19 +108,7 @@ def signin(request):
         translate(request, lan)
         id = request.POST['id']
         pwd = request.POST['pwd']
-        users = User.objects.filter(id = id)
-        if users is not None:
-            for user in users:
-                if id == user.id and pwd == user.pwd:
-                    print("sinnin", user.info)
-                    if user.info == 0:
-                        response = render(request, 'imazine_bic/main.html',{"okay":1,"users":users})
-                    else:
-                        response = render(request,'imazine_bic/company_main.html',{"count":2,"users":users})
-                    response.set_cookie('id',id)
-                    
-                    return response
-        return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
+        return Sign.signin(request,id,pwd)
     else:
         return render(request, 'imazine_bic/signin.html')
 
@@ -192,14 +164,16 @@ def setting(request):
 
 def setUrl(request, setUrl):
     if setUrl == "" :
-        ren = render(request, 'imazine_bic/setting.html')
+        html ='imazine_bic/setting.html'
     elif setUrl == "modify":
-        ren = render(request, 'imazine_bic/setting_modify.html')
+        html ='imazine_bic/setting_modify.html'
     elif setUrl == "secession":
-        ren = render(request, 'imazine_bic/setting_secession.html')
+        html = 'imazine_bic/setting_secession.html'
     elif setUrl == "counsel":
-        ren = render(request, 'imazine_bic/setting_counsel.html')
-    return ren
+        html = 'imazine_bic/setting_counsel.html'
+    elif setUrl == "logout":
+        html = 'imazine_bic/setting_logout.html'
+    return render(request, html,{"count":1})
 
 @csrf_exempt
 def counsel(request):
@@ -207,7 +181,7 @@ def counsel(request):
     counsels = Counsel.objects.filter(member_id = id)
     if request.method == "POST":
         category = request.POST['category']
-        response = render(request, 'imazine_bic/setting_write.html')
+        response = render(request, 'imazine_bic/setting_write.html',{"count":1})
         response.set_cookie("category",category)
         return response
     return render(request, 'imazine_bic/setting_counsel.html',{"counsels":counsels,"count":1})
@@ -222,7 +196,7 @@ def write(request):
         counsel = Counsel.objects.create(member_id = id, subject = subject, content = content, regdate = datetime.datetime.now(), category = category)
         response = render(request, 'imazine_bic/setting_write.html',{"count":2})
         return response
-    return render(request, 'imazine_bic/setting_write.html',{"count":1})
+    return render(request, 'imazine_bic/setting_write.html')
 
 def map(request):
     return render(request, 'imazine_bic/map.html')
@@ -279,3 +253,4 @@ def company_main(request):
     id = request.COOKIES.get('id')
     users = User.objects.filter(id = id)
     return render(request, 'imazine_bic/company_main.html',{"count":1,"users":users})
+
