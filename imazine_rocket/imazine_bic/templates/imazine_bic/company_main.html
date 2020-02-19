@@ -7,13 +7,15 @@
         <link rel="stylesheet" href="{% static 'css/main_company.css' %}" type="text/css"> <!--main.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/main_company.js' %}"></script>
-        <title>course_loc</title>
+        <title>main</title>
     </head>
     <body>
         {% load i18n %}
         <form action = "{% url 'company_main' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
-                <div id="member_name" name="member_name">남하빈빈</div>
+                {% for user in users %}
+                <div id="member_name" name="member_name">{{user.name}}</div>
+                {% endfor %}
                 <div id="n" name="n">{% trans "님," %}</div>
                 <div id="welcome" name="welcome">{% trans "반갑습니다!" %}</div>
                 <img id="notice-bt-compy" name="notice-bt-compy" src="{% static 'img/notice-bt-compy.png' %}">

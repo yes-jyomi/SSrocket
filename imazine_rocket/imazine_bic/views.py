@@ -276,4 +276,6 @@ def signup_company(request):
 
 
 def company_main(request):
-    return render(request, 'imazine_bic/company_main.html',{"count":1})
+    id = request.COOKIES.get('id')
+    users = User.objects.filter(id = id)
+    return render(request, 'imazine_bic/company_main.html',{"count":1,"users":users})
