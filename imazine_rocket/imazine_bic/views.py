@@ -159,7 +159,7 @@ def notice_detail(request, pk):
 @csrf_exempt
 def setting(request):
     if request.method == "POST":
-        return render(request, 'imazine_bic/setting/'+request.setUrl+".html")
+        return render(request, 'imazine_bic/setting_'+request.POST['setUrl']+".html")
     return render(request, 'imazine_bic/setting.html')
 
 def setUrl(request, setUrl):
