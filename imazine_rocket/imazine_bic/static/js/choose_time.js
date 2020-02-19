@@ -2,6 +2,9 @@ function bkfun(){
     history.back();
 }
 
+function hfun(){
+    location.href="/index";
+}
 function f_fun(){
     timeForm.submit();
 }
