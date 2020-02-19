@@ -79,3 +79,9 @@ body{
     color:rgb(100, 100, 100);
 }
 
+#container #rfin-bt{
+    position:absolute;
+    top:2050px;
+    left:730px;
+    filter: drop-shadow(30px 30px 30px hsl(0, 4%, 87%)); 
+} /*완료 버튼 위치 설정*/ 

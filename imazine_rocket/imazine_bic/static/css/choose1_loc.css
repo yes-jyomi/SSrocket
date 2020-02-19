@@ -69,8 +69,16 @@ body{
     top:470px;
     left:80px;
     font-size:72px;
-    color:white;
+    color:white;    
 } /*'어디서~' 텍스트 설정*/
+
+#container #whitemap{
+    position: absolute;
+    top:1100px;
+    left:180px;
+}
+
+
 
 input::-webkit-input-placeholder {
     position: absolute;

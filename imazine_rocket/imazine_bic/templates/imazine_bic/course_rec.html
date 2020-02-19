@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/course_rec.css' %}" type="text/css"> <!--main.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/course1_rec.css' %}" type="text/css"> <!--main.css 링크-->
         <script type="text/javascript"></script>
         <script src="{% static 'js/course_rec.js' %}"></script>
         <title>course_rec</title>
@@ -16,6 +16,10 @@
              <!--홈 버튼 삽입-->
             <img id="bluebox" src="{% static 'img/bluebox.png' %}">
             <img id="rsv-course" src="{% static 'img/rsv-course.png' %}">
+            <div id="member_name">{{company.member_name}}</div>
+            <div id="company_addr">{{reservation.db_company_addr}}</div>
+            <div id="company_phone">{{reservation.db_company_addr}}</div>
+            <div id="time">{{reservation.db_r_btime}}~{{reservation.db_r_rtime}}</div>
         </div>
     </body>
 </html>

@@ -53,7 +53,8 @@
         </div>
         <form action = "{% url 'choose_time' %}" name = "shopForm" method = "GET" accept-charset="UTF-8"> {% csrf_token %}
             <input type = hidden name = shop name = shop value = {{shop.company_num}}>
-            <input type = submit value = "이 대여소 선택하기">
+            <img id="fin-bt" src="{% static 'img/fin-bt' %}">
+            <!--<input type = submit value = "이 대여소 선택하기">-->
         </form>
     </body>
 </html>
