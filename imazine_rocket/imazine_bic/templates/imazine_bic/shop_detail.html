@@ -1,7 +1,7 @@
 <!--<html>
     <body>
         
-        {{shop.member_name}}, {{shop.company_addr}}, {{shop.company_phone}}
+        , {{shop.company_addr}}, {{shop.company_phone}}
         <form action = "{% url 'choose_time' %}" name = "shopForm" method = "GET" accept-charset="UTF-8"> {% csrf_token %}
             <input type = hidden name = shop name = shop value = {{notice.num}}>
             <input type = submit value = "이 대여소 선택하기">
@@ -45,11 +45,15 @@
             <!--뒤로가기 버튼 삽입-->
             <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
             <!--홈 버튼 삽입-->    
-            <div id="member_name" name="member_name">상상로켓 자전거 대여소</div>'
-            <div id="company_info" name="company_info">얘들아 우리 곧 집 간다!!나는 정말 집이 그리워!!!오예 신난당</div>
-            <div id="company_addr" name="company_addr">주소 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;일본 기후현 오가키시 집</div>
-            <div id="company_phone" name="company_phone">전화번호 &nbsp; &nbsp; &nbsp;XXX-XXXX-XXXX</div>
+            <div id="member_name" name="member_name">{{shop.member_name}}</div>'
+            <div id="company_info" name="company_info">{{shop.company_info}}</div>
+            <div id="company_addr" name="company_addr">주소 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{shop.company_addr}}</div>
+            <div id="company_phone" name="company_phone">전화번호 &nbsp; &nbsp; &nbsp;{{shop.company_phone}}</div>
             <div id="s_business" name="s_business">영업시간 &nbsp; &nbsp; &nbsp;XX시~XX시</div>
         </div>
+        <form action = "{% url 'choose_time' %}" name = "shopForm" method = "GET" accept-charset="UTF-8"> {% csrf_token %}
+            <input type = hidden name = shop name = shop value = {{shop.company_num}}>
+            <input type = submit value = "이 대여소 선택하기">
+        </form>
     </body>
 </html>

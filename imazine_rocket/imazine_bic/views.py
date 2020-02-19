@@ -66,7 +66,9 @@ def choose_shop(request):
 def choose_time(request):
     id = request.COOKIES.get('id') 
     company_loc=request.COOKIES.get('company_loc')
-    company_num=request.COOKIES.get('company_num')
+    if request.method =='GET':
+        print('get')
+        company_num=request.GET['company_num']
     companys = Company.objects.filter(company_num = company_num)
     print(company_num)
     if request.method == "POST":
@@ -147,6 +149,7 @@ def shop_detail(request, pk):
     users = User.objects.filter(id = id)
     response = render(request, 'imazine_bic/choose_time.html', {'shop': shop})
     response.set_cookie('company_num',pk)
+    print(shop)
     print(pk)
     if request.method == "POST":
         return response
