@@ -118,6 +118,26 @@ body{
     left:100px;
 }
 
+#container #category{
+    appearance: none;
+    -webkit-appearance:none;
+    font-family:NotoSansCJKKR-Medium;
+    font-size: 45px;
+    /*background: url(../img/tri-blue.png);*/
+    background-repeat: no-repeat ;
+    border:0px;
+    color:rgb(106, 177, 235);
+    position: absolute;
+    width:800px;
+    height:80px;
+    top:665px;
+    left:140px;
+} /*select box css*/
+
+#category option {
+    font-size:18px;
+} /*select box css*/
+
 #container #bar-category{
     position: absolute;
     top:650px;
