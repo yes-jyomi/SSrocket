@@ -24,7 +24,7 @@ from .logic import *
 
 def index(request):
     lan = request.COOKIES.get('lan')
-    Sign.translate(request, lan)
+    Sign.translate(request)
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
     for user in users :
@@ -105,7 +105,7 @@ def signup(request):
 def signin(request):
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
-        Sign.translate(request, lan)
+        Sign.translate(request)
         id = request.POST['id']
         pwd = request.POST['pwd']
         return Sign.signin(request,id,pwd)
@@ -158,9 +158,10 @@ def notice_detail(request, pk):
 
 @csrf_exempt
 def setting(request):
+    user_info = request.COOKIES.get('user_info')
     if request.method == "POST":
-        return render(request, 'imazine_bic/setting_'+request.POST['setUrl']+".html", {"count":1})
-    return render(request, 'imazine_bic/setting.html')
+        return render(request, 'imazine_bic/setting_'+request.POST['setUrl']+".html", {"count":1,"user_info":user_info})
+    return render(request, 'imazine_bic/setting.html',{"user_info":user_info})
 
 def setUrl(request, setUrl):
     html = ""

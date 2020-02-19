@@ -18,6 +18,8 @@ class Sign:
                     else:
                         response = render(request,'imazine_bic/company_main.html',{"count":2,"users":users})
                     response.set_cookie('id',id)
+                    response.set_cookie('user_info',user.info)
+
         else : 
             response =  HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
         return response
@@ -52,7 +54,7 @@ class Sign:
     
     def trans(request):
         lan = request.COOKIES.get('lan')
-        Sign.translate(request, lan)
+        Sign.translate(request)
 
 class Choose:
     def lan(request):

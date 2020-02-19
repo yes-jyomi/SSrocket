@@ -11,9 +11,10 @@ function ch01fun(num){
 }
 
 function bkfun(){
-    location.href = "/";
+    history.back();
 }
 
-function bkHome(){
-    history.back();
+function bkHome(user_info){
+    if(user_info=="0"){location.href="/index";}
+    if(user_info=="1"){location.href="/index/company";}
 }
