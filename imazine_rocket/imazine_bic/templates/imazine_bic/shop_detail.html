@@ -1,34 +1,3 @@
-<!--<html>
-    <body>
-        
-        , {{shop.company_addr}}, {{shop.company_phone}}
-        <form action = "{% url 'choose_time' %}" name = "shopForm" method = "GET" accept-charset="UTF-8"> {% csrf_token %}
-            <input type = hidden name = shop name = shop value = {{notice.num}}>
-            <input type = submit value = "이 대여소 선택하기">
-        </form>
-    </body>
-</html>-->
-<!--<html>
-    <body>
-        {{notice.subject}}, {{notice.content}}
-        
-    </body>
-</html>-->
-<!--<html>
-    <body>
-        <table>
-        {% for notice in notices %}
-            <tr onclick="location.href='notice/{{notice.num}}'">
-                <td>{{notice.num}}</td>
-                <td>{{notice.subject}}</td>
-                <td>{{notice.regdate}}</td>
-                <td>{{notice.writer}}</td>
-            </tr>
-        {% endfor %}
-        </table>
-    </body>
-</html>-->
-
 <!DOCTYPE html>
 <html lang="ko">
     <head>

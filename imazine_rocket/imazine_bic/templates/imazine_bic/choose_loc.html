@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/choose_loc.css' %}" type="text/css"> <!--main.css 링크-->
+        <link rel="stylesheet" href="{% static 'css/choose1_loc.css' %}" type="text/css"> <!--main.css 링크-->
         <script type="text/javascript"></script>
         {% if count == 1 %}<script>location.href="{% url 'choose_loc' %}"</script>{% endif %}
-        <script src="{% static 'js/choose_loc.js' %}"></script>
+        <script src="{% static 'js/choose1_loc.js' %}"></script>
         <title>course_loc</title>
     </head>
     <body>
-        
+
         <form action = "{% url 'choose_loc' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
                 <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
