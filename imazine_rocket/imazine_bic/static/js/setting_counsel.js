@@ -1,3 +1,3 @@
 function gowrite(){
-    location.href="setting_write.html";
+    location.href="/index/setting/counsel/write";
 }
