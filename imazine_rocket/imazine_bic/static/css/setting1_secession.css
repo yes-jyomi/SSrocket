@@ -6,21 +6,29 @@
 @font-face { font-family: 'NotoSansCJKKR-Medium'; src: url("../font/NotoSansCJKkr-Medium.otf")}
 
 body{
-    background-image: url("../img/out-bg.png");
+    background-image: url("../img/sece-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
 } /*bg img 설정*/
 
+#container #q{
+    font-family: NotoSansCJKKR-Bold;
+    font-size: 60px;
+    color:white;
+    position: absolute;
+    top:900px;
+    left:270px;
+}
 #container #yes-bt{
     position: absolute;
-    top:500px;
-    left:100px;
+    top:1100px;
+    left:180px;
 } /*예 버튼 위치 설정*/
 
 #container #no-bt{
     position: absolute;
-    top:500px;
-    left:300px;
+    top:1100px;
+    left:600px;
 } /*아니요 버튼 위치 설정*/
 
 

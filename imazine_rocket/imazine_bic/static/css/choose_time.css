@@ -33,6 +33,7 @@ body{
     font-size:120px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     color:white;
 } /*자전거 대여소 이름 위치 설정*/
 
