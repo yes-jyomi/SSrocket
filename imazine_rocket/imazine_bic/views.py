@@ -24,7 +24,7 @@ from .logic import *
 
 def index(request):
     lan = request.COOKIES.get('lan')
-    translate(request, lan)
+    Sign.translate(request, lan)
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
     for user in users :
@@ -105,7 +105,7 @@ def signup(request):
 def signin(request):
     if request.method == "POST":
         lan = request.COOKIES.get('lan')
-        translate(request, lan)
+        Sign.translate(request, lan)
         id = request.POST['id']
         pwd = request.POST['pwd']
         return Sign.signin(request,id,pwd)
