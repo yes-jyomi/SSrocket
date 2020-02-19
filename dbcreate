@@ -62,3 +62,5 @@ CREATE TABLE refer (
 	regdate datetime not null,
 	refer_admin VARCHAR(50) NOT NULL
 );
+
+alter table history add barcode varchar(1000); 
