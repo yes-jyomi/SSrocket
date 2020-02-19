@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="{% static 'css/choose1_shop.css' %}" type="text/css"> <!--reservation_2.css 링크-->
         <script type="text/javascript"></script>
         {% if count == 1 %}<script>location.href="{% url 'choose_shop' %}"</script>{% endif %}
-        <script src="{% static 'js/choose_shop.js' %}"></script><!--reservation_2.js 링크-->
+        <script src="{% static 'js/choose1_shop.js' %}"></script><!--reservation_2.js 링크-->
         <title>choose_shop</title>
     </head>
     <body>
@@ -14,7 +14,7 @@
         <div id="container">
         <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
         <!--뒤로가기 버튼 삽입-->
-        <a href="/index"><img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}"></a>
+        <a href="/index"><img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="hfun();"></a>
         <!--홈 버튼 삽입-->
         {% load mathfilters %}
         {% for company in companys %}

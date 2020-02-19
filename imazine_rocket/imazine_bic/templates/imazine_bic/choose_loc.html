@@ -10,6 +10,7 @@
         <title>course_loc</title>
     </head>
     <body>
+        
         <form action = "{% url 'choose_loc' %}" name = "lanForm" method = "POST" accept-charset="UTF-8"> {% csrf_token %}
             <div id="container">
                 <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">

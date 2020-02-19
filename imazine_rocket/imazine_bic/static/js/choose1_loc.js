@@ -1,5 +1,5 @@
 function bkfun(){
-    location.href="/choose_lan";
+    location.href="/index";
 }
 function sm(){
     lanForm.submit();
