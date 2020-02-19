@@ -10,6 +10,7 @@ class Sign:
 
     def signin(request, id,pwd):#로그인
         users = User.objects.filter(id = id)
+        response = render(request, 'imazine_bic/signin.html',{"okay":1,"users":users})
         if users is not None:
             for user in users:
                 if id == user.id and pwd == user.pwd:
@@ -19,9 +20,8 @@ class Sign:
                         response = render(request,'imazine_bic/company_main.html',{"count":2,"users":users})
                     response.set_cookie('id',id)
                     response.set_cookie('user_info',user.info)
-
         else : 
-            response =  HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
+            response = HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
         return response
     
     def signup(request,user_info): #회원가입

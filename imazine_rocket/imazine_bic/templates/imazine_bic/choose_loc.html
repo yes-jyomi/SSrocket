@@ -15,7 +15,7 @@
             <div id="container">
                 <img id="reservation2-bkbt" name="reservation2-bkbt" src="{% static 'img/reservation2-bkbt.png' %}" onclick="bkfun();">
                 <!--뒤로가기 버튼 삽입-->
-                <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="bkfun();">
+                <img id="reservation2-homebt" name="reservation2-homebt" src="{% static 'img/reservation2-homebt.png' %}" onclick="hfun();">
                 <!--홈 버튼 삽입-->
                 {% for user in users %}
                 <div id="name" name="name">{{user.name}}</div>
@@ -23,8 +23,9 @@
                 <div id="nim">님,</div>
                 <div id="where">어디로 여행하시나요?</div>
                 <input type="text"id="search" name="search"  placeholder="이곳에 입력하세요.">
-                <input type="hidden"id="company_loc" name="company_loc" value = "ogaki">
+                <input type="hidden"id="company_loc" name="company_loc" value = "gifu">
                 <img id="bar-wh" src="{% static 'img/bar-wh.png' %}">
+                <img id="whitemap" src="{%static 'img/whitemap.png' %}">
                 <a onclick=sm()>밍</a>
             </div>
         </form>

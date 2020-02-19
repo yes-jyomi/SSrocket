@@ -38,6 +38,7 @@ body{
     position: absolute;
     top:650px;
     left:80px;
+    width: 500px;
     font-size:36px;
     color:rgb(0, 0, 0);
 }

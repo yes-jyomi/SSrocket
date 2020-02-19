@@ -47,8 +47,7 @@ def choose_loc(request):
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
     if request.method == "POST":
-        count = 1
-        response = render(request, 'imazine_bic/choose_shop.html',{"count":count})
+        response = render(request, 'imazine_bic/choose_shop.html',{"count":1})
         response.set_cookie('company_loc',request.POST['company_loc'])
         response.set_cookie('id',id)
         return response
@@ -58,20 +57,24 @@ def choose_loc(request):
 def choose_shop(request):
     company_loc = request.COOKIES.get('company_loc') 
     companys = Company.objects.filter(company_loc = company_loc)
-    if request.method == "POST":
-        return render(request, 'imazine_bic/choise_time.html',{"companys":companys})
     return render(request, 'imazine_bic/choose_shop.html',{"companys":companys})
 
 @csrf_exempt#,{"count":count}
 def choose_time(request):
+    print(request.COOKIES)
     id = request.COOKIES.get('id') 
     company_loc=request.COOKIES.get('company_loc')
-    if request.method =='GET':
-        print('get')
-        company_num=request.GET['company_num']
-    companys = Company.objects.filter(company_num = company_num)
+    company_num = request.COOKIES.get('company_num')
+    users = User.objects.filter(id = id)
+    for user in users:
+        name = user.name
     print(company_num)
+    print(company_loc)
+    companys = Company.objects.filter(company_num = company_num)
+    for company in companys:
+        shop = company
     if request.method == "POST":
+        print("post")
         r_year = request.POST['r_year']
         r_month = request.POST['r_month']
         r_date = request.POST['r_date']
@@ -83,11 +86,12 @@ def choose_time(request):
         rtime = "1970-01-02 00:00:00"
         #db insert
         history = History.objects.create(company_num=company_num, member_id = id, r_btime = r_btime, r_rtime = r_rtime, reserved_At = datetime.datetime.now(), btime =btime, rtime = rtime)
-        response = render(request, 'imazine_bic/choose_time.html',{"count":2,"history_num":history.history_num})
+        response = render(request, 'imazine_bic/choose_end.html',{"name":name,"history_num":history.history_num})
         for company in companys:
             Company.objects.update(rent_num=company.rent_num+1)
         return response
-    return render(request, 'imazine_bic/choose_time.html',{"companys":companys})
+    print(shop)
+    return render(request, 'imazine_bic/choose_time.html',{"shop":shop})
 
 def choose_end(request):
     return render(request, 'imazine_bic/choose_end.html')
@@ -147,11 +151,11 @@ def shop_detail(request, pk):
     shop = get_object_or_404(Company, pk=pk)
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
-    response = render(request, 'imazine_bic/choose_time.html', {'shop': shop})
-    response.set_cookie('company_num',pk)
-    print(shop)
-    print(pk)
     if request.method == "POST":
+        response = render(request, 'imazine_bic/choose_time.html', {'shop': shop,'count':1})
+        response.set_cookie('company_num',pk)
+        print(response.cookies)
+        print(pk)
         return response
     return render(request, 'imazine_bic/shop_detail.html', {'shop': shop,'count':1, 'users':users})
 
@@ -260,3 +264,5 @@ def company_main(request):
     users = User.objects.filter(id = id)
     return render(request, 'imazine_bic/company_main.html',{"count":1,"users":users})
 
+def course(request):
+    return render(request, 'imazine_bic/course.html')
