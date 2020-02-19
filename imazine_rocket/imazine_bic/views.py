@@ -159,10 +159,11 @@ def notice_detail(request, pk):
 @csrf_exempt
 def setting(request):
     if request.method == "POST":
-        return render(request, 'imazine_bic/setting_'+request.POST['setUrl']+".html")
+        return render(request, 'imazine_bic/setting_'+request.POST['setUrl']+".html", {"count":1})
     return render(request, 'imazine_bic/setting.html')
 
 def setUrl(request, setUrl):
+    html = ""
     if setUrl == "" :
         html ='imazine_bic/setting.html'
     elif setUrl == "modify":
@@ -173,7 +174,8 @@ def setUrl(request, setUrl):
         html = 'imazine_bic/setting_counsel.html'
     elif setUrl == "logout":
         html = 'imazine_bic/setting_logout.html'
-    return render(request, html,{"count":1})
+    print(html)
+    return render(request, html)
 
 @csrf_exempt
 def counsel(request):

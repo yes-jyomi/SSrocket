@@ -1,4 +1,5 @@
 function ch01fun(num){
+    console.log(num)
     switch(num){
         case "1" : value = "modify";break;
         case "2" : value = "secession";break;

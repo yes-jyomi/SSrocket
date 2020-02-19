@@ -30,3 +30,11 @@ body{
     left:940px;
 } /*home 버튼 위치 설정*/
 
+#container #fin-bt{
+    position: absolute;
+    top:1900px;
+    left:700px;
+    filter: drop-shadow(30px 30px 30px #e6e4e4); 
+} /*완료 bt 위치 설정*/
+
+
