@@ -27,8 +27,9 @@ def index(request):
     id = request.COOKIES.get('id') 
     users = User.objects.filter(id = id)
     for user in users :
-        user_info = user.user_info
-    if user_info == "0":
+        user_info = user.info
+    if user_info == 0:
+        print("이 유저는 여행자")
         response = render(request, 'imazine_bic/main.html', {'users':users,"count":1})
         response.set_cookie('id',id)
         return response
@@ -127,11 +128,13 @@ def signin(request):
         if users is not None:
             for user in users:
                 if id == user.id and pwd == user.pwd:
-                    if user.info == "0":
+                    print("sinnin", user.info)
+                    if user.info == 0:
                         response = render(request, 'imazine_bic/main.html',{"okay":1,"users":users})
                     else:
                         response = render(request,'imazine_bic/company_main.html',{"count":2,"users":users})
                     response.set_cookie('id',id)
+                    
                     return response
         return HttpResponse("<html><script>alert('로그인 오류입니다. 다시 시도해주세요');location.href='signin';</script></html>")
     else:
